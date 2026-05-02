@@ -1,0 +1,120 @@
+/* HopeBridge admin styles */
+:root {
+  --primary: #1f8a8a;
+  --primary-dark: #166b6b;
+  --dark: #1d2a35;
+  --muted: #6b7785;
+  --light: #f5f8fa;
+  --border: #e6ecf1;
+  --sidebar-w: 250px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  margin: 0;
+}
+
+.admin-wrap { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--dark);
+  color: #cfd8e0;
+  padding: 1.25rem 0;
+  position: fixed; top: 0; left: 0; bottom: 0;
+  overflow-y: auto;
+  transition: transform .25s ease;
+  z-index: 1040;
+}
+.sidebar .brand {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .25rem 1.25rem 1.25rem; color: #fff;
+  font-weight: 700; font-size: 1.15rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sidebar .brand .brand-mark {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: var(--primary); display: inline-flex; align-items: center; justify-content: center;
+}
+.sidebar .nav-section { padding: 1rem 1.25rem .35rem; font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .1em; color: #7a8896; }
+.sidebar a.nav-link {
+  display: flex; align-items: center; gap: .65rem;
+  color: #cfd8e0; padding: .65rem 1.25rem; font-weight: 500;
+  border-left: 3px solid transparent;
+}
+.sidebar a.nav-link i { width: 18px; }
+.sidebar a.nav-link:hover { background: rgba(255,255,255,.04); color: #fff; }
+.sidebar a.nav-link.active {
+  background: rgba(31,138,138,.18); color: #fff; border-left-color: var(--primary);
+}
+
+/* Main */
+.main { margin-left: var(--sidebar-w); flex: 1; min-width: 0; }
+.topbar {
+  background: #fff; padding: .85rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1020;
+}
+.topbar .page-title { font-weight: 700; margin: 0; font-size: 1.15rem; }
+.topbar .user-chip {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .4rem .8rem; background: var(--light); border-radius: 30px; font-size: .9rem;
+}
+
+.content { padding: 1.5rem; }
+
+/* Stat cards */
+.stat-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.25rem; display: flex; gap: 1rem; align-items: center;
+}
+.stat-card .icon {
+  width: 52px; height: 52px; border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: #fff; background: var(--primary);
+}
+.stat-card .num { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.stat-card .lbl { color: var(--muted); font-size: .85rem; }
+.stat-card.warn .icon { background: #f4a51c; }
+.stat-card.info .icon { background: #3b82f6; }
+.stat-card.danger .icon { background: #ef4444; }
+
+/* Panel */
+.panel {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.25rem;
+}
+.panel-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem;
+}
+.panel-head h3 { margin: 0; font-size: 1.1rem; }
+
+/* Table */
+.table-ngo { width: 100%; }
+.table-ngo th { color: var(--muted); font-weight: 600; font-size: .82rem;
+  text-transform: uppercase; letter-spacing: .05em; }
+.table-ngo td, .table-ngo th { vertical-align: middle; }
+.table-ngo .actions .btn { padding: .25rem .55rem; }
+
+.btn-primary-ngo { background: var(--primary); border: 0; color: #fff; border-radius: 8px;
+  padding: .5rem 1rem; font-weight: 600; }
+.btn-primary-ngo:hover { background: var(--primary-dark); color: #fff; }
+
+.status-pill { padding: .2rem .55rem; border-radius: 20px; font-size: .75rem; font-weight: 600; }
+.status-pill.published { background: rgba(31,138,138,.12); color: var(--primary); }
+.status-pill.draft     { background: #f1f3f5; color: #6b7785; }
+.status-pill.upcoming  { background: rgba(59,130,246,.12); color: #3b82f6; }
+
+/* Mobile */
+.sidebar-toggle { display: none; background: none; border: 0; font-size: 1.3rem; }
+@media (max-width: 991px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .sidebar-toggle { display: inline-block; }
+}
