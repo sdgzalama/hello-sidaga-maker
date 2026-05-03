@@ -7,8 +7,11 @@ if (!defined('SITE_NAME')) {
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
-        <h5><?= e(SITE_NAME) ?></h5>
-        <p><?= e(SITE_TAGLINE) ?>. We work to bring healthcare, education, and hope to underserved communities.</p>
+        <div class="brand-line">
+          <img src="<?= asset('images/logo.png') ?>" alt="<?= e(SITE_NAME) ?>">
+          <h5 class="mb-0" style="text-transform:none;letter-spacing:0;font-size:1.1rem;"><?= e(SITE_NAME) ?></h5>
+        </div>
+        <p><?= e(SITE_TAGLINE) ?>. A Tanzanian NGO working at the intersection of health, environment, safety, sustainable agriculture and social inclusion.</p>
         <div class="social">
           <a href="#"><i class="bi bi-facebook"></i></a>
           <a href="#"><i class="bi bi-twitter-x"></i></a>
@@ -20,9 +23,9 @@ if (!defined('SITE_NAME')) {
         <h5>Explore</h5>
         <ul class="list-unstyled">
           <li><a href="<?= url('about.php') ?>">About</a></li>
-          <li><a href="<?= url('news.php') ?>">News</a></li>
-          <li><a href="<?= url('events.php') ?>">Events</a></li>
-          <li><a href="<?= url('promotions.php') ?>">Promotions</a></li>
+          <li><a href="<?= url('projects.php') ?>">Projects</a></li>
+          <li><a href="<?= url('impact.php') ?>">Impact</a></li>
+          <li><a href="<?= url('content.php') ?>">Content</a></li>
         </ul>
       </div>
       <div class="col-6 col-lg-3">
@@ -34,12 +37,9 @@ if (!defined('SITE_NAME')) {
         </ul>
       </div>
       <div class="col-lg-3">
-        <h5>Newsletter</h5>
-        <p class="small">Get our latest stories in your inbox.</p>
-        <form class="d-flex">
-          <input type="email" class="form-control me-2" placeholder="Email">
-          <button class="btn btn-donate" type="submit"><i class="bi bi-arrow-right"></i></button>
-        </form>
+        <h5>Work With Us</h5>
+        <p class="small">Partner with SLF for consultancy, research, and community programs.</p>
+        <a href="<?= url('contact.php') ?>" class="btn btn-yellow btn-sm"><i class="bi bi-arrow-right me-1"></i> Request a Quote</a>
       </div>
     </div>
     <div class="copy d-flex flex-wrap justify-content-between">
