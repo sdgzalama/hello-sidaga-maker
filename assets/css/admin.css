@@ -1,8 +1,10 @@
 /* HopeBridge admin styles */
 :root {
-  --primary: #1f8a8a;
-  --primary-dark: #166b6b;
-  --dark: #1d2a35;
+  --primary: #2e9d3a;
+  --primary-dark: #1f7a2a;
+  --accent: #f5b301;
+  --blue: #1a56a4;
+  --dark: #14202b;
   --muted: #6b7785;
   --light: #f5f8fa;
   --border: #e6ecf1;

@@ -7,8 +7,8 @@ function admin_active($p) { return basename($_SERVER['PHP_SELF']) === $p ? 'acti
 ?>
 <aside class="sidebar">
   <div class="brand">
-    <span class="brand-mark"><i class="bi bi-heart-pulse-fill"></i></span>
-    <?= e(SITE_NAME) ?>
+    <img src="<?= asset('images/logo.png') ?>" alt="SLF" style="width:36px;height:36px;object-fit:contain;background:#fff;border-radius:9px;padding:3px;">
+    <span><?= e(SITE_SHORT) ?> Admin</span>
   </div>
 
   <div class="nav-section">Main</div>
