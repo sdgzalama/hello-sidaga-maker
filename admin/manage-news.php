@@ -5,9 +5,9 @@ $page_title = 'Manage News';
 include __DIR__ . '/partials/head.php';
 
 $rows = [
-  ['id'=>1,'title'=>'Free Health Camp in Riverbend','category'=>'Health','date'=>'2026-05-01','status'=>'published'],
-  ['id'=>2,'title'=>'Scholarships for 200 Students','category'=>'Education','date'=>'2026-04-22','status'=>'published'],
-  ['id'=>3,'title'=>'Clean Water Project Launched','category'=>'Community','date'=>'2026-04-10','status'=>'draft'],
+  ['id'=>1,'title'=>'Community Health Outreach in Coastal Region','category'=>'Health','date'=>'2026-04-28','status'=>'published'],
+  ['id'=>2,'title'=>'Climate-Smart Farming Pilot Expanded','category'=>'Agriculture','date'=>'2026-04-12','status'=>'published'],
+  ['id'=>3,'title'=>'Women Savings Groups Story','category'=>'Community','date'=>'2026-03-30','status'=>'draft'],
 ];
 ?>
 
@@ -62,7 +62,7 @@ $rows = [
         <div class="row g-3">
           <div class="col-md-6"><label class="form-label">Category</label>
             <select class="form-select" name="category">
-              <option>Health</option><option>Education</option><option>Community</option>
+              <option>Health</option><option>Agriculture</option><option>Environment</option><option>Community</option><option>Safety</option>
             </select></div>
           <div class="col-md-6"><label class="form-label">Date</label>
             <input class="form-control" type="date" name="date"></div>

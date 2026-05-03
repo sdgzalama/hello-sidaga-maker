@@ -1,5 +1,4 @@
 <?php
-// Public navbar partial
 if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/../includes/config.php';
 }
@@ -8,7 +7,7 @@ if (!defined('SITE_NAME')) {
   <div class="container d-flex flex-wrap justify-content-between">
     <div>
       <span><i class="bi bi-envelope-fill"></i><?= e(SITE_EMAIL) ?></span>
-      <span class="ms-3"><i class="bi bi-telephone-fill"></i><?= e(SITE_PHONE) ?></span>
+      <span class="ms-3 d-none d-sm-inline"><i class="bi bi-telephone-fill"></i><?= e(SITE_PHONE) ?></span>
     </div>
     <div class="d-none d-md-block">
       <span><i class="bi bi-geo-alt-fill"></i><?= e(SITE_ADDRESS) ?></span>
@@ -18,9 +17,12 @@ if (!defined('SITE_NAME')) {
 
 <nav class="navbar navbar-expand-lg navbar-ngo sticky-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="<?= url('index.php') ?>">
-      <span class="brand-mark"><i class="bi bi-heart-pulse-fill"></i></span>
-      <?= e(SITE_NAME) ?>
+    <a class="navbar-brand" href="<?= url('index.php') ?>">
+      <img src="<?= asset('images/logo.png') ?>" alt="<?= e(SITE_NAME) ?> logo">
+      <span class="brand-text">
+        SustainLife
+        <small>Foundation</small>
+      </span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
@@ -29,12 +31,13 @@ if (!defined('SITE_NAME')) {
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link <?= is_active('index.php') ?>" href="<?= url('index.php') ?>">Home</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('about.php') ?>" href="<?= url('about.php') ?>">About</a></li>
-        <li class="nav-item"><a class="nav-link <?= is_active('news.php') ?>" href="<?= url('news.php') ?>">News</a></li>
-        <li class="nav-item"><a class="nav-link <?= is_active('events.php') ?>" href="<?= url('events.php') ?>">Events</a></li>
-        <li class="nav-item"><a class="nav-link <?= is_active('announcements.php') ?>" href="<?= url('announcements.php') ?>">Announcements</a></li>
-        <li class="nav-item"><a class="nav-link <?= is_active('promotions.php') ?>" href="<?= url('promotions.php') ?>">Promotions</a></li>
+        <li class="nav-item"><a class="nav-link <?= is_active('projects.php') ?>" href="<?= url('projects.php') ?>">Projects</a></li>
+        <li class="nav-item"><a class="nav-link <?= is_active('consultancy.php') ?>" href="<?= url('consultancy.php') ?>">Consultancy</a></li>
+        <li class="nav-item"><a class="nav-link <?= is_active('impact.php') ?>" href="<?= url('impact.php') ?>">Impact</a></li>
+        <li class="nav-item"><a class="nav-link <?= is_active('content.php') ?>" href="<?= url('content.php') ?>">Content</a></li>
+        <li class="nav-item"><a class="nav-link <?= is_active('faq.php') ?>" href="<?= url('faq.php') ?>">FAQ</a></li>
         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-          <a class="btn btn-donate" href="#donate"><i class="bi bi-heart-fill me-1"></i> Donate</a>
+          <a class="btn btn-donate" href="<?= url('contact.php') ?>"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
         </li>
       </ul>
     </div>

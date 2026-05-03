@@ -3,30 +3,18 @@ require_once __DIR__ . '/includes/config.php';
 $page_title = 'Home';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
-
-// Sample data — replace with DB queries later
-$news = [
-  ['title'=>'Free Health Camp in Riverbend', 'date'=>'May 1, 2026', 'tag'=>'Health',    'img'=>'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800'],
-  ['title'=>'Scholarships for 200 Students', 'date'=>'Apr 22, 2026', 'tag'=>'Education', 'img'=>'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800'],
-  ['title'=>'Clean Water Project Launched',  'date'=>'Apr 10, 2026', 'tag'=>'Community','img'=>'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800'],
-];
-$events = [
-  ['title'=>'Annual Charity Run',     'date'=>'May 15, 2026', 'place'=>'Central Park'],
-  ['title'=>'Community Health Fair',  'date'=>'Jun 02, 2026', 'place'=>'Town Hall'],
-  ['title'=>'Volunteer Orientation',  'date'=>'Jun 18, 2026', 'place'=>'HQ Office'],
-];
 ?>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
-        <span class="badge bg-light text-dark mb-3"><i class="bi bi-stars me-1"></i> Together we make change</span>
-        <h1>Bringing care &amp; hope to communities that need it most</h1>
-        <p>We mobilize volunteers, doctors, and partners to deliver healthcare, education, and emergency aid where it matters.</p>
+      <div class="col-lg-9">
+        <span class="badge-hero mb-3 d-inline-block"><i class="bi bi-globe-africa me-1"></i> Based in Tanzania &middot; Working with communities</span>
+        <h1>Building healthy, safe &amp; sustainable communities.</h1>
+        <p>SustainLife Foundation empowers women, youth and marginalized communities through health promotion, sustainable agriculture, environmental stewardship, safety awareness and inclusive economic empowerment.</p>
         <div class="mt-4">
-          <a href="#donate" class="btn btn-light-cta me-2"><i class="bi bi-heart-fill me-1"></i> Donate Now</a>
+          <a href="<?= url('contact.php') ?>" class="btn btn-light-cta me-2"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
           <a href="<?= url('about.php') ?>" class="btn btn-outline-cta">Learn More</a>
         </div>
       </div>
@@ -34,67 +22,119 @@ $events = [
   </div>
 </section>
 
-<!-- STATS -->
+<!-- INTRO -->
 <section class="section">
   <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-6"><div class="stat"><div class="num">12K+</div><div class="lbl">Lives helped</div></div></div>
-      <div class="col-md-3 col-6"><div class="stat"><div class="num">320</div><div class="lbl">Volunteers</div></div></div>
-      <div class="col-md-3 col-6"><div class="stat"><div class="num">48</div><div class="lbl">Active projects</div></div></div>
-      <div class="col-md-3 col-6"><div class="stat"><div class="num">15</div><div class="lbl">Years of service</div></div></div>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge-pill-ngo blue">Who We Are</span>
+        <h2 class="mt-3 section-title">A Tanzanian NGO at the intersection of health, environment &amp; livelihoods.</h2>
+        <p>SustainLife Foundation (SLF) addresses the root causes of vulnerability and inequality through integrated, community-driven approaches — equipping people with the knowledge, skills, and opportunities to actively shape their own futures.</p>
+        <p class="text-muted">Aligned with Tanzania&rsquo;s national development priorities and the UN Sustainable Development Goals (SDGs).</p>
+        <a href="<?= url('about.php') ?>" class="btn btn-primary-ngo mt-2">More about us <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="card-ngo p-4 text-center">
+              <div class="icon-tile"><i class="bi bi-heart-pulse"></i></div>
+              <h3 class="card-title">Health</h3>
+              <p class="text-muted small mb-0">Community well-being &amp; preventive care</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card-ngo p-4 text-center">
+              <div class="icon-tile yellow"><i class="bi bi-shield-check"></i></div>
+              <h3 class="card-title">Safety</h3>
+              <p class="text-muted small mb-0">Risk prevention &amp; protection</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card-ngo p-4 text-center">
+              <div class="icon-tile"><i class="bi bi-tree"></i></div>
+              <h3 class="card-title">Environment</h3>
+              <p class="text-muted small mb-0">Sustainable agriculture &amp; stewardship</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card-ngo p-4 text-center">
+              <div class="icon-tile blue"><i class="bi bi-people"></i></div>
+              <h3 class="card-title">Inclusion</h3>
+              <p class="text-muted small mb-0">Women, youth &amp; marginalized groups</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- LATEST NEWS -->
+<!-- SERVICES / FOCUS -->
 <section class="section alt">
   <div class="container">
-    <div class="d-flex justify-content-between align-items-end mb-4">
-      <div>
-        <h2 class="section-title">Latest News</h2>
-        <p class="section-sub mb-0">Stories from the field and recent updates.</p>
-      </div>
-      <a href="<?= url('news.php') ?>" class="btn btn-primary-ngo d-none d-md-inline-block">View all</a>
+    <div class="text-center">
+      <span class="badge-pill-ngo">Our Services</span>
+      <h2 class="section-title mt-2">What we deliver</h2>
+      <p class="section-sub mx-auto">From grassroots programs to professional consultancy, our work is integrated, evidence-based and measurable.</p>
     </div>
-    <div class="row g-4">
-      <?php foreach ($news as $n): ?>
-        <div class="col-md-4">
-          <article class="card-ngo">
-            <img src="<?= e($n['img']) ?>" alt="<?= e($n['title']) ?>">
-            <div class="card-body">
-              <span class="badge-pill-ngo"><?= e($n['tag']) ?></span>
-              <div class="meta mt-2"><i class="bi bi-calendar3 me-1"></i><?= e($n['date']) ?></div>
-              <h3 class="card-title"><?= e($n['title']) ?></h3>
-              <p class="text-muted small mb-3">A short summary of the news item goes here. Replace with content from the database.</p>
-              <a href="<?= url('news.php') ?>" class="fw-semibold">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </article>
+    <div class="row g-4 mt-2">
+      <?php
+      $services = [
+        ['icon'=>'bi-heart-pulse','tone'=>'',       'title'=>'Community Health &amp; Well-being', 'desc'=>'Health information &amp; services, nutrition, hygiene and preventive healthcare programs.'],
+        ['icon'=>'bi-shield-check','tone'=>'yellow','title'=>'Safety &amp; Risk Prevention',       'desc'=>'Public, occupational and environmental safety, awareness and disaster risk reduction.'],
+        ['icon'=>'bi-tree',        'tone'=>'',     'title'=>'Sustainable Agriculture',            'desc'=>'Climate-smart agriculture, soil &amp; water conservation, food security and resilience.'],
+        ['icon'=>'bi-gender-female','tone'=>'blue','title'=>'Gender &amp; Social Inclusion',      'desc'=>'Empowering women, youth and marginalized groups through capacity building and advocacy.'],
+        ['icon'=>'bi-graph-up-arrow','tone'=>'blue','title'=>'Economic Empowerment',              'desc'=>'Entrepreneurship, livelihoods and inclusive local economic development.'],
+        ['icon'=>'bi-briefcase',   'tone'=>'yellow','title'=>'Professional Consultancy',          'desc'=>'Consultancy &amp; non-consultancy services for development organizations and partners.'],
+      ];
+      foreach ($services as $s): ?>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-ngo p-4 h-100">
+            <div class="icon-tile <?= e($s['tone']) ?>"><i class="bi <?= e($s['icon']) ?>"></i></div>
+            <h3 class="card-title"><?= $s['title'] ?></h3>
+            <p class="text-muted mb-0"><?= $s['desc'] ?></p>
+          </div>
         </div>
       <?php endforeach; ?>
     </div>
   </div>
 </section>
 
-<!-- UPCOMING EVENTS -->
+<!-- IMPACT BAND -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Upcoming Events</h2>
-    <p class="section-sub">Join us, volunteer, or simply spread the word.</p>
-    <div class="row g-4">
-      <?php foreach ($events as $ev): ?>
-        <div class="col-md-4">
-          <div class="card-ngo p-4">
-            <div class="d-flex align-items-center mb-2">
-              <div class="me-3 text-center" style="background:#1f8a8a;color:#fff;border-radius:10px;padding:.6rem .8rem;">
-                <div style="font-weight:700;font-size:1.1rem;line-height:1;"><?= e(date('d', strtotime($ev['date']))) ?></div>
-                <div style="font-size:.7rem;text-transform:uppercase;"><?= e(date('M', strtotime($ev['date']))) ?></div>
-              </div>
-              <div>
-                <h3 class="card-title mb-0"><?= e($ev['title']) ?></h3>
-                <div class="meta"><i class="bi bi-geo-alt me-1"></i><?= e($ev['place']) ?></div>
-              </div>
-            </div>
-            <a href="<?= url('events.php') ?>" class="fw-semibold">Event details <i class="bi bi-arrow-right"></i></a>
+    <div class="impact-band">
+      <div class="row text-center align-items-center g-4">
+        <div class="col-md-3"><div class="num">100K+</div><div class="lbl">Direct beneficiaries / year</div></div>
+        <div class="col-md-3"><div class="num">1M+</div><div class="lbl">Indirect beneficiaries</div></div>
+        <div class="col-md-3"><div class="num">5</div><div class="lbl">Thematic focus areas</div></div>
+        <div class="col-md-3"><div class="num">100%</div><div class="lbl">Community-driven</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section alt">
+  <div class="container">
+    <div class="text-center">
+      <span class="badge-pill-ngo blue">Why Choose Us</span>
+      <h2 class="section-title mt-2">A credible, accountable partner for sustainable impact</h2>
+    </div>
+    <div class="row g-4 mt-2">
+      <?php
+      $why = [
+        ['i'=>'bi-award','t'=>'Proven Expertise','d'=>'Multi-disciplinary team with deep community development experience.'],
+        ['i'=>'bi-people-fill','t'=>'Community-Driven','d'=>'Programs designed with — not for — the people we serve.'],
+        ['i'=>'bi-clipboard-data','t'=>'Evidence-Based','d'=>'Aligned with Tanzania&rsquo;s priorities and the SDGs.'],
+        ['i'=>'bi-shield-lock','t'=>'Transparent &amp; Accountable','d'=>'Honest reporting, measurable outcomes, responsible stewardship.'],
+      ];
+      foreach ($why as $w): ?>
+        <div class="col-md-6 col-lg-3">
+          <div class="card-ngo p-4 h-100 text-center">
+            <div class="icon-tile blue"><i class="bi <?= e($w['i']) ?>"></i></div>
+            <h3 class="card-title"><?= $w['t'] ?></h3>
+            <p class="text-muted small mb-0"><?= $w['d'] ?></p>
           </div>
         </div>
       <?php endforeach; ?>
@@ -103,14 +143,14 @@ $events = [
 </section>
 
 <!-- CTA -->
-<section class="section" id="donate">
+<section class="section">
   <div class="container">
-    <div class="cta-strip d-md-flex justify-content-between align-items-center px-4 px-md-5">
+    <div class="cta-strip d-md-flex justify-content-between align-items-center">
       <div>
-        <h3 class="mb-1">Your support changes lives</h3>
-        <p class="mb-0 opacity-75">Every contribution funds clean water, vaccines, and education for children.</p>
+        <h3 class="mb-1">Let&rsquo;s build sustainable impact, together.</h3>
+        <p class="mb-0 opacity-75">Partner with SLF for consultancy, research or community programs.</p>
       </div>
-      <a href="#" class="btn btn-light btn-lg mt-3 mt-md-0 fw-semibold">Donate Now</a>
+      <a href="<?= url('contact.php') ?>" class="btn btn-yellow btn-lg mt-3 mt-md-0"><i class="bi bi-chat-dots-fill me-1"></i> Work With Us</a>
     </div>
   </div>
 </section>
