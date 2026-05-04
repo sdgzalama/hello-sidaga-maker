@@ -1,0 +1,111 @@
+{
+      "documentation_url": "https://documentation.bold-themes.com/medicare/getting-started/",
+      "support_url": "https://boldthemes.ticksy.com/",
+      "xls": [
+        { 
+          "name": "clinic.WordPress.2024-07-08.xml",
+          "title": "Clinic Demo",
+          "img": "Clinic.jpg",
+          "url": "https://medicare.bold-themes.com/clinic/",
+          "hpno": 1
+        },
+        { 
+          "name": "dentist.WordPress.2024-07-08.xml",
+          "title": "Dentist Demo",
+          "img": "Dentist.jpg",
+          "url": "https://medicare.bold-themes.com/dentist/",
+          "hpno": 1
+        },
+        { 
+          "name": "veterinarypractice.WordPress.2024-07-08.xml",
+          "title": "Veterinary Demo",
+          "img": "Veterinary.jpg",
+          "url": "https://medicare.bold-themes.com/vet/",
+          "hpno": 1
+        },
+        { 
+          "name": "psychiatrist.WordPress.2024-07-08.xml",
+          "title": "Psychiatrist Demo",
+          "img": "Psychiatrist.jpg",
+          "url": "https://medicare.bold-themes.com/pshychiatrist/",
+          "hpno": 1
+        },
+        { 
+          "name": "physiatrist.WordPress.2024-07-08.xml",
+          "title": "Physiatrist Demo",
+          "img": "Physiatrist.jpg",
+          "url": "https://medicare.bold-themes.com/physiatrist/",
+          "hpno": 1
+        },
+        { 
+          "name": "cardiologyclinic.WordPress.2024-07-09.xml",
+          "title": "Cardiology Demo",
+          "img": "Cardiology.jpg",
+          "url": "https://medicare.bold-themes.com/cardiology/",
+          "hpno": 1
+        },
+        { 
+          "name": "cosmeticsurgery.WordPress.2024-07-09.xml",
+          "title": "Cosmetic Surgery Demo",
+          "img": "Cosmetic-Surgery.jpg",
+          "url": "https://medicare.bold-themes.com/cosmetic-surgery/",
+          "hpno": 1
+        },
+        { 
+          "name": "optometrist.WordPress.2024-07-09.xml",
+          "title": "Optometrist Demo",
+          "img": "Optometrist.jpg",
+          "url": "https://medicare.bold-themes.com/optometrist/",
+          "hpno": 1
+        },
+        { 
+          "name": "pediatricclinic.WordPress.2024-07-09.xml",
+          "title": "Pediatric Demo",
+          "img": "Pediatric.jpg",
+          "url": "https://medicare.bold-themes.com/pediatric-clinic/",
+          "hpno": 1
+        },
+        { 
+          "name": "generalhospital.WordPress.2024-07-09.xml",
+          "title": "General Hospital Demo",
+          "img": "General-Hospital.jpg",
+          "url": "https://medicare.bold-themes.com/general-hospital/",
+          "hpno": 1
+        },
+        { 
+          "name": "laboratory.WordPress.2024-07-09.xml",
+          "title": "Laboratory Demo",
+          "img": "Laboratory.jpg",
+          "url": "https://medicare.bold-themes.com/laboratory/",
+          "hpno": 1
+        },
+        { 
+          "name": "surgery.WordPress.2024-07-09.xml",
+          "title": "Surgery Demo",
+          "img": "Surgery.jpg",
+          "url": "https://medicare.bold-themes.com/surgery/",
+          "hpno": 1
+        },
+        { 
+          "name": "cardiologyrtl.WordPress.2024-07-09.xml",
+          "title": "Cardiology RTL Demo",
+          "img": "Cardiology-RTL.jpg",
+          "url": "https://medicare.bold-themes.com/cardiology-rtl/",
+          "hpno": 1
+        },
+        { 
+          "name": "surgeryrtl.WordPress.2024-07-09.xml",
+          "title": "Surgery RTL Demo",
+          "img": "Surgery-RTL.jpg",
+          "url": "https://medicare.bold-themes.com/surgery-rtl/",
+          "hpno": 1
+        },
+        { 
+          "name": "clinicrtl.WordPress.2024-07-09.xml",
+          "title": "Clinic RTL Demo",
+          "img": "Clinic-RTL.jpg",
+          "url": "https://medicare.bold-themes.com/clinic-rtl/",
+          "hpno": 1
+        }
+      ] 
+  }

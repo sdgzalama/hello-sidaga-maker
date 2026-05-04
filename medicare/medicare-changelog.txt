@@ -1,0 +1,241 @@
+Version 2.1.7 - 17 July 25
+    - Minor bug fixes
+Version 2.1.6 - 3 July 25
+    - Improved WooCommerce compatibility
+Version 2.1.5 - 11 April 25
+    - Cost Calculator update
+Version 2.1.4 - 9 April 25
+    - Minor bug fixes
+Version 2.1.3 - 14 March 25
+    - Fixed demo import
+Version 2.1.2 - 11 March 25
+    - Cost Calculator update
+Version 2.1.1 - 24 December 24
+    - Improved security
+Version 2.1.0 - 26 November 24
+    - Minor bug fixes
+Version 2.0.9 - 26 November 24
+    - Fixed translation related PHP notice
+Version 2.0.8 - 9 October 24
+    - Minor bug fixes
+Version 2.0.7 - 24 September 24
+    - Added custom fonts support
+Version 2.0.6 - 9 July 24
+    - Improved demo import
+Version 2.0.5 - 6 January 24
+    - Fixed Google Fonts
+Version 2.0.4 - 17 November 23
+    - Updated FA icons
+Version 2.0.3 - 16 November 23
+    - Updated FA icons
+Version 2.0.2 - 30 July 23
+    - Improved WooCommerce compatibility
+Version 2.0.1 - 11 April 23
+    - Minor bug fixes
+Version 2.0.0 - 30 March 23
+    - Fixed WP 6.2 issue
+Version 1.9.9 - 22 February 23
+    - Minor bug fixes
+Version 1.9.8 - 3 February 23
+    - Import plugin update
+Version 1.9.7 - 30 November 22
+    - Improved WooCommerce compatibility
+Version 1.9.6 - 4 September 22
+    - Import plugin update
+Version 1.9.5 - 18 May 22
+    - Fixed error related to Bold Timeline plugin
+Version 1.9.4 - 28 March 22
+    - Added FA5 fonts
+Version 1.9.3 - 15 March 22
+    - Minor bug fixes
+Version 1.9.2 - 27 January 22
+    - Improved demo import
+Version 1.9.1 - 26 January 22
+    - Fixed custom icons
+Version 1.9.0 - 19 October 21
+    - Minor bug fixes
+Version 1.8.9 - 16 October 21
+    - Fixed border radius
+Version 1.8.8 - 13 October 21
+    - Minor bug fixes
+Version 1.8.6 - 19 July 21
+    - Fixed link styling
+Version 1.8.5 - 22 June 21
+    - Fixed video padding
+Version 1.8.4 - 21 June 21
+    - Fixed image alignment
+Version 1.8.3 - 15 June 21
+    - Fixed search results page
+Version 1.8.2 - 19 May 21
+    - Fixed color picker opacity
+Version 1.8.1 - 22 April 21
+    - Fixed background color
+Version 1.8.0 - 17 April 21
+    - Improved WooCommerce compatibility
+Version 1.7.9 - 4 April 21
+    - Added support for Lightweight Sidebar Manager plugin
+Version 1.7.8 - 16 December 20
+    - Fixed Section background
+Version 1.7.7 - 30 September 20
+    - Fixed vertical menu
+Version 1.7.6 - 7 August 20
+    - Improved cart widget
+Version 1.7.5 - 23 June 20
+    - Fixed Google Fonts
+Version 1.7.4 - 18 June 20
+    - Added Extra CSS Class in Icon widget
+Version 1.7.3 - 27 March 20
+    - Minor bug fixes
+Version 1.7.2 - 27 March 20
+    - Fixed WooCommerce pages
+Version 1.7.1 - 24 March 20
+    - Fixed Twitter widget
+Version 1.7.0 - 23 March 20
+    - Added coronavirus icons
+    - Improved WooCommerce compatibility
+Version 1.6.9 - 8 February 20
+    - Added new icons
+Version 1.6.8 - 10 December 19
+    - Fixed icons
+Version 1.6.7 - 8 November 19
+    - Fixed tel: links
+Version 1.6.6 - 2 November 19
+    - Added RTL demos
+Version 1.6.5 - 17 October 19
+    - Fixed grid
+Version 1.6.4 - 3 October 19
+    - Fixed custom style
+Version 1.6.3 - 26 September 19
+    - Fixed Audio post format
+Version 1.6.2 - 24 August 19
+    - Improved security
+Version 1.6.1 - 29 July 19
+    - Fixed embed shortcode
+Version 1.6.0 - 24 July 19
+    - Minor bug fixes
+Version 1.5.9 - 20 July 19
+    - Background video mobile support
+Version 1.5.8 - 12 July 19
+    - Minor bug fixes
+Version 1.5.7 - 11 July 19
+    - Minor bug fixes
+Version 1.5.6 - 5 July 19
+    - Fixed Medicare plugin JS error
+Version 1.5.5 - 3 July 19
+    - Fixed slider item
+Version 1.5.4 - 1 July 19
+    - Minor bug fixes
+Version 1.5.3 - 29 May 19
+    - Minor bug fixes
+Version 1.5.2 - 27 May 19
+    - Minor bug fixes
+Version 1.5.1 - 23 April 19
+    - Fixed accent color
+Version 1.5.0 - 22 April 19
+    - Fixed blog layout
+Version 1.4.9 - 17 April 19
+    - Fixed shop layout
+Version 1.4.8 - 3 April 19
+    - Minor bug fixes
+Version 1.4.7 - 30 March 19
+    - Fixed Instagram widget
+Version 1.4.6 - 29 March 19
+    - Fixed missing CSS
+Version 1.4.5 - 21 March 19
+    - Fixed php error ([] operator not supported)
+Version 1.4.4 - 21 March 19
+    - Demo content update
+Version 1.4.3 - 19 March 19
+    - Improved Override Global Settings
+    - Other minor bug fixes and improvements
+Version 1.4.2 - 7 March 19
+    - Fixed Categories widget dropdown
+Version 1.4.1 - 7 February 19
+    - Improved compatibility with Disable Comments plugin
+Version 1.4.0 - 18 January 19
+    - Fixed BT Icon widget notice
+Version 1.3.9 - 7 November 18
+    - Disabled WordPress 5.x block editor
+Version 1.3.8 - 5 September 18
+    - Fixed Service content element
+Version 1.3.7 - 18 August 18
+    - Fixed mobile menu
+Version 1.3.6 - 15 June 18
+    - Fixed Medicare plugin activation
+Version 1.3.5 - 8 June 18
+    - Added .pot file for Medicare plugin
+Version 1.3.4 - 5 June 18
+    - Fixed default CSS classes
+Version 1.3.3 - 4 June 18
+    - Fixed PHP notice on Portfolio edit pages
+Version 1.3.2 - 25 May 18
+    - Improved PHP 7.2 compatibility
+Version 1.3.1 - 14 April 18
+    - Fixed PHP error on some servers
+Version 1.3.0 - 11 April 18
+    - Fixed PHP error when Bold Builder is not activated
+Version 1.2.9 - 10 April 18
+    - Improved WooCommerce support
+    - Fixed breadcrumbs
+Version 1.2.8 - 3 April 18
+    - Fixed demo import
+Version 1.2.7 - 2 April 18
+    - New demos and other major improvements
+Version 1.2.6 - 21 November 17
+    - Fixed Google Maps and Separator icons
+Version 1.2.5 - 17 October 17
+    - Improved WooCommerce compatibility
+Version 1.2.4 - 17 July 17
+    - Fixed author name in Grid and Latest Posts
+Version 1.2.3 - 12 July 17
+    - Fixed animation bug in full-screen transitions
+Version 1.2.2 - 11 May 17
+    - Fixed Firefox icon bug
+Version 1.2.1 - 22 April 17
+    - Improved WooCommerce 3.0.x compatibility
+Version 1.2.0 - 20 April 17
+    - Improved WooCommerce backward compatibility
+Version 1.1.9 - 20 April 17
+    - WooCommerce 3.0.x support
+Version 1.1.8 - 3 April 17
+    - Bold Builder support
+Version 1.1.7 - 7 March 17
+    - Fixed image alt attribute
+Version 1.1.6 - 10 February 17
+    - Added footer page slug option
+Version 1.1.5 - 17 January 17
+    - Rapid Composer update
+Version 1.1.4 - 21 December 16
+    - Rapid Composer update
+Version 1.1.3 - 3 November 16
+    - Added icon picker in Rapid Composer
+Version 1.1.2 - 3 October 16
+    - Fixed dropdown on iOS
+Version 1.1.1 - 9 July 16
+    - Added API key option for Google Maps content element
+Version 1.1.0 - 27 May 16
+    - Fixed comment form layout
+Version 1.0.9 - 20 May 16
+    - Added option to close all accordion items initially
+Version 1.0.8 - 15 April 16
+    - Demo content updated
+Version 1.0.7 - 1 April 16
+    - Fixed button with icon (not showing icon)
+    - Fixed icons vertical align in responsive menu
+Version 1.0.6 - 24 March 16
+    - Fixed product archive page header
+    - Added full height borders to header search box
+Version 1.0.5 - 28 February 16
+    - Enabled Site Identity section in Customize
+Version 1.0.4 - 27 February 16
+    - Fixed header icons position
+Version 1.0.3 - 27 February 16
+    - Demo content updated
+Version 1.0.2 - 25 February 16
+    - Added links to shop images
+    - Improved responsive menu
+Version 1.0.1 - 19 February 16
+    - Responsive menu upgrade
+    - Demo content updated
+Version 1.0.0 - 14 February 16
+    - Initial release
