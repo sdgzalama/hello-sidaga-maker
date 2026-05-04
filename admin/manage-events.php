@@ -1,15 +1,38 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/crud.php';
 require_login();
+
+$table = 'events';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $action = $_POST['action'] ?? '';
+    if ($action === 'delete') {
+        delete_row($table, (int)($_POST['id'] ?? 0));
+    } else {
+        $id = (int)($_POST['id'] ?? 0) ?: null;
+        $img = handle_upload('image', 'events');
+        $start = (!empty($_POST['date']) ? $_POST['date'] . ' ' . (!empty($_POST['time']) ? $_POST['time'] . ':00' : '00:00:00') : null);
+        $data = [
+            'title'       => trim($_POST['title'] ?? ''),
+            'slug'        => slugify($_POST['title'] ?? ''),
+            'location'    => $_POST['place'] ?? null,
+            'start_at'    => $start,
+            'description' => $_POST['description'] ?? null,
+            'status'      => $_POST['status'] ?? 'draft',
+        ];
+        if ($img) $data['image'] = $img;
+        save_row($table, $data, $id);
+    }
+    header('Location: manage-events.php'); exit;
+}
+
 $page_title = 'Manage Events';
 include __DIR__ . '/partials/head.php';
-
-$rows = [
-  ['id'=>1,'title'=>'Annual Charity Run','date'=>'2026-05-15','time'=>'07:00','place'=>'Central Park','status'=>'upcoming'],
-  ['id'=>2,'title'=>'Community Health Fair','date'=>'2026-06-02','time'=>'09:00','place'=>'Town Hall','status'=>'upcoming'],
-  ['id'=>3,'title'=>'Volunteer Orientation','date'=>'2026-06-18','time'=>'17:30','place'=>'HQ Office','status'=>'draft'],
-];
+$rows = fetch_all($table, 'start_at DESC');
 ?>
+
+<?php render_flash(); ?>
 
 <div class="panel">
   <div class="panel-head">
@@ -23,22 +46,31 @@ $rows = [
     <table class="table table-ngo align-middle">
       <thead><tr><th>#</th><th>Title</th><th>Date</th><th>Time</th><th>Location</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
-      <?php foreach ($rows as $i => $r): ?>
+      <?php if (!$rows): ?>
+        <tr><td colspan="7" class="text-center text-muted py-4">No events yet.</td></tr>
+      <?php endif; foreach ($rows as $i => $r): ?>
+        <?php $d = !empty($r['start_at']) ? date('Y-m-d', strtotime($r['start_at'])) : '';
+              $t = !empty($r['start_at']) ? date('H:i', strtotime($r['start_at'])) : ''; ?>
         <tr>
           <td><?= $i+1 ?></td>
           <td><?= e($r['title']) ?></td>
-          <td><?= e($r['date']) ?></td>
-          <td><?= e($r['time']) ?></td>
-          <td><?= e($r['place']) ?></td>
+          <td><?= e($d) ?></td>
+          <td><?= e($t) ?></td>
+          <td><?= e($r['location']) ?></td>
           <td><span class="status-pill <?= e($r['status']) ?>"><?= e(ucfirst($r['status'])) ?></span></td>
           <td class="actions text-end">
             <button class="btn btn-sm btn-outline-secondary" data-edit data-bs-toggle="modal" data-bs-target="#eventModal"
-              data-id="<?= e($r['id']) ?>" data-title="<?= e($r['title']) ?>" data-date="<?= e($r['date']) ?>"
-              data-time="<?= e($r['time']) ?>" data-place="<?= e($r['place']) ?>" data-status="<?= e($r['status']) ?>"
+              data-id="<?= e($r['id']) ?>" data-title="<?= e($r['title']) ?>" data-date="<?= e($d) ?>"
+              data-time="<?= e($t) ?>" data-place="<?= e($r['location']) ?>"
+              data-description="<?= e($r['description']) ?>" data-status="<?= e($r['status']) ?>"
               onclick="document.getElementById('eventModalTitle').textContent='Edit Event';">
               <i class="bi bi-pencil"></i>
             </button>
-            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+            <form method="post" class="d-inline" onsubmit="return confirm('Delete this event?');">
+              <input type="hidden" name="action" value="delete">
+              <input type="hidden" name="id" value="<?= e($r['id']) ?>">
+              <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+            </form>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -65,11 +97,15 @@ $rows = [
             <input class="form-control" type="time" name="time"></div>
           <div class="col-md-4"><label class="form-label">Status</label>
             <select class="form-select" name="status">
-              <option value="upcoming">Upcoming</option><option value="draft">Draft</option>
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+              <option value="cancelled">Cancelled</option>
             </select></div>
         </div>
         <div class="mb-3 mt-3"><label class="form-label">Location</label>
           <input class="form-control" name="place"></div>
+        <div class="mb-3"><label class="form-label">Cover Image</label>
+          <input class="form-control" type="file" name="image" accept="image/*"></div>
         <div class="mb-3"><label class="form-label">Description</label>
           <textarea class="form-control" name="description" rows="4"></textarea></div>
       </div>

@@ -1,26 +1,52 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/crud.php';
 require_login();
 $page_title = 'Dashboard';
 include __DIR__ . '/partials/head.php';
+
+function tcount($t) {
+    $pdo = db(); if (!$pdo) return 0;
+    try { return (int)$pdo->query("SELECT COUNT(*) FROM `$t`")->fetchColumn(); } catch (Exception $e) { return 0; }
+}
+$cNews = tcount('news');
+$cEvents = tcount('events');
+$cAnn = tcount('announcements');
+$cPromo = tcount('promotions');
+
+$recent = [];
+foreach (['news'=>'News','events'=>'Event','announcements'=>'Announcement','promotions'=>'Promotion'] as $tbl => $label) {
+    foreach (fetch_all($tbl, 'id DESC') as $r) {
+        $recent[] = [
+            'title' => $r['title'] ?? '',
+            'type'  => $label,
+            'date'  => $r['published_at'] ?? $r['start_at'] ?? $r['starts_on'] ?? $r['created_at'] ?? '',
+            'status'=> $r['status'] ?? '',
+        ];
+    }
+}
+usort($recent, fn($a,$b) => strcmp((string)$b['date'], (string)$a['date']));
+$recent = array_slice($recent, 0, 8);
 ?>
+
+<?php render_flash(); ?>
 
 <div class="row g-3 mb-4">
   <div class="col-md-3 col-sm-6">
     <div class="stat-card"><div class="icon"><i class="bi bi-newspaper"></i></div>
-      <div><div class="num">24</div><div class="lbl">News articles</div></div></div>
+      <div><div class="num"><?= $cNews ?></div><div class="lbl">News articles</div></div></div>
   </div>
   <div class="col-md-3 col-sm-6">
     <div class="stat-card info"><div class="icon"><i class="bi bi-calendar-event"></i></div>
-      <div><div class="num">8</div><div class="lbl">Upcoming events</div></div></div>
+      <div><div class="num"><?= $cEvents ?></div><div class="lbl">Events</div></div></div>
   </div>
   <div class="col-md-3 col-sm-6">
     <div class="stat-card warn"><div class="icon"><i class="bi bi-megaphone"></i></div>
-      <div><div class="num">5</div><div class="lbl">Announcements</div></div></div>
+      <div><div class="num"><?= $cAnn ?></div><div class="lbl">Announcements</div></div></div>
   </div>
   <div class="col-md-3 col-sm-6">
     <div class="stat-card danger"><div class="icon"><i class="bi bi-gift"></i></div>
-      <div><div class="num">3</div><div class="lbl">Active promotions</div></div></div>
+      <div><div class="num"><?= $cPromo ?></div><div class="lbl">Promotions</div></div></div>
   </div>
 </div>
 
@@ -34,10 +60,16 @@ include __DIR__ . '/partials/head.php';
       <table class="table table-ngo align-middle">
         <thead><tr><th>Item</th><th>Type</th><th>Date</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>Free Health Camp in Riverbend</td><td>News</td><td>May 1, 2026</td><td><span class="status-pill published">Published</span></td></tr>
-          <tr><td>Annual Charity Run</td><td>Event</td><td>May 15, 2026</td><td><span class="status-pill upcoming">Upcoming</span></td></tr>
-          <tr><td>Office closed May 5</td><td>Announcement</td><td>May 1, 2026</td><td><span class="status-pill published">Published</span></td></tr>
-          <tr><td>Match-the-Donation Week</td><td>Promotion</td><td>May 10, 2026</td><td><span class="status-pill draft">Draft</span></td></tr>
+        <?php if (!$recent): ?>
+          <tr><td colspan="4" class="text-center text-muted py-4">No content yet. Use the buttons on the right to add content, or import <code>database/schema.sql</code> if your database isn't connected.</td></tr>
+        <?php endif; foreach ($recent as $r): ?>
+          <tr>
+            <td><?= e($r['title']) ?></td>
+            <td><?= e($r['type']) ?></td>
+            <td><?= e($r['date'] ? date('M j, Y', strtotime($r['date'])) : '') ?></td>
+            <td><span class="status-pill <?= e($r['status']) ?>"><?= e(ucfirst($r['status'])) ?></span></td>
+          </tr>
+        <?php endforeach; ?>
         </tbody>
       </table>
     </div>

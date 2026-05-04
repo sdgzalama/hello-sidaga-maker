@@ -1,15 +1,38 @@
 <?php
 require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/crud.php';
 require_login();
+
+$table = 'promotions';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $action = $_POST['action'] ?? '';
+    if ($action === 'delete') {
+        delete_row($table, (int)($_POST['id'] ?? 0));
+    } else {
+        $id = (int)($_POST['id'] ?? 0) ?: null;
+        $img = handle_upload('image', 'promotions');
+        $status = $_POST['status'] ?? 'draft';
+        if ($status === 'published') $status = 'active';
+        $data = [
+            'title'     => trim($_POST['title'] ?? ''),
+            'body'      => $_POST['description'] ?? null,
+            'starts_on' => !empty($_POST['start']) ? $_POST['start'] : null,
+            'ends_on'   => !empty($_POST['end']) ? $_POST['end'] : null,
+            'status'    => $status,
+        ];
+        if ($img) $data['image'] = $img;
+        save_row($table, $data, $id);
+    }
+    header('Location: manage-promotions.php'); exit;
+}
+
 $page_title = 'Manage Promotions';
 include __DIR__ . '/partials/head.php';
-
-$rows = [
-  ['id'=>1,'title'=>'Match-the-Donation Week','start'=>'2026-05-10','end'=>'2026-05-17','status'=>'published'],
-  ['id'=>2,'title'=>'Sponsor a Child','start'=>'2026-01-01','end'=>'2026-12-31','status'=>'published'],
-  ['id'=>3,'title'=>'Corporate Volunteering','start'=>'2026-01-01','end'=>'2026-12-31','status'=>'draft'],
-];
+$rows = fetch_all($table);
 ?>
+
+<?php render_flash(); ?>
 
 <div class="panel">
   <div class="panel-head">
@@ -23,21 +46,28 @@ $rows = [
     <table class="table table-ngo align-middle">
       <thead><tr><th>#</th><th>Title</th><th>Start</th><th>End</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
-      <?php foreach ($rows as $i => $r): ?>
+      <?php if (!$rows): ?>
+        <tr><td colspan="6" class="text-center text-muted py-4">No promotions yet.</td></tr>
+      <?php endif; foreach ($rows as $i => $r): ?>
         <tr>
           <td><?= $i+1 ?></td>
           <td><?= e($r['title']) ?></td>
-          <td><?= e($r['start']) ?></td>
-          <td><?= e($r['end']) ?></td>
+          <td><?= e($r['starts_on']) ?></td>
+          <td><?= e($r['ends_on']) ?></td>
           <td><span class="status-pill <?= e($r['status']) ?>"><?= e(ucfirst($r['status'])) ?></span></td>
           <td class="actions text-end">
             <button class="btn btn-sm btn-outline-secondary" data-edit data-bs-toggle="modal" data-bs-target="#promoModal"
               data-id="<?= e($r['id']) ?>" data-title="<?= e($r['title']) ?>"
-              data-start="<?= e($r['start']) ?>" data-end="<?= e($r['end']) ?>" data-status="<?= e($r['status']) ?>"
+              data-start="<?= e($r['starts_on']) ?>" data-end="<?= e($r['ends_on']) ?>"
+              data-description="<?= e($r['body']) ?>" data-status="<?= e($r['status']) ?>"
               onclick="document.getElementById('promoModalTitle').textContent='Edit Promotion';">
               <i class="bi bi-pencil"></i>
             </button>
-            <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+            <form method="post" class="d-inline" onsubmit="return confirm('Delete?');">
+              <input type="hidden" name="action" value="delete">
+              <input type="hidden" name="id" value="<?= e($r['id']) ?>">
+              <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+            </form>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -64,11 +94,13 @@ $rows = [
             <input class="form-control" type="date" name="end"></div>
           <div class="col-md-4"><label class="form-label">Status</label>
             <select class="form-select" name="status">
-              <option value="draft">Draft</option><option value="published">Published</option>
+              <option value="active">Active</option>
+              <option value="draft">Draft</option>
+              <option value="expired">Expired</option>
             </select></div>
         </div>
         <div class="mb-3 mt-3"><label class="form-label">Banner Image</label>
-          <input class="form-control" type="file" name="image"></div>
+          <input class="form-control" type="file" name="image" accept="image/*"></div>
         <div class="mb-3"><label class="form-label">Description</label>
           <textarea class="form-control" name="description" rows="4"></textarea></div>
       </div>
