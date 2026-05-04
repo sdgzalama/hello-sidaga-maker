@@ -4,50 +4,149 @@ $page_title = 'Consultancy Services';
 $page_heading = 'Consultancy Services';
 $page_crumb = 'Consultancy';
 $body_class = 'theme-consult';
+
+// Service catalogue — easy to swap for a DB query later (see database/schema.sql)
+$categories = [
+  [
+    'icon'  => 'bi-briefcase',
+    'title' => 'Strategic & Business Consultancy',
+    'intro' => 'We help leadership teams sharpen direction, build resilient organisations and stay financially compliant.',
+    'services' => [
+      ['Strategic Planning',            'Long-term roadmaps, theory of change and board-ready strategy documents.'],
+      ['Organisation & Change Management', 'Restructuring, culture change and hands-on support through transitions.'],
+      ['Human Resources',               'HR policies, recruitment, performance systems and staff development.'],
+      ['Tax Consultancy',               'TRA-aligned tax advisory, compliance reviews and filings for NGOs and SMEs.'],
+    ],
+  ],
+  [
+    'icon'  => 'bi-cpu',
+    'title' => 'Technical & IT Services',
+    'intro' => 'Practical technology that fits your team — from advice to building and rolling out the system.',
+    'services' => [
+      ['IT Consultancy',         'Digital strategy, infrastructure assessments and technology selection.'],
+      ['Software Development',   'Custom web and mobile platforms, MIS and data dashboards.'],
+      ['Systems Implementation', 'End-to-end deployment, integration and user training for new systems.'],
+    ],
+  ],
+  [
+    'icon'  => 'bi-people',
+    'title' => 'Social & Development Consultancy',
+    'intro' => 'Sector expertise rooted in years of community work across Tanzania.',
+    'services' => [
+      ['Health Care Consultancy',     'Public health programme design, facility assessments and quality improvement.'],
+      ['Educational Consultancy',     'Curriculum reviews, school improvement plans and teacher training.'],
+      ['Food & Nutrition Services',   'Nutrition assessments, school-feeding design and food-security programming.'],
+      ['Environmental Consultancy',   'EIAs, climate adaptation strategies and natural resource management.'],
+    ],
+  ],
+  [
+    'icon'  => 'bi-search',
+    'title' => 'Research & Innovation',
+    'intro' => 'Evidence you can act on — gathered, analysed and presented with care.',
+    'services' => [
+      ['Research, Survey & Development Consultancy', 'Baselines, evaluations, market research and applied R&D for development programmes.'],
+    ],
+  ],
+  [
+    'icon'  => 'bi-tree',
+    'title' => 'Agricultural & Field Services',
+    'intro' => 'Field-level support that connects farmers, value chains and sustainability goals.',
+    'services' => [
+      ['Crop Cultivation Services', 'Climate-smart cultivation, agronomy advisory and demonstration plots.'],
+    ],
+  ],
+];
+
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
 include __DIR__ . '/partials/page-header.php';
 ?>
 
+<!-- SECTION 1: INTRO -->
 <section class="section">
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
-        <span class="badge-pill-ngo blue">SLF Consultancy</span>
-        <h2 class="section-title mt-2">Professional consultancy &amp; non-consultancy services for impact-driven organizations</h2>
-        <p class="lead text-muted">SustainLife Foundation, through its consultancy arm, provides professional consultancy and non-consultancy services in areas such as agriculture, sustainability and community development to support organizational impact.</p>
-        <p>We support development partners, government institutions, private-sector organizations and civil society with rigorous, evidence-based services delivered by a multi-disciplinary team.</p>
-        <a href="<?= url('contact.php') ?>" class="btn btn-primary-ngo mt-2"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
+        <span class="badge-pill-ngo blue"><i class="bi bi-patch-check-fill me-1"></i> Registered on Tanzania NeST</span>
+        <h2 class="section-title mt-3">Professional consultancy across the sectors that matter most</h2>
+        <p class="lead text-muted">
+          SustainLife Foundation, through its consultancy arm, provides professional services
+          across multiple sectors &mdash; including business strategy, technology, environment,
+          health and agriculture &mdash; to support sustainable development and organizational impact.
+        </p>
+        <p class="text-muted">
+          We work alongside government institutions, development partners, private companies and
+          civil society. Every engagement is led by a senior consultant and delivered by a small,
+          accountable team that knows the local context.
+        </p>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a href="<?= url('contact.php') ?>" class="btn btn-primary-ngo"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
+          <a href="<?= url('contact.php?type=partner') ?>" class="btn btn-yellow"><i class="bi bi-handshake me-1"></i> Partner With Us</a>
+        </div>
       </div>
       <div class="col-lg-5">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900" class="img-fluid rounded-4 shadow-sm" alt="SLF consultants at work">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900"
+             class="img-fluid rounded-4 shadow-sm" alt="SLF consultants in a working session">
       </div>
     </div>
   </div>
 </section>
 
+<!-- SECTION 2 + 3: CATEGORIES & SERVICE CARDS -->
 <section class="section alt">
   <div class="container">
-    <div class="text-center">
-      <span class="badge-pill-ngo blue">Service Categories</span>
-      <h2 class="section-title mt-2">What we offer</h2>
+    <div class="text-center mb-5">
+      <span class="badge-pill-ngo blue">Our Services</span>
+      <h2 class="section-title mt-2">Five practice areas, one trusted partner</h2>
+      <p class="section-sub mx-auto">Each practice area is led by specialists with field experience, so you get advice that actually works on the ground &mdash; not just on paper.</p>
     </div>
-    <div class="row g-4 mt-2">
+
+    <?php foreach ($categories as $i => $cat): ?>
+      <div class="service-group mb-4">
+        <div class="service-group-head">
+          <div class="icon-tile blue"><i class="bi <?= e($cat['icon']) ?>"></i></div>
+          <div>
+            <div class="text-muted small fw-bold">CATEGORY <?= str_pad((string)($i+1), 2, '0', STR_PAD_LEFT) ?></div>
+            <h3 class="mb-1"><?= $cat['title'] ?></h3>
+            <p class="text-muted mb-0"><?= e($cat['intro']) ?></p>
+          </div>
+        </div>
+        <div class="row g-3 mt-2">
+          <?php foreach ($cat['services'] as $s): ?>
+            <div class="col-md-6 col-lg-4">
+              <div class="sub-service h-100">
+                <h5 class="mb-1"><i class="bi bi-check2-circle me-2" style="color:var(--blue);"></i><?= $s[0] ?></h5>
+                <p class="text-muted small mb-0"><?= e($s[1]) ?></p>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<!-- SECTION 4: WHY CHOOSE US -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge-pill-ngo yellow">Why Choose Us</span>
+      <h2 class="section-title mt-2">Grounded expertise, delivered with care</h2>
+    </div>
+    <div class="row g-4">
       <?php
-      $cats = [
-        ['i'=>'bi-clipboard-data','t'=>'Research &amp; Assessments','d'=>'Baseline, midline and endline studies, needs assessments and feasibility studies.'],
-        ['i'=>'bi-bar-chart-line','t'=>'Monitoring &amp; Evaluation','d'=>'M&amp;E frameworks, data systems, evaluations and learning reviews.'],
-        ['i'=>'bi-tree','t'=>'Sustainable Agriculture','d'=>'Value chain analysis, climate-smart agriculture and food-systems advisory.'],
-        ['i'=>'bi-people','t'=>'Capacity Building','d'=>'Tailored training, mentorship and organizational development programs.'],
-        ['i'=>'bi-shield-check','t'=>'Safety &amp; Risk Advisory','d'=>'Occupational, public and environmental safety strategies.'],
-        ['i'=>'bi-diagram-3','t'=>'Strategy &amp; Program Design','d'=>'Theory of change, strategic planning and program design support.'],
+      $why = [
+        ['bi-people-fill',    'Community-driven expertise',  'We&rsquo;ve worked side-by-side with rural and urban communities across Tanzania for years.'],
+        ['bi-grid-3x3-gap',   'Multi-sector experience',     'Health, education, agriculture, environment, IT and governance &mdash; under one roof.'],
+        ['bi-bank',           'Government-aligned services', 'Registered on NeST and aligned with national priorities and SDG targets.'],
+        ['bi-graph-up-arrow', 'Impact-focused approach',     'We measure success by what changes for people, not by the size of the report.'],
       ];
-      foreach ($cats as $c): ?>
-        <div class="col-md-6 col-lg-4">
-          <div class="card-ngo p-4 h-100">
-            <div class="icon-tile blue"><i class="bi <?= e($c['i']) ?>"></i></div>
-            <h3 class="card-title"><?= $c['t'] ?></h3>
-            <p class="text-muted mb-0"><?= $c['d'] ?></p>
+      foreach ($why as $w): ?>
+        <div class="col-md-6 col-lg-3">
+          <div class="why-tile h-100">
+            <div class="icon-tile blue mb-3"><i class="bi <?= e($w[0]) ?>"></i></div>
+            <h5><?= $w[1] ?></h5>
+            <p class="text-muted small mb-0"><?= $w[2] ?></p>
           </div>
         </div>
       <?php endforeach; ?>
@@ -55,32 +154,17 @@ include __DIR__ . '/partials/page-header.php';
   </div>
 </section>
 
-<section class="section">
+<!-- SECTION 5: CTA -->
+<section class="section alt">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-6">
-        <span class="badge-pill-ngo yellow">Client Benefits</span>
-        <h2 class="section-title mt-2">Why partner with SLF Consultancy</h2>
-        <ul class="list-unstyled mt-3">
-          <?php
-          $benefits = [
-            'Multi-disciplinary expertise across health, environment and livelihoods',
-            'Deep field presence and trusted community relationships in Tanzania',
-            'Rigorous, evidence-based methodology aligned with SDGs',
-            'Transparent reporting and measurable, accountable outcomes',
-            'Flexible engagement models — short-term advisory or long-term partnership',
-          ];
-          foreach ($benefits as $b): ?>
-            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color:var(--blue);"></i><?= e($b) ?></li>
-          <?php endforeach; ?>
-        </ul>
+    <div class="cta-strip d-md-flex align-items-center justify-content-between">
+      <div class="me-md-4 mb-3 mb-md-0">
+        <h3 class="mb-1">Have a project in mind?</h3>
+        <p class="mb-0 opacity-90">Tell us your scope and timeline &mdash; we&rsquo;ll come back with a tailored proposal within a few working days.</p>
       </div>
-      <div class="col-lg-6">
-        <div class="card-ngo p-4 p-md-5 h-100" style="background:linear-gradient(135deg,#103e7a,#1a56a4);color:#fff;border:0;">
-          <h3 style="color:#fff;">Ready to start a project?</h3>
-          <p class="opacity-90">Tell us about your scope, timeline and objectives &mdash; we&rsquo;ll respond with a tailored proposal.</p>
-          <a href="<?= url('contact.php') ?>" class="btn btn-yellow"><i class="bi bi-arrow-right me-1"></i> Request a Quote</a>
-        </div>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="<?= url('contact.php') ?>" class="btn btn-yellow"><i class="bi bi-envelope-paper-fill me-1"></i> Request a Quote</a>
+        <a href="<?= url('contact.php?type=partner') ?>" class="btn btn-outline-light"><i class="bi bi-handshake me-1"></i> Partner With Us</a>
       </div>
     </div>
   </div>
