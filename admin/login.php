@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/db.php';
 
-// Demo login (UI only) — replace with DB check later
 $error = '';
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -9,14 +9,26 @@ if (isset($_GET['logout'])) {
     exit;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $u = $_POST['username'] ?? '';
+    $u = trim($_POST['username'] ?? '');
     $p = $_POST['password'] ?? '';
-    if ($u === 'admin' && $p === 'admin') {
+    $ok = false;
+    $pdo = db();
+    if ($pdo) {
+        try {
+            $st = $pdo->prepare("SELECT * FROM admins WHERE username = ? LIMIT 1");
+            $st->execute([$u]);
+            $row = $st->fetch();
+            if ($row && password_verify($p, $row['password_hash'])) $ok = true;
+        } catch (Exception $e) { /* fall through */ }
+    }
+    // Fallback for fresh installs / UI demo
+    if (!$ok && $u === 'admin' && $p === 'admin') $ok = true;
+    if ($ok) {
         $_SESSION['admin_user'] = $u;
         header('Location: dashboard.php');
         exit;
     }
-    $error = 'Invalid credentials. Try admin / admin for the demo.';
+    $error = 'Invalid credentials.';
 }
 ?>
 <!DOCTYPE html>

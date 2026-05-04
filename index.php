@@ -3,22 +3,42 @@ require_once __DIR__ . '/includes/config.php';
 $page_title = 'Home';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
+
+$slides = [
+  ['img' => asset('images/hero-1.jpg'), 'badge' => 'Empowering Women Farmers', 'title' => 'Building healthy, safe &amp; sustainable communities.', 'sub' => 'SustainLife Foundation empowers women, youth and marginalized communities through health, sustainable agriculture and inclusive empowerment.'],
+  ['img' => asset('images/hero-2.jpg'), 'badge' => 'Climate-Smart Agriculture', 'title' => 'Resilient livelihoods through sustainable farming.', 'sub' => 'Working hand-in-hand with farmers across Tanzania to scale climate-smart, food-secure communities.'],
+];
 ?>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-9">
-        <span class="badge-hero mb-3 d-inline-block"><i class="bi bi-globe-africa me-1"></i> Based in Tanzania &middot; Working with communities</span>
-        <h1>Building healthy, safe &amp; sustainable communities.</h1>
-        <p>SustainLife Foundation empowers women, youth and marginalized communities through health promotion, sustainable agriculture, environmental stewardship, safety awareness and inclusive economic empowerment.</p>
-        <div class="mt-4">
-          <a href="<?= url('contact.php') ?>" class="btn btn-light-cta me-2"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
-          <a href="<?= url('about.php') ?>" class="btn btn-outline-cta">Learn More</a>
-        </div>
-      </div>
+<!-- HERO SLIDESHOW -->
+<section class="hero hero-slider">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5500">
+    <div class="carousel-indicators">
+      <?php foreach ($slides as $i => $s): ?>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="<?= $i ?>" <?= $i===0?'class="active"':'' ?>></button>
+      <?php endforeach; ?>
     </div>
+    <div class="carousel-inner">
+      <?php foreach ($slides as $i => $s): ?>
+        <div class="carousel-item <?= $i===0?'active':'' ?>" style="background-image:linear-gradient(135deg,rgba(20,60,40,.78),rgba(15,80,80,.65)),url('<?= e($s['img']) ?>');">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9">
+                <span class="badge-hero mb-3 d-inline-block"><i class="bi bi-globe-africa me-1"></i> <?= $s['badge'] ?></span>
+                <h1><?= $s['title'] ?></h1>
+                <p><?= $s['sub'] ?></p>
+                <div class="mt-4">
+                  <a href="<?= url('contact.php') ?>" class="btn btn-light-cta me-2"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
+                  <a href="<?= url('about.php') ?>" class="btn btn-outline-cta">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
   </div>
 </section>
 

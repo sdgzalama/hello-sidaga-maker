@@ -278,3 +278,30 @@ a:hover { color: var(--primary-dark); }
 }
 .why-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .why-tile h5 { font-size: 1.05rem; margin-bottom: .4rem; }
+
+/* ===== Hero slideshow ===== */
+.hero-slider { padding: 0 !important; background: none !important; }
+.hero-slider .carousel-item {
+  min-height: 560px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+}
+.hero-slider .carousel-item h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); }
+.hero-slider .carousel-item p  { color: rgba(255,255,255,.92); font-size: 1.1rem; max-width: 720px; }
+.hero-slider .badge-hero {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  padding: .45rem 1rem;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.25);
+  font-size: .85rem;
+}
+.hero-slider .carousel-indicators [data-bs-target] {
+  width: 36px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.6);
+}
+.hero-slider .carousel-control-prev,
+.hero-slider .carousel-control-next { width: 5%; opacity: .7; }
