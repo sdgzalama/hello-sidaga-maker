@@ -1,82 +1,72 @@
-# NGO Website — Static HTML/Bootstrap Plan
+## Plan: Structured Consultancy Page + SQL Schema
 
-A complete static frontend for an NGO site, structured for easy later conversion to PHP + MySQL. All files are plain HTML + Bootstrap 5 (CDN) + minimal vanilla JS. No React, no build step.
+### 1. Rewrite `consultancy.php`
 
-## Folder structure
+Keep the existing `theme-consult` layout, page-header, and partials. Replace the body with five clearly-separated sections written in a warm, human voice (not robotic):
 
+**Section 1 — Intro**
+- Two-column layout: left = headline + intro paragraph based on the SLF NeST registration; right = supporting image.
+- Pill badge: "Registered on Tanzania NeST".
+- CTA buttons: "Request a Quote" + "Partner With Us".
+
+**Section 2+3 — Service Categories with cards**
+Five category blocks, each rendered as a `card-ngo` with header (icon + title + short intro) and a nested grid of sub-service mini-cards:
+
+1. Strategic & Business Consultancy — Strategic Planning, Organisation & Change Management, Human Resources, Tax Consultancy
+2. Technical & IT Services — IT Consultancy, Software Development, Systems Implementation
+3. Social & Development Consultancy — Health Care, Educational, Food & Nutrition, Environmental
+4. Research & Innovation — Research, Survey & Development Consultancy
+5. Agricultural & Field Services — Crop Cultivation Services
+
+Each sub-service has a title + short human-written description. Data driven by a PHP array `$categories` so the markup loops cleanly (easy to swap for DB later).
+
+**Section 4 — Why Choose Us**
+4-column feature grid with icons:
+- Community-driven expertise
+- Multi-sector experience
+- Government-aligned services
+- Impact-focused approach
+
+**Section 5 — CTA strip**
+Reuse `.cta-strip` gradient with two buttons: "Request a Quote" → contact.php, "Partner With Us" → contact.php?type=partner.
+
+### 2. Minor CSS additions to `assets/css/style.css`
+
+Add a few corporate-feeling utilities scoped to `.theme-consult`:
+- `.service-group` card with subtle top border accent
+- `.sub-service` mini-card (light bg, hover lift)
+- `.why-tile` for the Why-Choose-Us icons
+
+Keeps the consultancy page visually distinct (more structured/corporate) while staying consistent with the rest of the brand.
+
+### 3. SQL schema — new `database/schema.sql`
+
+Provide a ready-to-import MySQL file matching the existing site sections. Tables:
+
+```text
+admins(id, username, password_hash, full_name, email, created_at)
+news(id, title, slug, category, excerpt, body, image, published_at, status)
+events(id, title, slug, location, start_at, end_at, description, image, status)
+announcements(id, title, body, published_at, status)
+promotions(id, title, body, image, starts_on, ends_on, status)
+projects(id, title, slug, sector, summary, body, image, status)
+service_categories(id, name, slug, icon, intro, sort_order)
+services(id, category_id FK, title, slug, description, sort_order)
+contact_messages(id, name, email, phone, subject, message, type, created_at)
+quote_requests(id, organization, contact_name, email, phone, service_id FK, scope, budget, timeline, created_at)
 ```
-/ngo-site
-├── public/
-│   ├── index.html
-│   ├── about.html
-│   ├── news.html
-│   ├── announcements.html
-│   ├── events.html
-│   ├── promotions.html
-│   └── partials/
-│       ├── navbar.html        (reference snippet for PHP include)
-│       └── footer.html        (reference snippet for PHP include)
-├── admin/
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── manage-news.html
-│   ├── manage-announcements.html
-│   ├── manage-events.html
-│   ├── manage-promotions.html
-│   └── partials/
-│       ├── sidebar.html
-│       └── topbar.html
-└── assets/
-    ├── css/
-    │   ├── style.css          (public site theme)
-    │   └── admin.css          (admin dashboard theme)
-    ├── js/
-    │   ├── main.js            (nav toggles, simple interactions)
-    │   └── admin.js           (modal helpers, mock table actions)
-    └── images/
-        └── .gitkeep           (placeholder; uses Unsplash URLs in markup)
-```
 
-The whole thing lives in a top-level `/ngo-site` folder so it sits cleanly next to the existing TanStack app and can be pulled as one unit.
+Includes:
+- InnoDB + utf8mb4
+- Indexes on slugs and FKs
+- Seed `INSERT` rows for the 5 service categories and all sub-services listed above
+- Default admin row (username `admin`, bcrypt hash placeholder noted in a comment)
 
-## Page contents
+### 4. Files touched
 
-**Public pages** — share the same Bootstrap navbar (Home, About, News, Announcements, Events, Promotions) and footer.
+- edit `consultancy.php` (full rewrite of body)
+- edit `assets/css/style.css` (append consultancy utilities)
+- create `database/schema.sql`
+- create `database/README.md` with `mysql -u root slf_site < database/schema.sql` import instructions
 
-- `index.html` — Hero with CTA, "Latest News" 3-card grid, "Upcoming Events" 3-card grid, donate/volunteer CTA band.
-- `about.html` — NGO description, Mission card, Vision card, team/values section.
-- `news.html` — Responsive card grid (image, title, date badge, short description, "Read more").
-- `announcements.html` — Bootstrap list-group with title, message, date.
-- `events.html` — Card grid with image, title, date, location, description.
-- `promotions.html` — Promotional cards with image, headline, badge, CTA.
-
-**Admin pages** — share a left sidebar (Dashboard, News, Announcements, Events, Promotions, Logout) and a topbar.
-
-- `login.html` — Centered Bootstrap card with email + password form.
-- `dashboard.html` — Stat cards (counts) + recent activity table.
-- `manage-*.html` (4 pages) — Each has: page header with "Add New" button, Bootstrap table listing mock rows with Edit/Delete buttons, and a Bootstrap modal form with Title, Description (textarea), Image upload input, Date input, Save/Cancel.
-
-## Design
-
-- Bootstrap 5.3 via CDN (CSS + JS bundle with Popper).
-- Bootstrap Icons via CDN for nav, sidebar, action buttons.
-- Custom palette in `style.css`: deep green primary (`#1f7a4d`), warm accent (`#f0a04b`), neutral grays — clean professional NGO feel.
-- Admin uses a light gray canvas with a dark-green sidebar for contrast.
-- Fully responsive: collapsible navbar on mobile, off-canvas sidebar in admin on small screens.
-
-## PHP-conversion friendliness
-
-- Navbar and footer kept as standalone snippets in `public/partials/` and `admin/partials/` so each `*.html` can later become `*.php` with `<?php include 'partials/navbar.php'; ?>`.
-- Repeating card/row markup is structured so a single block can later be wrapped in a `foreach` over MySQL rows.
-- Form `name` attributes on all inputs match likely DB column names (`title`, `description`, `image`, `event_date`, etc.) so PHP `$_POST` handling drops in directly.
-- Forms use `method="post"` and `enctype="multipart/form-data"` where image upload exists, with `action="#"` placeholders ready to point at PHP endpoints.
-
-## Technical notes
-
-- No package install, no edits to the existing TanStack app — files are pure static HTML and won't be served by the dev preview. You'll run them locally with any static server or `php -S localhost:8000 -t ngo-site/public`.
-- Minimal JS only: Bootstrap's own bundle for modals/navbar, plus a small `admin.js` to wire the "Add New / Edit" buttons to open the modal with prefilled mock data, and "Delete" to a confirm dialog (no real persistence).
-- Images use Unsplash hotlink URLs as placeholders so you don't need binary assets in the repo.
-
-## Deliverable
-
-After approval, I'll create all ~20 files in one batch. You can then pull the `/ngo-site` folder and run it locally.
+No JS, no frameworks, no WordPress. Pure PHP + HTML + CSS, consistent with existing partials and helpers (`url()`, `asset()`, `e()`).
