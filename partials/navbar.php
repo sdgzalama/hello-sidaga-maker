@@ -34,6 +34,18 @@ if (!defined('SITE_NAME')) {
         <li class="nav-item"><a class="nav-link <?= is_active('projects.php') ?>" href="<?= url('projects.php') ?>">Projects</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('consultancy.php') ?>" href="<?= url('consultancy.php') ?>">Consultancy</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('impact.php') ?>" href="<?= url('impact.php') ?>">Impact</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <?= in_array(basename($_SERVER['PHP_SELF']), ['news.php','events.php','promotions.php','announcements.php']) ? 'active' : '' ?>"
+             href="#" id="updatesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Updates
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="updatesDropdown">
+            <li><a class="dropdown-item <?= is_active('news.php') ?>" href="<?= url('news.php') ?>"><i class="bi bi-newspaper me-2"></i>News</a></li>
+            <li><a class="dropdown-item <?= is_active('events.php') ?>" href="<?= url('events.php') ?>"><i class="bi bi-calendar-event me-2"></i>Events</a></li>
+            <li><a class="dropdown-item <?= is_active('promotions.php') ?>" href="<?= url('promotions.php') ?>"><i class="bi bi-megaphone me-2"></i>Promotions</a></li>
+            <li><a class="dropdown-item <?= is_active('announcements.php') ?>" href="<?= url('announcements.php') ?>"><i class="bi bi-bell me-2"></i>Announcements</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link <?= is_active('content.php') ?>" href="<?= url('content.php') ?>">Content</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('faq.php') ?>" href="<?= url('faq.php') ?>">FAQ</a></li>
         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
