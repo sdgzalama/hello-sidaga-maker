@@ -93,8 +93,8 @@ include __DIR__ . '/partials/page-header.php';
   <div class="container">
     <div class="text-center mb-5">
       <span class="badge-pill-ngo blue">Our Services</span>
-      <h2 class="section-title mt-2">Five practice areas, one trusted partner</h2>
-      <p class="section-sub mx-auto">Each practice area is led by specialists with field experience, so you get advice that actually works on the ground &mdash; not just on paper.</p>
+      <h2 class="section-title mt-2">Our Consultancy Services</h2>
+      <p class="section-sub mx-auto">We organise our consultancy work into five practice areas. Each area is led by specialists with real field experience, so you get advice that works on the ground &mdash; not just on paper.</p>
     </div>
 
     <?php foreach ($categories as $i => $cat): ?>
