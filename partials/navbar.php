@@ -57,6 +57,7 @@ if (!defined('SITE_NAME')) {
             <li><a class="dropdown-item <?= is_active('faq.php') ?>" href="<?= url('faq.php') ?>">FAQ</a></li>
           </ul>
         </li>
+        <li class="nav-item"><a class="nav-link <?= is_active('contact.php') ?>" href="<?= url('contact.php') ?>">Contact</a></li>
         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
           <a class="btn btn-donate" href="<?= url('contact.php') ?>"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
         </li>
