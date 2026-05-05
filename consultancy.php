@@ -127,7 +127,7 @@ include __DIR__ . '/partials/page-header.php';
   <div class="container">
     <div class="text-center mb-5">
       <span class="badge-pill-ngo yellow">Why Choose Us</span>
-      <h2 class="section-title mt-2">Grounded expertise, delivered with care</h2>
+      <h2 class="section-title mt-2">Why Choose SustainLife Foundation as Your Consultancy Partner</h2>
     </div>
     <div class="row g-4">
       <?php
