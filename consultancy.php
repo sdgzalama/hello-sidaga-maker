@@ -163,6 +163,30 @@ include __DIR__ . '/partials/page-header.php';
         <a href="<?= url('contact.php?type=partner') ?>" class="btn btn-outline-light"><i class="bi bi-handshake me-1"></i> Partner With Us</a>
       </div>
     </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-md-4">
+        <div class="card-ngo p-4 h-100 text-center">
+          <div class="icon-tile blue mx-auto mb-2"><i class="bi bi-envelope-fill"></i></div>
+          <h6 class="mb-1">Email</h6>
+          <a href="mailto:<?= e(SITE_EMAIL) ?>" class="text-muted small"><?= e(SITE_EMAIL) ?></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-ngo p-4 h-100 text-center">
+          <div class="icon-tile blue mx-auto mb-2"><i class="bi bi-telephone-fill"></i></div>
+          <h6 class="mb-1">Phone</h6>
+          <p class="text-muted small mb-0"><?= e(SITE_PHONE) ?></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-ngo p-4 h-100 text-center">
+          <div class="icon-tile blue mx-auto mb-2"><i class="bi bi-geo-alt-fill"></i></div>
+          <h6 class="mb-1">Location</h6>
+          <p class="text-muted small mb-0"><?= e(SITE_ADDRESS) ?></p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
