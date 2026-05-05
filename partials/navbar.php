@@ -31,8 +31,16 @@ if (!defined('SITE_NAME')) {
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link <?= is_active('index.php') ?>" href="<?= url('index.php') ?>">Home</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('about.php') ?>" href="<?= url('about.php') ?>">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <?= in_array(basename($_SERVER['PHP_SELF']), ['consultancy.php']) ? 'active' : '' ?>"
+             href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item <?= is_active('consultancy.php') ?>" href="<?= url('consultancy.php') ?>">Consultancy</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link <?= is_active('projects.php') ?>" href="<?= url('projects.php') ?>">Projects</a></li>
-        <li class="nav-item"><a class="nav-link <?= is_active('consultancy.php') ?>" href="<?= url('consultancy.php') ?>">Consultancy</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('impact.php') ?>" href="<?= url('impact.php') ?>">Impact</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle <?= in_array(basename($_SERVER['PHP_SELF']), ['news.php','events.php','promotions.php','announcements.php','content.php','faq.php']) ? 'active' : '' ?>"
@@ -49,6 +57,7 @@ if (!defined('SITE_NAME')) {
             <li><a class="dropdown-item <?= is_active('faq.php') ?>" href="<?= url('faq.php') ?>">FAQ</a></li>
           </ul>
         </li>
+        <li class="nav-item"><a class="nav-link <?= is_active('contact.php') ?>" href="<?= url('contact.php') ?>">Contact</a></li>
         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
           <a class="btn btn-donate" href="<?= url('contact.php') ?>"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
         </li>

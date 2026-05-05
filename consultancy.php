@@ -70,14 +70,10 @@ include __DIR__ . '/partials/page-header.php';
         <span class="badge-pill-ngo blue"><i class="bi bi-patch-check-fill me-1"></i> Registered on Tanzania NeST</span>
         <h2 class="section-title mt-3">Professional consultancy across the sectors that matter most</h2>
         <p class="lead text-muted">
-          SustainLife Foundation, through its consultancy arm, provides professional services
-          across multiple sectors &mdash; including business strategy, technology, environment,
-          health and agriculture &mdash; to support sustainable development and organizational impact.
+          SustainLife Foundation, through its consultancy arm, provides professional services across multiple sectors &mdash; including business strategy, technology, environment, health and agriculture &mdash; to support sustainable development and organizational impact.
         </p>
         <p class="text-muted">
-          We work alongside government institutions, development partners, private companies and
-          civil society. Every engagement is led by a senior consultant and delivered by a small,
-          accountable team that knows the local context.
+          We work alongside government institutions, development partners, private companies and civil society. Every engagement is led by a senior consultant and delivered by a small, accountable team that knows the local context.
         </p>
         <div class="d-flex flex-wrap gap-2 mt-3">
           <a href="<?= url('contact.php') ?>" class="btn btn-primary-ngo"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
@@ -97,8 +93,8 @@ include __DIR__ . '/partials/page-header.php';
   <div class="container">
     <div class="text-center mb-5">
       <span class="badge-pill-ngo blue">Our Services</span>
-      <h2 class="section-title mt-2">Five practice areas, one trusted partner</h2>
-      <p class="section-sub mx-auto">Each practice area is led by specialists with field experience, so you get advice that actually works on the ground &mdash; not just on paper.</p>
+      <h2 class="section-title mt-2">Our Consultancy Services</h2>
+      <p class="section-sub mx-auto">We organise our consultancy work into five practice areas. Each area is led by specialists with real field experience, so you get advice that works on the ground &mdash; not just on paper.</p>
     </div>
 
     <?php foreach ($categories as $i => $cat): ?>
@@ -131,7 +127,7 @@ include __DIR__ . '/partials/page-header.php';
   <div class="container">
     <div class="text-center mb-5">
       <span class="badge-pill-ngo yellow">Why Choose Us</span>
-      <h2 class="section-title mt-2">Grounded expertise, delivered with care</h2>
+      <h2 class="section-title mt-2">Why Choose SustainLife Foundation as Your Consultancy Partner</h2>
     </div>
     <div class="row g-4">
       <?php
@@ -165,6 +161,30 @@ include __DIR__ . '/partials/page-header.php';
       <div class="d-flex flex-wrap gap-2">
         <a href="<?= url('contact.php') ?>" class="btn btn-yellow"><i class="bi bi-envelope-paper-fill me-1"></i> Request a Quote</a>
         <a href="<?= url('contact.php?type=partner') ?>" class="btn btn-outline-light"><i class="bi bi-handshake me-1"></i> Partner With Us</a>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-md-4">
+        <div class="card-ngo p-4 h-100 text-center">
+          <div class="icon-tile blue mx-auto mb-2"><i class="bi bi-envelope-fill"></i></div>
+          <h6 class="mb-1">Email</h6>
+          <a href="mailto:<?= e(SITE_EMAIL) ?>" class="text-muted small"><?= e(SITE_EMAIL) ?></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-ngo p-4 h-100 text-center">
+          <div class="icon-tile blue mx-auto mb-2"><i class="bi bi-telephone-fill"></i></div>
+          <h6 class="mb-1">Phone</h6>
+          <p class="text-muted small mb-0"><?= e(SITE_PHONE) ?></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-ngo p-4 h-100 text-center">
+          <div class="icon-tile blue mx-auto mb-2"><i class="bi bi-geo-alt-fill"></i></div>
+          <h6 class="mb-1">Location</h6>
+          <p class="text-muted small mb-0"><?= e(SITE_ADDRESS) ?></p>
+        </div>
       </div>
     </div>
   </div>
