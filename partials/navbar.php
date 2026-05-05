@@ -40,13 +40,13 @@ if (!defined('SITE_NAME')) {
             Content
           </a>
           <ul class="dropdown-menu" aria-labelledby="contentDropdown">
-            <li><a class="dropdown-item <?= is_active('news.php') ?>" href="<?= url('news.php') ?>"><i class="bi bi-newspaper me-2"></i>News</a></li>
-            <li><a class="dropdown-item <?= is_active('events.php') ?>" href="<?= url('events.php') ?>"><i class="bi bi-calendar-event me-2"></i>Events</a></li>
-            <li><a class="dropdown-item <?= is_active('promotions.php') ?>" href="<?= url('promotions.php') ?>"><i class="bi bi-megaphone me-2"></i>Promotions</a></li>
-            <li><a class="dropdown-item <?= is_active('announcements.php') ?>" href="<?= url('announcements.php') ?>"><i class="bi bi-bell me-2"></i>Announcements</a></li>
+            <li><a class="dropdown-item <?= is_active('news.php') ?>" href="<?= url('news.php') ?>">News</a></li>
+            <li><a class="dropdown-item <?= is_active('events.php') ?>" href="<?= url('events.php') ?>">Events</a></li>
+            <li><a class="dropdown-item <?= is_active('promotions.php') ?>" href="<?= url('promotions.php') ?>">Promotions</a></li>
+            <li><a class="dropdown-item <?= is_active('announcements.php') ?>" href="<?= url('announcements.php') ?>">Announcements</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item <?= is_active('content.php') ?>" href="<?= url('content.php') ?>"><i class="bi bi-collection me-2"></i>Content Hub</a></li>
-            <li><a class="dropdown-item <?= is_active('faq.php') ?>" href="<?= url('faq.php') ?>"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+            <li><a class="dropdown-item <?= is_active('content.php') ?>" href="<?= url('content.php') ?>">Content Hub</a></li>
+            <li><a class="dropdown-item <?= is_active('faq.php') ?>" href="<?= url('faq.php') ?>">FAQ</a></li>
           </ul>
         </li>
         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">

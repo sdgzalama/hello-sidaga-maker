@@ -60,7 +60,7 @@ include __DIR__ . '/partials/page-header.php';
     <div class="row g-4 mt-3">
       <?php foreach (['Target','Train','Test','Tie'] as $i=>$step): ?>
         <div class="col-md-3">
-          <div class="card-ngo p-4 text-center h-100" style="background:rgba(255,255,255,.95);color:var(--dark);">
+          <div class="card-ngo p-4 text-center h-100" style="background:#103e7a;color:var(--dark);">
             <div class="icon-tile yellow mx-auto"><strong><?= $i+1 ?></strong></div>
             <h3 class="card-title"><?= e($step) ?></h3>
           </div>

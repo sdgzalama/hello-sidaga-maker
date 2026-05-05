@@ -39,7 +39,7 @@ if (!defined('SITE_NAME')) {
       <div class="col-lg-3">
         <h5>Work With Us</h5>
         <p class="small">Partner with SLF for consultancy, research, and community programs.</p>
-        <a href="<?= url('contact.php') ?>" class="btn btn-yellow btn-sm"><i class="bi bi-arrow-right me-1"></i> Request a Quote</a>
+        <a href="<?= url('contact.php') ?>" class="btn btn-yellow btn-sm" style="color: black"><i class="bi bi-arrow-right me-1"></i> Request a Quote</a>
       </div>
     </div>
     <div class="copy d-flex flex-wrap justify-content-between">
