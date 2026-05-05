@@ -70,14 +70,10 @@ include __DIR__ . '/partials/page-header.php';
         <span class="badge-pill-ngo blue"><i class="bi bi-patch-check-fill me-1"></i> Registered on Tanzania NeST</span>
         <h2 class="section-title mt-3">Professional consultancy across the sectors that matter most</h2>
         <p class="lead text-muted">
-          SustainLife Foundation, through its consultancy arm, provides professional services
-          across multiple sectors &mdash; including business strategy, technology, environment,
-          health and agriculture &mdash; to support sustainable development and organizational impact.
+          SustainLife Foundation, through its consultancy arm, provides professional services across multiple sectors &mdash; including business strategy, technology, environment, health and agriculture &mdash; to support sustainable development and organizational impact.
         </p>
         <p class="text-muted">
-          We work alongside government institutions, development partners, private companies and
-          civil society. Every engagement is led by a senior consultant and delivered by a small,
-          accountable team that knows the local context.
+          We work alongside government institutions, development partners, private companies and civil society. Every engagement is led by a senior consultant and delivered by a small, accountable team that knows the local context.
         </p>
         <div class="d-flex flex-wrap gap-2 mt-3">
           <a href="<?= url('contact.php') ?>" class="btn btn-primary-ngo"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
