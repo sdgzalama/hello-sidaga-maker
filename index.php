@@ -117,6 +117,9 @@ $slides = [
         </div>
       <?php endforeach; ?>
     </div>
+    <div class="text-center mt-4">
+      <a href="<?= url('services.php') ?>" class="btn btn-primary-ngo"><i class="bi bi-grid me-1"></i> View all services</a>
+    </div>
   </div>
 </section>
 
