@@ -31,13 +31,23 @@ if (!defined('SITE_NAME')) {
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link <?= is_active('index.php') ?>" href="<?= url('index.php') ?>">Home</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('about.php') ?>" href="<?= url('about.php') ?>">About</a></li>
+        <?php
+          if (!function_exists('slf_services')) {
+              require_once __DIR__ . '/../includes/services.php';
+          }
+          $nav_services = slf_services();
+        ?>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle <?= in_array(basename($_SERVER['PHP_SELF']), ['consultancy.php']) ? 'active' : '' ?>"
+          <a class="nav-link dropdown-toggle <?= in_array(basename($_SERVER['PHP_SELF']), ['services.php','consultancy.php']) ? 'active' : '' ?>"
              href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Services
           </a>
           <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-            <li><a class="dropdown-item <?= is_active('consultancy.php') ?>" href="<?= url('consultancy.php') ?>">Consultancy</a></li>
+            <li><a class="dropdown-item <?= is_active('services.php') ?>" href="<?= url('services.php') ?>"><i class="bi bi-grid me-2"></i>All Services</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <?php foreach ($nav_services as $svc): ?>
+              <li><a class="dropdown-item" href="<?= url('services.php#svc-' . $svc['slug']) ?>"><i class="bi <?= e($svc['icon']) ?> me-2"></i><?= e($svc['title']) ?></a></li>
+            <?php endforeach; ?>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link <?= is_active('projects.php') ?>" href="<?= url('projects.php') ?>">Projects</a></li>

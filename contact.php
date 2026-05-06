@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/services.php';
 $page_title = 'Contact';
+$preselect_service = isset($_GET['service']) ? (string)$_GET['service'] : '';
 $page_heading = 'Contact &amp; Request a Quote';
 $page_crumb = 'Contact';
 include __DIR__ . '/partials/head.php';
@@ -32,13 +34,10 @@ include __DIR__ . '/partials/page-header.php';
             <label class="form-label">Service needed</label>
             <select name="service" class="form-select">
               <option value="">Select a service</option>
-              <option>Research &amp; Assessments</option>
-              <option>Monitoring &amp; Evaluation</option>
-              <option>Sustainable Agriculture Advisory</option>
-              <option>Capacity Building &amp; Training</option>
-              <option>Safety &amp; Risk Advisory</option>
-              <option>Strategy &amp; Program Design</option>
-              <option>Partnership / Other</option>
+              <?php foreach (slf_services() as $svc): ?>
+                <option value="<?= e($svc['slug']) ?>" <?= $preselect_service === $svc['slug'] ? 'selected' : '' ?>><?= e($svc['title']) ?></option>
+              <?php endforeach; ?>
+              <option value="other" <?= $preselect_service === 'other' ? 'selected' : '' ?>>Partnership / Other</option>
             </select>
           </div>
           <div class="col-12">
