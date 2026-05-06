@@ -23,6 +23,7 @@ if (!defined('SITE_NAME')) {
         <h5>Explore</h5>
         <ul class="list-unstyled">
           <li><a href="<?= url('about.php') ?>">About</a></li>
+          <li><a href="<?= url('services.php') ?>">Services</a></li>
           <li><a href="<?= url('projects.php') ?>">Projects</a></li>
           <li><a href="<?= url('impact.php') ?>">Impact</a></li>
           <li><a href="<?= url('content.php') ?>">Content</a></li>

@@ -62,6 +62,13 @@ include __DIR__ . '/partials/navbar.php';
 include __DIR__ . '/partials/page-header.php';
 ?>
 
+<!-- BACK LINK -->
+<section class="pt-4">
+  <div class="container">
+    <a href="<?= url('services.php') ?>" class="text-muted small text-decoration-none"><i class="bi bi-arrow-left me-1"></i> Back to all services</a>
+  </div>
+</section>
+
 <!-- SECTION 1: INTRO -->
 <section class="section">
   <div class="container">
