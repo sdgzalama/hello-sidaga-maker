@@ -165,8 +165,33 @@ $slides = [
   </div>
 </section>
 
-<!-- CTA -->
+<!-- RESOURCES HIGHLIGHT -->
 <section class="section">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6">
+        <span class="badge-pill-ngo blue">Resources</span>
+        <h2 class="section-title mt-2">Strategic Plan, Annual Reports &amp; Publications</h2>
+        <p class="text-muted">Read and download our strategic plan, annual reports, policies and other publications &mdash; everything we publish is available for preview and download.</p>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a href="<?= url('strategic-plan.php') ?>" class="btn btn-primary-ngo"><i class="bi bi-bullseye me-1"></i> View Strategic Plan</a>
+          <a href="<?= url('resources.php') ?>" class="btn btn-outline-secondary"><i class="bi bi-folder2-open me-1"></i> All Resources</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6"><a class="card-ngo p-3 d-block text-decoration-none text-dark" href="<?= url('resources.php?type=annual-report') ?>"><i class="bi bi-journal-bookmark text-primary"></i> <strong>Annual Reports</strong></a></div>
+          <div class="col-6"><a class="card-ngo p-3 d-block text-decoration-none text-dark" href="<?= url('resources.php?type=publication') ?>"><i class="bi bi-book text-primary"></i> <strong>Publications</strong></a></div>
+          <div class="col-6"><a class="card-ngo p-3 d-block text-decoration-none text-dark" href="<?= url('resources.php?type=policy') ?>"><i class="bi bi-shield-check text-primary"></i> <strong>Policies</strong></a></div>
+          <div class="col-6"><a class="card-ngo p-3 d-block text-decoration-none text-dark" href="<?= url('resources.php') ?>"><i class="bi bi-download text-primary"></i> <strong>Downloads</strong></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section alt">
   <div class="container">
     <div class="cta-strip d-md-flex justify-content-between align-items-center">
       <div>

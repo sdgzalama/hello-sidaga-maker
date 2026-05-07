@@ -111,3 +111,21 @@ function handle_upload($field, $subdir = 'uploads') {
     if (!move_uploaded_file($_FILES[$field]['tmp_name'], $dest)) { flash_set('error', 'Could not save file.'); return null; }
     return 'assets/images/' . $subdir . '/' . $name;
 }
+
+function handle_pdf_upload($field, $subdir = 'docs') {
+    if (empty($_FILES[$field]) || $_FILES[$field]['error'] === UPLOAD_ERR_NO_FILE) return null;
+    if ($_FILES[$field]['error'] !== UPLOAD_ERR_OK) { flash_set('error', 'PDF upload failed.'); return null; }
+    $ext = strtolower(pathinfo($_FILES[$field]['name'], PATHINFO_EXTENSION));
+    if ($ext !== 'pdf') { flash_set('error', 'Only PDF files are allowed.'); return null; }
+    if ($_FILES[$field]['size'] > 20 * 1024 * 1024) { flash_set('error', 'PDF must be under 20 MB.'); return null; }
+    $dir = __DIR__ . '/../assets/' . $subdir;
+    if (!is_dir($dir)) @mkdir($dir, 0775, true);
+    $base = preg_replace('/[^A-Za-z0-9_-]+/', '-', pathinfo($_FILES[$field]['name'], PATHINFO_FILENAME));
+    $name = substr($base, 0, 60) . '_' . uniqid() . '.pdf';
+    $dest = $dir . '/' . $name;
+    if (!move_uploaded_file($_FILES[$field]['tmp_name'], $dest)) { flash_set('error', 'Could not save PDF.'); return null; }
+    return [
+        'path' => 'assets/' . $subdir . '/' . $name,
+        'size' => filesize($dest),
+    ];
+}

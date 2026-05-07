@@ -305,3 +305,33 @@ a:hover { color: var(--primary-dark); }
 }
 .hero-slider .carousel-control-prev,
 .hero-slider .carousel-control-next { width: 5%; opacity: .7; }
+
+/* ===== Navbar polish: slimmer dropdowns, bigger logo, tighter spacing ===== */
+.navbar-ngo .navbar-brand img { height: 56px; width: 56px; }
+.navbar-ngo .navbar-brand .brand-text { font-size: 1.05rem; }
+.navbar-ngo .nav-compact .nav-link { padding: .45rem .65rem; font-size: .95rem; margin: 0; }
+.navbar-ngo .dropdown-menu {
+  min-width: 240px;
+  padding: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px -10px rgba(20,50,70,.18);
+}
+.navbar-ngo .dropdown-item {
+  padding: 8px 16px;
+  font-size: .92rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+.navbar-ngo .dropdown-item i { font-size: .9rem; opacity: .75; }
+.navbar-ngo .dropdown-item:hover,
+.navbar-ngo .dropdown-item:focus { background: var(--blue-soft); color: var(--primary); }
+.navbar-ngo .dropdown-divider { margin: 4px 0; border-color: var(--border); }
+@media (min-width: 992px) {
+  .navbar-ngo .dropdown-menu { max-height: 75vh; overflow-y: auto; }
+}
+@media (max-width: 991.98px) {
+  .navbar-ngo .dropdown-menu {
+    border: 0; box-shadow: none; padding-left: 1rem; max-height: none;
+  }
+}

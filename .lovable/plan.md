@@ -1,123 +1,161 @@
 ## Goal
-Restructure the Services area so the navbar exposes a real "Services" hub (not just Consultancy), each service has a "Learn More" button that opens a detailed modal, the page reads at a corporate / professional level, and the rest of the site is audited for the issues this restructure surfaces. Then explain how to host this PHP site on Cloudflare's free tier (with the important caveat that Cloudflare Pages does **not** execute PHP).
+
+Tighten the navbar (smaller, slimmer dropdowns), reorganise navigation into a clearer NGO-appropriate hierarchy (Home / About / Services / Projects / Resources / Media / Contact), drop the commercial word "Promotions" in favour of "Campaigns", and add a real **Resources** area where admin uploads the Strategic Plan, Annual Reports, Policies and other downloads — viewable inline as PDFs and downloadable. Projects continue to be admin-managed; Strategic Plan documents become a new admin-managed content type.
 
 ---
 
-## 1. Define the Services catalogue (single source of truth)
+## 1. Navbar restructure (`partials/navbar.php`)
 
-Create `includes/services.php` that returns one PHP array of services. Each entry has:
-- `slug`, `title`, `tagline`, `icon` (Bootstrap Icons), `tone` (blue/yellow/green)
-- `summary` (1–2 lines for cards)
-- `details` — long-form HTML-ready blocks: **Overview**, **What we deliver**, **Typical engagements**, **Who it's for**, **Outcomes / KPIs**, **Why SustainLife**
-- `cta_label` + `cta_link` (defaults to `contact.php?service={slug}`)
-
-Initial services:
-1. **Consultancy** — umbrella; modal links into the dedicated `consultancy.php` page for the full 5-practice breakdown.
-2. **Strategic & Business Advisory**
-3. **Technical & IT Solutions**
-4. **Social & Development Programs**
-5. **Research, M&E and Innovation**
-6. **Agricultural & Field Services**
-7. **Training & Capacity Building**
-
-Both `services.php` (new page) and the navbar dropdown read from this same array, so nothing drifts.
-
-## 2. Navbar restructure (`partials/navbar.php`)
-
-Replace the current single-item Services dropdown with a richer one driven by the catalogue:
+New top-level menu, in this order:
 
 ```text
-Services ▾
-  ├── All Services           → services.php
-  ├── ──────────
-  ├── Consultancy            → services.php#svc-consultancy
-  ├── Strategic & Business   → services.php#svc-strategy
-  ├── Technical & IT         → services.php#svc-it
-  ├── Social & Development   → services.php#svc-social
-  ├── Research & M&E         → services.php#svc-research
-  ├── Agricultural & Field   → services.php#svc-agriculture
-  └── Training & Capacity    → services.php#svc-training
+Home | About | Services ▾ | Projects | Resources ▾ | Media ▾ | Contact     [Request a Quote]
 ```
 
-- Each link goes to the matching card on `services.php` via a `#svc-{slug}` anchor.
-- Active-state highlights when on `services.php` **or** `consultancy.php`.
-- Keep the existing Content dropdown, Contact link and "Request a Quote" button untouched.
+- **Services ▾** — slimmed down to only the high-level groups (not all 7 detailed services):
+  - All Services → `services.php`
+  - Consultancy → `services.php#svc-consultancy`
+  - Technology → `services.php#svc-it`
+  - Research & M&E → `services.php#svc-research`
+  - Agriculture → `services.php#svc-agriculture`
+  - Training → `services.php#svc-training`
+  - The remaining services (Strategy, Social) stay visible on the `services.php` hub but are dropped from the navbar dropdown to reduce height.
+- **Resources ▾** (new):
+  - Strategic Plan → `resources.php?type=strategic-plan` (or dedicated `strategic-plan.php`)
+  - Annual Reports → `resources.php?type=annual-report`
+  - Publications → `resources.php?type=publication`
+  - Policies → `resources.php?type=policy`
+  - Downloads → `resources.php`
+  - FAQ → `faq.php`
+- **Media ▾** (renamed from "Content"):
+  - News → `news.php`
+  - Events → `events.php`
+  - Announcements → `announcements.php`
+  - Campaigns → `campaigns.php` (renamed from Promotions)
+  - Content Hub → `content.php`
+- Active state covers all child pages of each dropdown.
+- "Request a Quote" CTA stays.
 
-## 3. New page: `services.php`
+## 2. Slimmer dropdown CSS (`assets/css/style.css`)
 
-Corporate/professional layout, mirroring the existing site theme (`section`, `card-ngo`, `badge-pill-ngo`, `icon-tile`, etc.):
+Add a navbar-scoped block:
 
-- **Hero / page header** via `partials/page-header.php` — title "Our Services", subtitle "End-to-end consultancy and implementation across the sectors that move Tanzania forward."
-- **Intro band** — short positioning statement + trust signals (NeST registered, sector coverage, multi-disciplinary teams).
-- **Services grid** — responsive 3-column card grid. Each card:
-  - icon tile, sector badge, title, 2-line summary
-  - **"Learn More"** button → opens a Bootstrap modal unique to that service
-  - Secondary **"Request a Quote"** link → `contact.php?service={slug}`
-  - Card wrapper has `id="svc-{slug}"` for anchor scroll from the navbar.
-- **One modal per service** (looped from the catalogue) with:
-  - Header: icon + title + sector pill
-  - Body: Overview → What we deliver (bulleted) → Typical engagements → Who it's for → Outcomes/KPIs → Why SustainLife
-  - Footer: "Request a Quote" primary button + (for Consultancy) a "View full Consultancy page" link → `consultancy.php`
-  - `modal-lg`, `modal-dialog-scrollable`, `modal-dialog-centered` for a polished corporate feel.
-- **"Why partner with us" strip** — 4 tiles (Sector depth, Senior-led teams, Evidence-driven, Outcome-focused).
-- **CTA strip** identical pattern to `consultancy.php` for visual consistency.
-- Smooth-scroll script so `#svc-{slug}` anchors land cleanly under the sticky navbar (offset for the navbar height).
+```css
+.navbar-ngo .dropdown-menu {
+  min-width: 240px;
+  padding: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px -10px rgba(20,50,70,.18);
+}
+.navbar-ngo .dropdown-item {
+  padding: 8px 16px;
+  font-size: .92rem;
+  font-weight: 500;
+}
+.navbar-ngo .dropdown-item i { font-size: .9rem; opacity: .8; }
+.navbar-ngo .dropdown-item:hover { background: var(--blue-soft); color: var(--primary); }
+.navbar-ngo .dropdown-divider { margin: 4px 0; }
+@media (min-width: 992px) {
+  .navbar-ngo .dropdown-menu { max-height: 70vh; overflow-y: auto; }
+}
+```
 
-## 4. Tighten `consultancy.php`
+Also: bump logo to `height: 56px` and tighten `.navbar-nav` gap so the empty horizontal whitespace shrinks.
 
-- Add a "Back to all services" breadcrumb link near the top → `services.php`.
-- Keep the existing 5-practice deep dive — `consultancy.php` becomes the **deep page**, while `services.php` is the **hub**.
-- No content rewrite needed beyond that link.
+## 3. Mobile: accordion-style dropdowns
 
-## 5. Site-wide audit (fix what this work uncovers)
+Add a small JS tweak in `assets/js/main.js` so on `<992px` the dropdowns expand inline (click toggles `.show` on the submenu instead of opening as floating menu) — keeps spacing touch-friendly.
 
-Read each of these and patch issues found; report findings in the final summary:
+## 4. Rename Promotions → Campaigns (NGO tone)
 
-- `partials/navbar.php` — confirm no duplicate `Consultancy` entries remain; ensure `is_active()` covers both `services.php` and `consultancy.php`.
-- `partials/footer.php` — if it lists "Consultancy" in a Quick Links column, replace with "Services" → `services.php`.
-- `index.php` — if the homepage features a "Services" / "What we do" section, point its "View all" / card links at `services.php` and the new anchors instead of `consultancy.php` directly.
-- `contact.php` — if it has a "Service of interest" select, populate it from `includes/services.php` so options stay in sync; pre-select when `?service={slug}` is in the URL.
-- `includes/db.php` — keep the silent-fail pattern but add an admin-only debug hint (only when `?debug=1` and an authenticated admin session) so DB outages are diagnosable without leaking errors to public visitors.
-- `partials/head.php` — verify Bootstrap 5 JS bundle (with Popper) is loaded so the new modals/dropdowns work; add it if only the CSS is present.
-- `assets/css/style.css` — add small additions if needed: anchor scroll offset (`scroll-margin-top`) for `.service-card`, hover lift, modal header accent.
-- Quick scan of `projects.php`, `news.php`, `events.php`, `promotions.php`, `announcements.php`, `content.php`, `faq.php`, `about.php`, `impact.php` for: broken `url()` paths, missing `e()` escaping on user-influenced output, dropped `include` paths, and any lingering links to a removed Consultancy top-level nav item.
-- `admin/` pages — confirm none link to a "Consultancy" top-level nav; they shouldn't, but verify.
+- Add `campaigns.php` that mirrors `promotions.php` (queries the same `promotions` table for now to avoid a schema rename).
+- Update all link references (`navbar`, `footer`, `index`, admin sidebar) from "Promotions" → "Campaigns".
+- Keep `promotions.php` as a thin redirect to `campaigns.php` so old links don't break.
+- Admin label: "Manage Campaigns" (file stays `admin/manage-promotions.php` internally; topbar/sidebar text changes).
 
-Anything broken gets fixed in the same change set; anything risky-but-not-broken is listed in the final summary so you can decide.
+## 5. New Resources area (admin-uploadable documents)
 
-## 6. Files changed / created
+### 5a. Schema (additive — `database/schema.sql`)
+
+```sql
+CREATE TABLE `resources` (
+  `id`           INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `title`        VARCHAR(200) NOT NULL,
+  `slug`         VARCHAR(220) NOT NULL UNIQUE,
+  `type`         ENUM('strategic-plan','annual-report','publication','policy','download') NOT NULL,
+  `summary`      VARCHAR(500) DEFAULT NULL,
+  `body`         MEDIUMTEXT   DEFAULT NULL,
+  `years_covered` VARCHAR(40) DEFAULT NULL,   -- e.g. "2025–2030"
+  `file_path`    VARCHAR(255) NOT NULL,        -- relative path under /assets/docs/
+  `file_size`    INT UNSIGNED DEFAULT NULL,    -- bytes
+  `cover_image`  VARCHAR(255) DEFAULT NULL,
+  `status`       ENUM('draft','published') NOT NULL DEFAULT 'draft',
+  `published_at` DATETIME DEFAULT NULL,
+  `created_at`   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY `idx_resources_type_status` (`type`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+(Document this as an additive migration — admin sees friendly notice if table missing.)
+
+### 5b. Public pages
+
+- **`resources.php`** — Hub page listing all published resources, filterable by `?type=` (chips: All, Strategic Plan, Annual Reports, Publications, Policies, Downloads). Each card shows cover, title, year, file size, "View" + "Download PDF" buttons.
+- **`resource.php?slug=...`** — Detail page with summary, embedded PDF viewer:
+  ```html
+  <iframe src="<?= asset('docs/'.$res['file_path']) ?>"
+          width="100%" height="800" style="border:0;border-radius:10px;"></iframe>
+  ```
+  Plus prominent `Download PDF` button and metadata block (years covered, file size, published date).
+- **`strategic-plan.php`** — convenience route that loads the latest published `strategic-plan` resource (or lists all if multiple) — so the navbar link is direct.
+
+### 5c. Admin
+
+- New `admin/manage-resources.php` — list + create/edit/delete with file upload (PDF, max ~20 MB) saved to `assets/docs/` with sanitised filename, plus cover image upload to `assets/uploads/`.
+- Sidebar entry: "Resources" with sub-actions per type, or a single page with a `type` filter.
+- Use existing `crud.php` patterns; add upload helper that validates MIME `application/pdf` and stores `file_size` automatically.
+
+### 5d. Projects already admin-managed
+
+Projects table + admin already exist; confirm `admin/manage-projects.php` exists or create it (same CRUD pattern as news/events) so admin can fully upload projects with image, sector, body. Public `projects.php` reads from DB and falls back to placeholder cards if empty.
+
+## 6. Footer + cross-link updates
+
+- `partials/footer.php` Explore column: Home, About, Services, Projects, Resources, Media, Contact (drop "Content").
+- `index.php`: any homepage tile linking to "Promotions" becomes "Campaigns"; add a small "Resources / Strategic Plan" highlight card linking to `strategic-plan.php`.
+- `contact.php` service select stays driven by `includes/services.php`.
+
+## 7. CTA tweak
+
+Keep the yellow "Request a Quote" as primary, but on `services.php` and `resources.php` add a secondary **"Partner With Us"** (`contact.php?type=partner`) — already wired. No "Donate" button until you confirm donations are in scope.
+
+## 8. Files touched
 
 **New**
-- `includes/services.php` — services catalogue
-- `services.php` — services hub page with modals
+- `resources.php`, `resource.php`, `strategic-plan.php`, `campaigns.php`
+- `admin/manage-resources.php`
+- `assets/docs/.gitkeep` (folder for uploaded PDFs)
 
 **Edited**
-- `partials/navbar.php` — richer Services dropdown
-- `consultancy.php` — back-to-services link
-- `partials/footer.php` — Services link (if applicable)
-- `index.php` — homepage service links → `services.php` (if applicable)
-- `contact.php` — dynamic service select + `?service=` preselect (if applicable)
-- `partials/head.php` — ensure Bootstrap JS bundle (if missing)
-- `assets/css/style.css` — small polish additions
+- `partials/navbar.php` — new structure, slimmer Services dropdown, Resources + Media dropdowns
+- `partials/footer.php` — Explore column updated
+- `assets/css/style.css` — slim dropdown styles, larger logo, tighter nav spacing
+- `assets/js/main.js` — mobile dropdown accordion tweak
+- `index.php` — Promotions→Campaigns; add Strategic Plan highlight
+- `promotions.php` — redirect to `campaigns.php`
+- `admin/partials/sidebar.php` + `admin/partials/topbar.php` — Promotions→Campaigns label, add Resources entry
+- `database/schema.sql` — `resources` table appended
+- `includes/crud.php` — add `save_uploaded_pdf()` helper if not already present
 
-No DB schema changes. No changes under `medicare/` (legacy theme, untouched).
+No changes under `medicare/`. No breaking changes to existing tables.
 
 ---
 
-## 7. Hosting on Cloudflare's free plan — important caveat first
+## 9. Quick answers to the cosmetic points
 
-**Cloudflare Pages does not execute PHP.** It serves static files plus JavaScript/TypeScript Functions (Workers). Your project is server-rendered PHP (`<?php include ... ?>`, PDO/MySQL in `includes/db.php`, an `admin/` area with sessions). Cloudflare's free tier cannot run it as-is. You have three realistic options:
+- **Logo size**: `.navbar-ngo .navbar-brand img { height: 56px; width: 56px; }` (was 46px) and reduce surrounding padding.
+- **Empty whitespace** between brand and menu: drop `ms-auto` to `ms-lg-4` and add `gap-lg-1` on `.navbar-nav` so items breathe without floating right.
+- **Mobile**: hamburger already exists; the JS accordion tweak (step 3) makes nested dropdowns usable on touch.
 
-### Option A — Recommended: free PHP host + Cloudflare in front (free CDN, SSL, DNS)
-1. Deploy the PHP app to a free PHP host that supports MySQL, e.g. **InfinityFree**, **000webhost**, or **AwardSpace** (all free, PHP 8 + MySQL).
-2. Import `database/schema.sql` via their phpMyAdmin; update `includes/config.php` `DB_*` constants with the host's credentials.
-3. Point your domain's nameservers at **Cloudflare (free plan)** — you get free SSL, CDN caching, DDoS protection and analytics in front of the PHP host.
-4. In Cloudflare → SSL/TLS set mode to **Full** (or **Flexible** if the origin has no cert), enable **Always Use HTTPS**, and add a Page Rule to cache `/assets/*` aggressively.
-
-### Option B — Convert to fully static (works directly on Cloudflare Pages free)
-Only viable if you drop the admin area and DB. Render each page once with PHP locally, save the HTML, and push the resulting `index.html`, `about.html`, `services.html`, etc. plus `assets/` to a GitHub repo connected to Cloudflare Pages. Forms (contact, etc.) would need to use a third-party endpoint like Formspree. Best for a brochure-only version of the site.
-
-### Option C — Rewrite the dynamic parts as Workers/Pages Functions
-Cloudflare Pages Functions run TypeScript/JS, not PHP. You'd port `admin/`, auth, and DB calls to Workers + a database like **Cloudflare D1** (free tier) or **Neon Postgres** (free tier). This is a real rewrite, not a deploy step — only worth it if you want to fully commit to Cloudflare.
-
-After approval I'll implement sections 1–6 and then walk you through Option A step-by-step (it's the fastest path to "live on a free plan with Cloudflare in front").
+After approval I'll implement steps 1–8 in one pass.
