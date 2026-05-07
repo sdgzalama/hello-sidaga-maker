@@ -25,8 +25,9 @@ if (!defined('SITE_NAME')) {
           <li><a href="<?= url('about.php') ?>">About</a></li>
           <li><a href="<?= url('services.php') ?>">Services</a></li>
           <li><a href="<?= url('projects.php') ?>">Projects</a></li>
-          <li><a href="<?= url('impact.php') ?>">Impact</a></li>
-          <li><a href="<?= url('content.php') ?>">Content</a></li>
+          <li><a href="<?= url('resources.php') ?>">Resources</a></li>
+          <li><a href="<?= url('news.php') ?>">News</a></li>
+          <li><a href="<?= url('contact.php') ?>">Contact</a></li>
         </ul>
       </div>
       <div class="col-6 col-lg-3">

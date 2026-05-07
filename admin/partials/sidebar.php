@@ -27,7 +27,13 @@ function admin_active($p) { return basename($_SERVER['PHP_SELF']) === $p ? 'acti
     <i class="bi bi-megaphone"></i> Announcements
   </a>
   <a class="nav-link <?= admin_active('manage-promotions.php') ?>" href="<?= url('admin/manage-promotions.php') ?>">
-    <i class="bi bi-gift"></i> Promotions
+    <i class="bi bi-flag"></i> Campaigns
+  </a>
+  <a class="nav-link <?= admin_active('manage-resources.php') ?>" href="<?= url('admin/manage-resources.php') ?>">
+    <i class="bi bi-folder2-open"></i> Resources
+  </a>
+  <a class="nav-link <?= admin_active('manage-projects.php') ?>" href="<?= url('admin/manage-projects.php') ?>">
+    <i class="bi bi-kanban"></i> Projects
   </a>
 
   <div class="nav-section">Account</div>

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: manage-promotions.php'); exit;
 }
 
-$page_title = 'Manage Promotions';
+$page_title = 'Manage Campaigns';
 include __DIR__ . '/partials/head.php';
 $rows = fetch_all($table);
 ?>
@@ -36,10 +36,10 @@ $rows = fetch_all($table);
 
 <div class="panel">
   <div class="panel-head">
-    <h3>Promotions</h3>
+    <h3>Campaigns</h3>
     <button class="btn btn-primary-ngo" data-bs-toggle="modal" data-bs-target="#promoModal"
-      onclick="document.getElementById('promoForm').reset();document.getElementById('promoModalTitle').textContent='Add Promotion';">
-      <i class="bi bi-plus-lg"></i> Add Promotion
+      onclick="document.getElementById('promoForm').reset();document.getElementById('promoModalTitle').textContent='Add Campaign';">
+      <i class="bi bi-plus-lg"></i> Add Campaign
     </button>
   </div>
   <div class="table-responsive">
@@ -47,7 +47,7 @@ $rows = fetch_all($table);
       <thead><tr><th>#</th><th>Title</th><th>Start</th><th>End</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
       <tbody>
       <?php if (!$rows): ?>
-        <tr><td colspan="6" class="text-center text-muted py-4">No promotions yet.</td></tr>
+        <tr><td colspan="6" class="text-center text-muted py-4">No campaigns yet.</td></tr>
       <?php endif; foreach ($rows as $i => $r): ?>
         <tr>
           <td><?= $i+1 ?></td>
@@ -80,7 +80,7 @@ $rows = fetch_all($table);
   <div class="modal-dialog modal-lg">
     <form id="promoForm" class="modal-content" method="post" enctype="multipart/form-data">
       <div class="modal-header">
-        <h5 class="modal-title" id="promoModalTitle">Add Promotion</h5>
+        <h5 class="modal-title" id="promoModalTitle">Add Campaign</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
