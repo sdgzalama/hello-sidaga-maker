@@ -221,3 +221,26 @@ INSERT INTO `services` (`category_id`,`title`,`slug`,`description`,`sort_order`)
 (4,'Research, Survey & Development Consultancy','research-survey-development','Baselines, evaluations, market research and applied R&D for development programmes.',1),
 
 (5,'Crop Cultivation Services','crop-cultivation','Climate-smart cultivation, agronomy advisory and demonstration plots.',1);
+
+-- ---------------------------------------------------------------------
+-- Resources (Strategic Plan, Annual Reports, Publications, Policies, Downloads)
+-- ---------------------------------------------------------------------
+DROP TABLE IF EXISTS `resources`;
+CREATE TABLE `resources` (
+  `id`            INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title`         VARCHAR(200) NOT NULL,
+  `slug`          VARCHAR(220) NOT NULL,
+  `type`          ENUM('strategic-plan','annual-report','publication','policy','download') NOT NULL DEFAULT 'download',
+  `summary`       VARCHAR(500) DEFAULT NULL,
+  `body`          MEDIUMTEXT   DEFAULT NULL,
+  `years_covered` VARCHAR(40)  DEFAULT NULL,
+  `file_path`     VARCHAR(255) NOT NULL,
+  `file_size`     INT UNSIGNED DEFAULT NULL,
+  `cover_image`   VARCHAR(255) DEFAULT NULL,
+  `status`        ENUM('draft','published') NOT NULL DEFAULT 'draft',
+  `published_at`  DATETIME     DEFAULT NULL,
+  `created_at`    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_resources_slug` (`slug`),
+  KEY `idx_resources_type_status` (`type`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
