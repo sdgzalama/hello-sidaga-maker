@@ -4,6 +4,17 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// PHP 7 polyfills for PHP 8 string helpers
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($h, $n) { return $n === '' || strpos($h, $n) === 0; }
+}
+if (!function_exists('str_ends_with')) {
+    function str_ends_with($h, $n) { return $n === '' || substr($h, -strlen($n)) === $n; }
+}
+if (!function_exists('str_contains')) {
+    function str_contains($h, $n) { return $n === '' || strpos($h, $n) !== false; }
+}
+
 define('SITE_NAME', 'SustainLife Foundation');
 define('SITE_SHORT', 'SLF');
 define('SITE_TAGLINE', 'Healthy, Safe & Sustainable Communities');
