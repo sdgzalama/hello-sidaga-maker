@@ -58,6 +58,17 @@ function slf_fmt_filesize($bytes) {
     return number_format($b, $b < 10 && $i > 0 ? 1 : 0) . ' ' . $units[$i];
 }
 
+function slf_related_resources($type, $excludeId, $limit = 4) {
+    if (!slf_resources_table_exists()) return [];
+    $pdo = db();
+    try {
+        $st = $pdo->prepare("SELECT id, title, slug, type, years_covered FROM `resources`
+            WHERE status='published' AND type = ? AND id <> ? ORDER BY COALESCE(published_at, created_at) DESC LIMIT " . (int)$limit);
+        $st->execute([$type, (int)$excludeId]);
+        return $st->fetchAll();
+    } catch (Exception $e) { return []; }
+}
+
 function slf_resource_file_url($res) {
     $p = $res['file_path'] ?? '';
     if (!$p) return '';

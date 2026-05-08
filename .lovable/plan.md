@@ -1,161 +1,125 @@
-## Goal
 
-Tighten the navbar (smaller, slimmer dropdowns), reorganise navigation into a clearer NGO-appropriate hierarchy (Home / About / Services / Projects / Resources / Media / Contact), drop the commercial word "Promotions" in favour of "Campaigns", and add a real **Resources** area where admin uploads the Strategic Plan, Annual Reports, Policies and other downloads — viewable inline as PDFs and downloadable. Projects continue to be admin-managed; Strategic Plan documents become a new admin-managed content type.
+## Goals
+
+1. Fix the "sometimes nothing is clickable" bug in Chrome (caused by the navbar dropdown JS).
+2. Redesign `resource.php` so it looks professional and corporate (not a raw browser PDF download prompt).
+3. Implement a real **Projects** module: admin upload/edit/delete + the public `projects.php` reads from the database (with proper detail view).
+4. Audit the rest of the system for related issues and fix them.
 
 ---
 
-## 1. Navbar restructure (`partials/navbar.php`)
+## 1. Fix the Chrome "unclickable" bug
 
-New top-level menu, in this order:
+**Root cause** — `assets/js/main.js` attaches a click handler to **every** `.navbar-ngo .dropdown-toggle`. On desktop it just `return`s, but Bootstrap also binds its own `data-bs-toggle="dropdown"` handler. Two effects in Chrome:
+
+- The accordion code calls `menu.classList.toggle('show')` directly without using Bootstrap's Dropdown API, so the open menu has no outside-click listener — it stays open and overlays the page, intercepting clicks (= "nothing is clickable").
+- On window resize from mobile → desktop the `.show` class is left dangling.
+
+**Fix in `assets/js/main.js`**:
+
+- Use Bootstrap's `bootstrap.Dropdown` API (`getOrCreateInstance(toggle).hide()/show()`) instead of toggling classes directly.
+- Only attach the listener when `mq.matches` is true; remove on resize.
+- Add a global `click` listener that closes any open `.dropdown-menu.show` when the click is outside `.navbar-ngo`.
+- On `resize` past the 992px breakpoint, force-close all open menus and remove `.show`.
+
+Also in `assets/css/style.css` add `.navbar-ngo .dropdown-menu { z-index: 1050; }` and ensure no oversized invisible overlay (`.modal-backdrop` from a stuck modal) — add a small safety reset in JS that removes orphaned `.modal-backdrop` if no `.modal.show` exists.
+
+## 2. Redesign `resource.php` (professional document viewer)
+
+Replace the current 2-column layout with a corporate-style document viewer:
 
 ```text
-Home | About | Services ▾ | Projects | Resources ▾ | Media ▾ | Contact     [Request a Quote]
+┌───────────────────────────────────────────────────────────────┐
+│ Hero band (blue gradient)                                     │
+│   [type badge] Title                                          │
+│   Years • Published date • File size                          │
+│   [ Download PDF ]  [ Open in new tab ]  [ Share ▾ ]          │
+└───────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────┬─────────────────────────────┐
+│ Embedded PDF viewer             │ About this document         │
+│ (PDF.js viewer with toolbar OR  │ Summary + body              │
+│  <object>/<iframe> fallback)    │ Document info card          │
+│ Height ~ 80vh, sticky border    │ Related resources list      │
+└─────────────────────────────────┴─────────────────────────────┘
 ```
 
-- **Services ▾** — slimmed down to only the high-level groups (not all 7 detailed services):
-  - All Services → `services.php`
-  - Consultancy → `services.php#svc-consultancy`
-  - Technology → `services.php#svc-it`
-  - Research & M&E → `services.php#svc-research`
-  - Agriculture → `services.php#svc-agriculture`
-  - Training → `services.php#svc-training`
-  - The remaining services (Strategy, Social) stay visible on the `services.php` hub but are dropped from the navbar dropdown to reduce height.
-- **Resources ▾** (new):
-  - Strategic Plan → `resources.php?type=strategic-plan` (or dedicated `strategic-plan.php`)
-  - Annual Reports → `resources.php?type=annual-report`
-  - Publications → `resources.php?type=publication`
-  - Policies → `resources.php?type=policy`
-  - Downloads → `resources.php`
-  - FAQ → `faq.php`
-- **Media ▾** (renamed from "Content"):
-  - News → `news.php`
-  - Events → `events.php`
-  - Announcements → `announcements.php`
-  - Campaigns → `campaigns.php` (renamed from Promotions)
-  - Content Hub → `content.php`
-- Active state covers all child pages of each dropdown.
-- "Request a Quote" CTA stays.
+Concrete changes in `resource.php`:
 
-## 2. Slimmer dropdown CSS (`assets/css/style.css`)
+- Add a hero header section (uses `--blue` / `--blue-dark` gradient, white text, breadcrumb "Resources › {Type} › {Title}").
+- Use `<object data="..." type="application/pdf">` with `<iframe>` fallback so Chrome shows its built-in viewer with toolbar (download, print, page nav). Wrap in a card with `box-shadow`, `border-radius`, `min-height: 80vh`.
+- Right column: "Document Information" card (type, years covered, published date, file size, language, status), then "Need this in another format?" CTA → contact, then "Related documents" list (other resources of same `type`, exclude current).
+- Add a Web Share / copy-link button (`navigator.share` with clipboard fallback).
+- Polished "not found" state (currently a tiny alert) → centered card with icon and "Browse all resources" button.
 
-Add a navbar-scoped block:
+Add a `slf_related_resources($type, $excludeId, $limit)` helper to `includes/resources.php`.
 
-```css
-.navbar-ngo .dropdown-menu {
-  min-width: 240px;
-  padding: 6px 0;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  box-shadow: 0 8px 24px -10px rgba(20,50,70,.18);
-}
-.navbar-ngo .dropdown-item {
-  padding: 8px 16px;
-  font-size: .92rem;
-  font-weight: 500;
-}
-.navbar-ngo .dropdown-item i { font-size: .9rem; opacity: .8; }
-.navbar-ngo .dropdown-item:hover { background: var(--blue-soft); color: var(--primary); }
-.navbar-ngo .dropdown-divider { margin: 4px 0; }
-@media (min-width: 992px) {
-  .navbar-ngo .dropdown-menu { max-height: 70vh; overflow-y: auto; }
-}
-```
+CSS additions in `assets/css/style.css`:
+- `.doc-hero { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); color:#fff; padding: 56px 0 40px; }`
+- `.doc-viewer { border-radius: 14px; overflow: hidden; box-shadow: 0 12px 40px -16px rgba(20,50,70,.25); border: 1px solid var(--border); background:#f7f7f7; }`
+- `.doc-meta-card`, `.doc-meta-list li { display:flex; justify-content:space-between; padding: 10px 0; border-bottom: 1px dashed var(--border); }`
+- Mobile: PDF viewer collapses below the info card with a "View / Download" prominent button.
 
-Also: bump logo to `height: 56px` and tighten `.navbar-nav` gap so the empty horizontal whitespace shrinks.
+## 3. Projects — full backend + frontend
 
-## 3. Mobile: accordion-style dropdowns
+### 3a. Admin: new `admin/manage-projects.php`
 
-Add a small JS tweak in `assets/js/main.js` so on `<992px` the dropdowns expand inline (click toggles `.show` on the submenu instead of opening as floating menu) — keeps spacing touch-friendly.
+CRUD identical pattern to `manage-news.php`. Fields: `title`, `slug` (auto), `sector` (select: Health, Agriculture, Environment, Community, Education, Other), `summary`, `body` (textarea), `image` (upload), `status` (draft/active/completed). Uses existing `projects` table from `database/schema.sql` and existing `save_row` / `handle_upload` / `delete_row` helpers.
 
-## 4. Rename Promotions → Campaigns (NGO tone)
+Sidebar entry already exists (`manage-projects.php`); confirm link works.
 
-- Add `campaigns.php` that mirrors `promotions.php` (queries the same `promotions` table for now to avoid a schema rename).
-- Update all link references (`navbar`, `footer`, `index`, admin sidebar) from "Promotions" → "Campaigns".
-- Keep `promotions.php` as a thin redirect to `campaigns.php` so old links don't break.
-- Admin label: "Manage Campaigns" (file stays `admin/manage-promotions.php` internally; topbar/sidebar text changes).
+### 3b. Frontend: rewrite `projects.php`
 
-## 5. New Resources area (admin-uploadable documents)
+- Read from DB (already done) but only `status IN ('active','completed')`.
+- Add **sector filter chips** that actually filter (`?sector=Health`).
+- Replace inline modal flow with a real **detail page** `project.php?slug=...` (modals are flaky on mobile and bad for SEO). Card "Read more" links to `project.php?slug=`.
+- If a sector image is missing show a branded placeholder (icon + gradient), not a stock Unsplash URL.
 
-### 5a. Schema (additive — `database/schema.sql`)
+### 3c. New `project.php` (public detail page)
 
-```sql
-CREATE TABLE `resources` (
-  `id`           INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  `title`        VARCHAR(200) NOT NULL,
-  `slug`         VARCHAR(220) NOT NULL UNIQUE,
-  `type`         ENUM('strategic-plan','annual-report','publication','policy','download') NOT NULL,
-  `summary`      VARCHAR(500) DEFAULT NULL,
-  `body`         MEDIUMTEXT   DEFAULT NULL,
-  `years_covered` VARCHAR(40) DEFAULT NULL,   -- e.g. "2025–2030"
-  `file_path`    VARCHAR(255) NOT NULL,        -- relative path under /assets/docs/
-  `file_size`    INT UNSIGNED DEFAULT NULL,    -- bytes
-  `cover_image`  VARCHAR(255) DEFAULT NULL,
-  `status`       ENUM('draft','published') NOT NULL DEFAULT 'draft',
-  `published_at` DATETIME DEFAULT NULL,
-  `created_at`   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  KEY `idx_resources_type_status` (`type`,`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
+- Hero with project image + sector badge + title + summary.
+- Body (rich text, `nl2br`).
+- Side card: sector, status, "Partner With Us" CTA.
+- Related projects (same sector, exclude current, max 3).
 
-(Document this as an additive migration — admin sees friendly notice if table missing.)
+### 3d. Homepage tile
 
-### 5b. Public pages
+`index.php` "Recent Projects" section already pulls from DB if available — confirm the link points to `project.php?slug=` instead of `projects.php#...`. Update if needed.
 
-- **`resources.php`** — Hub page listing all published resources, filterable by `?type=` (chips: All, Strategic Plan, Annual Reports, Publications, Policies, Downloads). Each card shows cover, title, year, file size, "View" + "Download PDF" buttons.
-- **`resource.php?slug=...`** — Detail page with summary, embedded PDF viewer:
-  ```html
-  <iframe src="<?= asset('docs/'.$res['file_path']) ?>"
-          width="100%" height="800" style="border:0;border-radius:10px;"></iframe>
-  ```
-  Plus prominent `Download PDF` button and metadata block (years covered, file size, published date).
-- **`strategic-plan.php`** — convenience route that loads the latest published `strategic-plan` resource (or lists all if multiple) — so the navbar link is direct.
+### 3e. Schema note
 
-### 5c. Admin
+`projects` table already exists in `database/schema.sql`. No migration required; admin page will show a friendly "table missing" notice if not imported, mirroring the resources page pattern.
 
-- New `admin/manage-resources.php` — list + create/edit/delete with file upload (PDF, max ~20 MB) saved to `assets/docs/` with sanitised filename, plus cover image upload to `assets/uploads/`.
-- Sidebar entry: "Resources" with sub-actions per type, or a single page with a `type` filter.
-- Use existing `crud.php` patterns; add upload helper that validates MIME `application/pdf` and stores `file_size` automatically.
+## 4. System audit fixes
 
-### 5d. Projects already admin-managed
+While in here, fix these small issues found while reading the codebase:
 
-Projects table + admin already exist; confirm `admin/manage-projects.php` exists or create it (same CRUD pattern as news/events) so admin can fully upload projects with image, sector, body. Public `projects.php` reads from DB and falls back to placeholder cards if empty.
+- `partials/navbar.php`: the "Request a Quote" CTA is inside the `<ul class="navbar-nav">` as an `<li>` containing a `<a class="btn">` — that's structurally fine, but on mobile it sits inside the collapsing menu without spacing. Add `w-100 w-lg-auto text-center` to the button so it stretches on mobile.
+- `assets/js/admin.js`: ensure no leftover open-modal-blocking-clicks (audit for orphan backdrop) — same fix as point 1.
+- `resources.php`: the "All" filter chip and category chips are `<a>` styled with `badge-pill-ngo`; add `aria-current="page"` on the active one and underline-on-hover removal (`text-decoration:none` already applied).
+- `projects.php`: remove the hard-coded Unsplash demo array — replace with an empty-state card ("No projects published yet — admin can add some via the dashboard") so production never shows fake data.
+- `strategic-plan.php`: when redirecting to `resource.php`, also pass `from=strategic-plan` so the new hero breadcrumb can show "Strategic Plan" correctly.
 
-## 6. Footer + cross-link updates
-
-- `partials/footer.php` Explore column: Home, About, Services, Projects, Resources, Media, Contact (drop "Content").
-- `index.php`: any homepage tile linking to "Promotions" becomes "Campaigns"; add a small "Resources / Strategic Plan" highlight card linking to `strategic-plan.php`.
-- `contact.php` service select stays driven by `includes/services.php`.
-
-## 7. CTA tweak
-
-Keep the yellow "Request a Quote" as primary, but on `services.php` and `resources.php` add a secondary **"Partner With Us"** (`contact.php?type=partner`) — already wired. No "Donate" button until you confirm donations are in scope.
-
-## 8. Files touched
+## 5. Files touched
 
 **New**
-- `resources.php`, `resource.php`, `strategic-plan.php`, `campaigns.php`
-- `admin/manage-resources.php`
-- `assets/docs/.gitkeep` (folder for uploaded PDFs)
+- `admin/manage-projects.php`
+- `project.php`
 
 **Edited**
-- `partials/navbar.php` — new structure, slimmer Services dropdown, Resources + Media dropdowns
-- `partials/footer.php` — Explore column updated
-- `assets/css/style.css` — slim dropdown styles, larger logo, tighter nav spacing
-- `assets/js/main.js` — mobile dropdown accordion tweak
-- `index.php` — Promotions→Campaigns; add Strategic Plan highlight
-- `promotions.php` — redirect to `campaigns.php`
-- `admin/partials/sidebar.php` + `admin/partials/topbar.php` — Promotions→Campaigns label, add Resources entry
-- `database/schema.sql` — `resources` table appended
-- `includes/crud.php` — add `save_uploaded_pdf()` helper if not already present
+- `assets/js/main.js` (Chrome dropdown bug fix + outside-click + resize cleanup + orphan backdrop cleanup)
+- `assets/css/style.css` (document viewer styles, dropdown z-index, mobile CTA)
+- `resource.php` (full redesign — hero, two-column, PDF object, related)
+- `includes/resources.php` (add `slf_related_resources()` helper)
+- `projects.php` (sector filter chips, link to detail page, empty-state, no fake data)
+- `index.php` (project tiles → `project.php?slug=`)
+- `partials/navbar.php` (CTA mobile width, minor a11y)
+- `strategic-plan.php` (pass `from=strategic-plan` on redirect)
 
-No changes under `medicare/`. No breaking changes to existing tables.
+No DB schema changes. No changes under `medicare/`.
 
----
+## Notes
 
-## 9. Quick answers to the cosmetic points
+- The PDF viewer uses the browser's built-in PDF plugin via `<object type="application/pdf">`. This works reliably in Chrome, Edge, Firefox, and Safari desktop. On iOS Safari (which doesn't render inline PDFs in `<object>`), the fallback view shows a large "Open / Download PDF" card instead of a broken frame.
+- All changes are additive / cosmetic; existing data and routes keep working.
 
-- **Logo size**: `.navbar-ngo .navbar-brand img { height: 56px; width: 56px; }` (was 46px) and reduce surrounding padding.
-- **Empty whitespace** between brand and menu: drop `ms-auto` to `ms-lg-4` and add `gap-lg-1` on `.navbar-nav` so items breathe without floating right.
-- **Mobile**: hamburger already exists; the JS accordion tweak (step 3) makes nested dropdowns usable on touch.
-
-After approval I'll implement steps 1–8 in one pass.
+After approval I'll implement everything in one pass.

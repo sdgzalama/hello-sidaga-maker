@@ -87,7 +87,7 @@ $media_pages     = ['news.php','events.php','announcements.php','campaigns.php',
 
         <li class="nav-item"><a class="nav-link <?= is_active('contact.php') ?>" href="<?= url('contact.php') ?>">Contact</a></li>
         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-          <a class="btn btn-donate" href="<?= url('contact.php') ?>"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
+          <a class="btn btn-donate w-100 w-lg-auto" href="<?= url('contact.php') ?>"><i class="bi bi-chat-dots-fill me-1"></i> Request a Quote</a>
         </li>
       </ul>
     </div>
