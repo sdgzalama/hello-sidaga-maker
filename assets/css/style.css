@@ -37,6 +37,21 @@ body {
   line-height: 1.65;
 }
 
+/* Wider container on large screens — keeps comfortable line-length but uses big monitors */
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-xl, .container-xxl { max-width: 1320px; }
+}
+@media (min-width: 1440px) {
+  .container, .container-lg, .container-xl, .container-xxl {
+    max-width: 1400px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1600px) {
+  .container, .container-lg, .container-xl, .container-xxl { max-width: 1480px; }
+}
+
 h1,h2,h3,h4,h5 { font-weight: 800; letter-spacing: -.015em; color: var(--dark); }
 .section-title { font-size: 2.1rem; margin-bottom: .5rem; }
 .section-sub   { color: var(--muted); margin-bottom: 2rem; max-width: 720px; }
