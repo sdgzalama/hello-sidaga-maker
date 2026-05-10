@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'FAQ';
+$page_description = 'Answers to common questions about SustainLife Foundation — what we do, how we work, and how to partner with us.';
 $page_heading = 'Frequently Asked Questions';
 $page_crumb = 'FAQ';
 include __DIR__ . '/partials/head.php';
