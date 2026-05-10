@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'About Us';
+$page_description = 'Learn about SustainLife Foundation — a Tanzanian NGO advancing health, environment, sustainable agriculture and inclusive empowerment for marginalised communities.';
 $page_heading = 'About SustainLife Foundation';
 $page_crumb = 'About';
 include __DIR__ . '/partials/head.php';

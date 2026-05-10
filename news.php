@@ -2,6 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 $page_title = 'News';
+$page_description = 'Latest news and updates from SustainLife Foundation — announcements, program milestones and stories from the field in Tanzania.';
 $page_heading = 'Latest News';
 $page_crumb = 'News';
 include __DIR__ . '/partials/head.php';

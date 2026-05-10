@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
-$page_title = 'Home';
+$page_title = 'SustainLife Foundation — NGO in Tanzania';
+$page_description = 'SustainLife Foundation is a Tanzanian NGO working at the intersection of health, environment, sustainable agriculture and inclusive empowerment for women, youth and marginalised communities.';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
 

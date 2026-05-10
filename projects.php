@@ -2,6 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 $page_title = 'Projects';
+$page_description = 'Explore SustainLife Foundation projects in health, agriculture, environment, education and inclusion across Tanzania.';
 $page_heading = 'Our Projects & Initiatives';
 $page_crumb = 'Projects';
 include __DIR__ . '/partials/head.php';
