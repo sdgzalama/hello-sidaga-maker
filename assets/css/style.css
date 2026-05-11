@@ -438,8 +438,8 @@ a:hover { color: var(--primary-dark); }
 .consult-hero {
   position: relative;
   background:
-    linear-gradient(120deg, rgba(36,82,40,.88), rgba(122,90,58,.78)),
-    url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1800') center/cover;
+    linear-gradient(120deg, rgba(36,82,40,.85), rgba(122,90,58,.72)),
+    url('assets/images/consultancy-3.jpg') center/cover;
   color: #fff;
   padding: 6rem 0 5rem;
 }

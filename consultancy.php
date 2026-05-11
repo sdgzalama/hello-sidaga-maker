@@ -5,7 +5,7 @@ $page_description = 'Professional technical & advisory services across health, a
 $page_heading     = 'Technical & Consultancy Services';
 $page_crumb       = 'Consultancy';
 $body_class       = 'theme-consult';
-$page_og_image    = asset('images/hero-1.jpg');
+$page_og_image    = asset('images/consultancy-3.jpg');
 
 $page_jsonld = [
   '@context' => 'https://schema.org',
@@ -163,7 +163,7 @@ include __DIR__ . '/partials/navbar.php';
           </div>
         </div>
         <div class="col-lg-5">
-          <img src="assets/images/community-1.jpg" loading="lazy" class="img-fluid rounded-4 shadow-sm" alt="Community members participating in a SustainLife Foundation program in Tanzania">
+          <img src="assets/images/agriculture-3.jpg" loading="lazy" class="img-fluid rounded-4 shadow-sm" alt="SustainLife consultants advising farmers in a tomato greenhouse in Tanzania">
         </div>
       </div>
     </div>
