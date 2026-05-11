@@ -586,3 +586,57 @@ a:hover { color: var(--primary-dark); }
   .reinvest-band { padding: 1.75rem; }
   .consult-hero { padding: 4rem 0 3rem; }
 }
+
+/* ============ Reinvest glow band (homepage) ============ */
+.reinvest-glow-band {
+  position: relative;
+  overflow: hidden;
+  padding: 2.25rem 0;
+  color: #fff;
+  background:
+    radial-gradient(1200px 200px at 10% 0%, rgba(255,255,255,.10), transparent 60%),
+    linear-gradient(110deg, #0f5132 0%, #0e7c66 55%, #0f5132 100%);
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  box-shadow: inset 0 0 60px rgba(0,0,0,.18), 0 8px 30px -18px rgba(15,81,50,.6);
+}
+.reinvest-glow-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.18) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: reinvestSheen 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.reinvest-glow-band h2.shine-text {
+  color: #fff;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: .2px;
+  text-shadow: 0 0 18px rgba(255, 220, 130, .35);
+}
+.reinvest-glow-band .glow-dot {
+  width: 14px; height: 14px; border-radius: 999px;
+  background: #ffd24a;
+  box-shadow: 0 0 0 0 rgba(255,210,74,.7);
+  animation: reinvestPulse 1.8s ease-out infinite;
+  flex: 0 0 auto;
+}
+@keyframes reinvestPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,210,74,.7); }
+  70%  { box-shadow: 0 0 0 14px rgba(255,210,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,210,74,0); }
+}
+@keyframes reinvestSheen {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reinvest-glow-band::before { animation: none; display: none; }
+  .reinvest-glow-band .glow-dot { animation: none; box-shadow: 0 0 0 4px rgba(255,210,74,.35); }
+}
+@media (max-width: 768px) {
+  .reinvest-glow-band { padding: 1.5rem 0; text-align: left; }
+  .reinvest-glow-band h2.shine-text { font-size: 1.05rem; }
+}
