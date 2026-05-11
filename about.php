@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
-$page_title = 'About Us';
-$page_description = 'Learn about SustainLife Foundation, a Tanzanian NGO advancing health, environment, sustainable agriculture and inclusive empowerment for marginalised communities.';
+$page_title = 'About SustainLife Foundation - SustainLifeFoundation Tanzania NGO';
+$page_description = 'About SustainLife Foundation (SustainLifeFoundation) - A Tanzanian NGO advancing health, environment, sustainable agriculture and inclusive empowerment for marginalized communities.';
 $page_heading = 'About SustainLife Foundation';
 $page_crumb = 'About';
 include __DIR__ . '/partials/head.php';
@@ -17,10 +17,10 @@ include __DIR__ . '/partials/page-header.php';
       </div>
       <div class="col-lg-6">
         <span class="badge-pill-ngo">Our Story</span>
-        <h2 class="mt-3 section-title">A Tanzanian NGO empowering communities for lasting change</h2>
-        <p>SustainLife Foundation (SLF) is a non-governmental organization based in Tanzania, working at the intersection of community health, environmental sustainability, safety, sustainable agriculture and social inclusion.</p>
-        <p>We address the root causes of vulnerability and inequality through integrated, community-driven approaches , with particular emphasis on women, youth and marginalized populations.</p>
-        <p class="text-muted">SLF designs and implements evidence-based programs aligned with Tanzania&rsquo;s national development priorities and the Sustainable Development Goals (SDGs).</p>
+        <h2 class="mt-3 section-title">SustainLife Foundation - A Tanzanian NGO empowering communities for lasting change</h2>
+        <p>SustainLife Foundation (SustainLifeFoundation), also known as SLF, is a non-governmental organization based in Tanzania, working at the intersection of community health, environmental sustainability, safety, sustainable agriculture and social inclusion.</p>
+        <p>We are SustainLifeFoundation - addressing the root causes of vulnerability and inequality through integrated, community-driven approaches, with particular emphasis on women, youth and marginalized populations.</p>
+        <p class="text-muted">SustainLife Foundation designs and implements evidence-based programs aligned with Tanzania&rsquo;s national development priorities and the Sustainable Development Goals (SDGs).</p>
       </div>
     </div>
   </div>

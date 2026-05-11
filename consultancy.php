@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
-$page_title       = 'Consultancy Services in Tanzania';
-$page_description = 'Professional technical & advisory services across health, agriculture, environment and IT, every engagement reinvests into community programs run by SustainLife Foundation.';
-$page_heading     = 'Technical & Consultancy Services';
+$page_title       = 'SustainLife Foundation Consultancy - SustainLifeFoundation NGO Services';
+$page_description = 'SustainLife Foundation (SustainLifeFoundation) provides professional consultancy services in health, agriculture, environment and IT. Every engagement reinvests into community programs.';
+$page_heading     = 'SustainLife Foundation Consultancy';
 $page_crumb       = 'Consultancy';
 $body_class       = 'theme-consult';
 $page_og_image    = asset('images/consultancy-3.jpg');

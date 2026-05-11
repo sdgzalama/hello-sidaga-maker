@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
-$page_title = 'Our Impact';
-$page_description = 'See the measurable impact of SustainLife Foundation programs, communities reached, lives changed, and outcomes delivered across Tanzania.';
-$page_heading = 'Our Impact';
+$page_title = 'SustainLife Foundation Impact - SustainLifeFoundation NGO Programs';
+$page_description = 'See the measurable impact of SustainLife Foundation (SustainLifeFoundation) programs, communities reached, lives changed, and outcomes delivered across Tanzania.';
+$page_heading = 'SustainLifeFoundation Impact';
 $page_crumb = 'Impact';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';

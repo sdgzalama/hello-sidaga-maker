@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /includes/
-Disallow: /database/
+Sitemap: https://www.sustainlifefoundationtz.or.tz/sitemap.php
 
-Sitemap: https://sustainlifefoundation.org/sitemap.xml
+# SEO optimizations for sustainlifefoundation keyword

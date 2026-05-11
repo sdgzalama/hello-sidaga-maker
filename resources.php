@@ -6,8 +6,8 @@ $types = slf_resource_types();
 $active_type = $_GET['type'] ?? '';
 if ($active_type && !isset($types[$active_type])) $active_type = '';
 
-$page_title = $active_type ? $types[$active_type]['label'] . 's' : 'Resources';
-$page_description = 'Annual reports, publications, policies and downloads from SustainLife Foundation, evidence-based resources for partners and the public.';
+$page_title = $active_type ? $types[$active_type]['label'] . 's - SustainLifeFoundation' : 'SustainLife Foundation Resources - SustainLifeFoundation NGO';
+$page_description = 'SustainLife Foundation (SustainLifeFoundation) annual reports, publications, policies and downloads from our NGO programs in Tanzania.';
 $page_heading = $active_type ? $types[$active_type]['label'] . 's' : 'Resources &amp; Downloads';
 $page_crumb = 'Resources';
 $body_class = 'theme-consult';

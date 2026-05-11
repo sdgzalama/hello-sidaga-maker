@@ -18,10 +18,10 @@ if (!function_exists('str_contains')) {
 define('SITE_NAME', 'SustainLife Foundation');
 define('SITE_SHORT', 'SLF');
 define('SITE_TAGLINE', 'Healthy, Safe & Sustainable Communities');
-define('SITE_EMAIL', 'jacobdamson120@gmail.com');
+define('SITE_EMAIL', ' info@sustainlifefoundationtz.co');
 define('SITE_PHONE', '+255 656 891 338 / +255 788 312 626');
 define('SITE_ADDRESS', 'Tanzania');
-define('SITE_URL', 'https://sustainlifefoundation.org');
+define('SITE_URL', 'https://www.sustainlifefoundationtz.or.tz');
 
 // Base URL, change if you serve under a sub-path
 define('BASE_URL', '/');
@@ -35,7 +35,14 @@ function current_url() {
 }
 function canonical_url() {
     $uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
-    return rtrim(SITE_URL, '/') . $uri;
+
+    // remove .php
+    $uri = preg_replace('/\.php$/', '', $uri);
+
+    // normalize trailing slash
+    $uri = rtrim($uri, '/');
+
+    return rtrim(SITE_URL, '/') . ($uri ?: '/');
 }
 function clip($s, $n) { $s = trim(preg_replace('/\s+/', ' ', (string)$s)); return mb_strlen($s) > $n ? rtrim(mb_substr($s, 0, $n - 1)) . '…' : $s; }
 

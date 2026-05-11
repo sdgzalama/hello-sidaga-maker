@@ -19,11 +19,11 @@ $og_image   = (strpos($page_og_image, 'http') === 0) ? $page_og_image : (rtrim(S
 $org_jsonld = [
   '@context' => 'https://schema.org',
   '@type'    => 'NGO',
-  'name'     => SITE_NAME,
-  'alternateName' => SITE_SHORT,
+  'name'     => 'SustainLife Foundation',
+  'alternateName' => ['SLF', 'SustainLifeFoundation', 'Sustain Life Foundation'],
   'url'      => SITE_URL,
   'logo'     => rtrim(SITE_URL, '/') . asset('images/logo.png'),
-  'description' => SITE_TAGLINE,
+  'description' => 'SustainLife Foundation is a Tanzanian NGO promoting health, safety, sustainable agriculture, environment and inclusive empowerment.',
   'address'  => ['@type' => 'PostalAddress', 'addressCountry' => 'TZ', 'addressRegion' => SITE_ADDRESS],
   'contactPoint' => [
     '@type' => 'ContactPoint',
@@ -33,6 +33,7 @@ $org_jsonld = [
     'areaServed' => 'TZ',
   ],
   'sameAs' => [],
+  'keywords' => 'sustainlifefoundation, SustainLife Foundation, Tanzania NGO, sustainable development, health programs, environmental protection, women empowerment',
 ];
 ?><!DOCTYPE html>
 <html lang="en">

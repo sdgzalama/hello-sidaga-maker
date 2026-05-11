@@ -4,6 +4,7 @@ header('Content-Type: application/xml; charset=utf-8');
 
 $pages = [
   ['index.php', '1.0', 'weekly'],
+  ['sustainlifefoundation.php', '0.9', 'weekly'],
   ['about.php', '0.9', 'monthly'],
   ['services.php', '0.9', 'monthly'],
   ['consultancy.php', '0.9', 'monthly'],

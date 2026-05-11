@@ -21,14 +21,14 @@ $media_pages     = ['news.php','events.php','announcements.php','campaigns.php',
 
 <nav class="navbar navbar-expand-lg navbar-ngo sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="<?= url('index.php') ?>">
-      <img src="<?= asset('images/logo.png') ?>" alt="<?= e(SITE_NAME) ?> logo">
+<a class="navbar-brand" href="<?= url('index.php') ?>">
+      <img src="<?= asset('images/logo.png') ?>" alt="SustainLife Foundation logo">
       <span class="brand-text">
         SustainLife
         <small>Foundation</small>
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
@@ -36,9 +36,9 @@ $media_pages     = ['news.php','events.php','announcements.php','campaigns.php',
         <li class="nav-item"><a class="nav-link <?= is_active('index.php') ?>" href="<?= url('index.php') ?>">Home</a></li>
         <li class="nav-item"><a class="nav-link <?= is_active('about.php') ?>" href="<?= url('about.php') ?>">About</a></li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle <?= in_array($current_page, $services_pages) ? 'active' : '' ?>"
-             href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
             Services
           </a>
           <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
@@ -54,9 +54,9 @@ $media_pages     = ['news.php','events.php','announcements.php','campaigns.php',
 
         <li class="nav-item"><a class="nav-link <?= is_active('projects.php') ?>" href="<?= url('projects.php') ?>">Projects</a></li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle <?= in_array($current_page, $resources_pages) ? 'active' : '' ?>"
-             href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
             Resources
           </a>
           <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
@@ -70,9 +70,9 @@ $media_pages     = ['news.php','events.php','announcements.php','campaigns.php',
           </ul>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle <?= in_array($current_page, $media_pages) ? 'active' : '' ?>"
-             href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
             Media
           </a>
           <ul class="dropdown-menu" aria-labelledby="mediaDropdown">

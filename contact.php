@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/services.php';
-$page_title = 'Contact';
-$page_description = 'Get in touch with SustainLife Foundation, request a consultancy quote, propose a partnership, or reach our team in Tanzania.';
+$page_title = 'Contact SustainLife Foundation - SustainLifeFoundation NGO';
+$page_description = 'Contact SustainLife Foundation (SustainLifeFoundation). Request a consultancy quote, propose a partnership, or reach our team in Tanzania.';
 $preselect_service = isset($_GET['service']) ? (string)$_GET['service'] : '';
 $page_heading = 'Contact &amp; Request a Quote';
 $page_crumb = 'Contact';

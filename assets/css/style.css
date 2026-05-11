@@ -345,8 +345,84 @@ a:hover { color: var(--primary-dark); }
   .navbar-ngo .dropdown-menu { max-height: 75vh; overflow-y: auto; }
 }
 @media (max-width: 991.98px) {
-  .navbar-ngo .dropdown-menu {
-    border: 0; box-shadow: none; padding-left: 1rem; max-height: none;
+  .navbar-ngo .dropdown-hover .nav-link::after {
+    content: "\F282";
+    font-family: bootstrap-icons;
+    margin-left: .25rem;
+    font-size: .8rem;
+  }
+  .navbar-ngo .dropdown-hover.show > .nav-link::after {
+    content: "\F286";
+  }
+  .navbar-ngo .dropdown-hover .dropdown-menu {
+    border: 0;
+    box-shadow: none;
+    padding-left: 1.5rem;
+    margin-top: .25rem;
+    position: static;
+    float: none;
+    background: transparent;
+  }
+  .navbar-ngo .dropdown-hover .dropdown-item {
+    color: var(--dark);
+    padding: .5rem 1rem;
+    background: rgba(0,0,0,.02);
+    border-radius: 8px;
+    margin-bottom: .25rem;
+  }
+  .navbar-ngo .dropdown-hover .dropdown-item:hover {
+    background: var(--blue-soft);
+  }
+  .navbar-ngo .dropdown-hover .dropdown-divider {
+    display: none;
+  }
+}
+
+/* ===== Mobile responsive fixes ===== */
+@media (max-width: 991.98px) {
+  .navbar-ngo .navbar-collapse {
+    max-height: calc(100dvh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .navbar-ngo .nav-link {
+    padding: .85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.05rem;
+  }
+  .navbar-ngo .nav-item:last-child .nav-link {
+    border-bottom: 0;
+  }
+  .navbar-ngo .dropdown-hover .dropdown-menu {
+    position: static;
+    float: none;
+    margin: .4rem 0 .6rem 1.2rem;
+    background: rgba(0,0,0,.03);
+    border: 0;
+    box-shadow: none;
+    padding: .5rem 0;
+    display: none !important;
+  }
+  .navbar-ngo .dropdown-hover .dropdown-menu.show {
+    display: block !important;
+    animation: fadeIn .2s ease;
+  }
+  .navbar-ngo .dropdown-hover .dropdown-item {
+    padding: .75rem 1rem;
+    margin: 0 .5rem .25rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,.7);
+    font-size: 1rem;
+  }
+  .navbar-ngo .dropdown-hover.show > .nav-link {
+    color: var(--primary) !important;
+  }
+  .navbar-ngo .dropdown-hover .dropdown-divider {
+    margin: .5rem 1rem;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 

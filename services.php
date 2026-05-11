@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/services.php';
-$page_title = 'Services';
-$page_description = 'Seven practice areas covering consultancy, technology, research, agriculture and training, senior-led teams delivering measurable impact across Tanzania.';
-$page_heading = 'Our Services';
+$page_title = 'SustainLife Foundation Services - SustainLifeFoundation NGO Programs';
+$page_description = 'SustainLife Foundation (SustainLifeFoundation) provides professional consultancy, community health programs, sustainable agriculture, environmental protection and women empowerment services across Tanzania.';
+$page_heading = 'SustainLife Foundation Services';
 $page_crumb = 'Services';
 $body_class = 'theme-consult';
 $services = slf_services();
