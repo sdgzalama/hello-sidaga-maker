@@ -1,4 +1,4 @@
-// Public site JS — robust nav + safety cleanup
+// Public site JS, robust nav + safety cleanup
 (function () {
   'use strict';
 
@@ -91,7 +91,7 @@
     attachEscapeHatch();
     cleanupOrphanBackdrops();
     window.addEventListener('resize', onResize);
-    // Periodic safety sweep — cheap and catches edge cases
+    // Periodic safety sweep, cheap and catches edge cases
     setInterval(cleanupOrphanBackdrops, 2000);
   });
 })();

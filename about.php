@@ -19,7 +19,7 @@ include __DIR__ . '/partials/page-header.php';
         <span class="badge-pill-ngo">Our Story</span>
         <h2 class="mt-3 section-title">A Tanzanian NGO empowering communities for lasting change</h2>
         <p>SustainLife Foundation (SLF) is a non-governmental organization based in Tanzania, working at the intersection of community health, environmental sustainability, safety, sustainable agriculture and social inclusion.</p>
-        <p>We address the root causes of vulnerability and inequality through integrated, community-driven approaches &mdash; with particular emphasis on women, youth and marginalized populations.</p>
+        <p>We address the root causes of vulnerability and inequality through integrated, community-driven approaches , with particular emphasis on women, youth and marginalized populations.</p>
         <p class="text-muted">SLF designs and implements evidence-based programs aligned with Tanzania&rsquo;s national development priorities and the Sustainable Development Goals (SDGs).</p>
       </div>
     </div>
@@ -33,7 +33,7 @@ include __DIR__ . '/partials/page-header.php';
         <div class="card-ngo p-4 h-100">
           <div class="icon-tile blue"><i class="bi bi-eye"></i></div>
           <h3 class="card-title">Our Vision</h3>
-          <p class="mb-0">Thriving communities where people live healthy and safe lives in harmony with the environment and sustainable agriculture &mdash; empowered to create inclusive futures for themselves and generations to come.</p>
+          <p class="mb-0">Thriving communities where people live healthy and safe lives in harmony with the environment and sustainable agriculture , empowered to create inclusive futures for themselves and generations to come.</p>
         </div>
       </div>
       <div class="col-md-6">

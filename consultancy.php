@@ -155,7 +155,7 @@ include __DIR__ . '/partials/navbar.php';
         <div class="col-lg-7">
           <span class="badge-pill-ngo">Our Promise</span>
           <h2 class="section-title mt-2">How proceeds return to the community</h2>
-          <p class="text-muted mb-4">We are an NGO that consults &mdash; not a firm that occasionally gives back. Surplus from every engagement directly funds our community programs in health, agriculture, education and inclusion.</p>
+          <p class="text-muted mb-4">We are an NGO that consults , not a firm that occasionally gives back. Surplus from every engagement directly funds our community programs in health, agriculture, education and inclusion.</p>
           <div class="row g-4 mt-1">
             <div class="col-md-4"><div class="flow-step"><span class="step-num">1</span><h5>Engagement</h5><p>You hire us for senior-led, evidence-driven consultancy work.</p></div></div>
             <div class="col-md-4"><div class="flow-step"><span class="step-num">2</span><h5>Surplus Reinvested</h5><p>Net proceeds flow into our community program fund.</p></div></div>
@@ -204,7 +204,7 @@ include __DIR__ . '/partials/navbar.php';
     <div class="cta-strip d-md-flex align-items-center justify-content-between">
       <div class="me-md-4 mb-3 mb-md-0">
         <h3 class="mb-1">Have a project in mind?</h3>
-        <p class="mb-0 opacity-90">Tell us your scope and timeline &mdash; we&rsquo;ll come back with a tailored proposal within a few working days.</p>
+        <p class="mb-0 opacity-90">Tell us your scope and timeline , we&rsquo;ll come back with a tailored proposal within a few working days.</p>
       </div>
       <div class="d-flex flex-wrap gap-2">
         <a href="<?= url('contact.php') ?>" class="btn btn-yellow"><i class="bi bi-envelope-paper-fill me-1"></i> Request a Quote</a>

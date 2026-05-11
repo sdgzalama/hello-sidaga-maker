@@ -27,5 +27,5 @@ Then update the `password_hash` column of the `admins` row.
 ## Connecting from PHP
 
 The connection settings live in `includes/config.php` (`DB_HOST`, `DB_NAME`,
-`DB_USER`, `DB_PASS`). The PDO connection itself is in `includes/db.php` —
+`DB_USER`, `DB_PASS`). The PDO connection itself is in `includes/db.php` -
 call `db()` to get the shared PDO handle.

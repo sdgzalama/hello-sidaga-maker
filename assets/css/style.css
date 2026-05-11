@@ -1,4 +1,4 @@
-/* SustainLife Foundation — public styles
+/* SustainLife Foundation, public styles
    Brand colors: Yellow (hope), Green (growth/sustainability), Blue (trust). */
 
 :root {
@@ -22,7 +22,7 @@
   --accent:       var(--yellow);
 }
 
-/* Consultancy theme — more corporate, blue-led */
+/* Consultancy theme, more corporate, blue-led */
 body.theme-consult {
   --primary:      var(--blue);
   --primary-dark: var(--blue-dark);
@@ -123,7 +123,7 @@ a:hover { color: var(--primary-dark); }
   padding: .35rem .8rem; border-radius: 20px; font-weight: 600; font-size: .8rem;
 }
 
-/* Consultancy hero — more corporate */
+/* Consultancy hero, more corporate */
 .theme-consult .hero {
   background: linear-gradient(120deg, #0d3b73, #1a56a4 60%, #2c74c7);
   padding: 5rem 0 4rem;

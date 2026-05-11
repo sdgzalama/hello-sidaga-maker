@@ -43,7 +43,7 @@ $has_table = slf_resources_table_exists();
       <div class="alert alert-light border text-center py-5">
         <i class="bi bi-folder2-open" style="font-size:2rem;color:var(--blue);"></i>
         <h4 class="mt-2">No documents in this category yet</h4>
-        <p class="text-muted mb-0">Check back soon &mdash; we publish new resources regularly.</p>
+        <p class="text-muted mb-0">Check back soon , we publish new resources regularly.</p>
       </div>
     <?php else: ?>
       <div class="row g-4">
