@@ -6,8 +6,10 @@ include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
 
 $slides = [
-  ['img' => asset('images/hero-1.jpg'), 'badge' => 'Empowering Women Farmers', 'title' => 'Building healthy, safe &amp; sustainable communities.', 'sub' => 'SustainLife Foundation empowers women, youth and marginalized communities through health, sustainable agriculture and inclusive empowerment.'],
-  ['img' => asset('images/hero-2.jpg'), 'badge' => 'Climate-Smart Agriculture', 'title' => 'Resilient livelihoods through sustainable farming.', 'sub' => 'Working hand-in-hand with farmers across Tanzania to scale climate-smart, food-secure communities.'],
+  ['img' => asset('images/agriculture-1.jpg'), 'badge' => 'Climate-Smart Agriculture', 'title' => 'Resilient livelihoods through sustainable farming.', 'sub' => 'Working hand-in-hand with farmers across Tanzania to scale climate-smart, food-secure communities.'],
+  ['img' => asset('images/health-2.jpg'),     'badge' => 'Community Health & Nutrition', 'title' => 'Healthier mothers, stronger children.', 'sub' => 'Preventive care, nutrition and health information programs that reach families where they live.'],
+  ['img' => asset('images/gender-2.jpg'),     'badge' => 'Women & Youth Empowerment',   'title' => 'Skills, voice and opportunity for every woman and youth.', 'sub' => 'Vocational training, livelihoods and inclusive empowerment for those most often left behind.'],
+  ['img' => asset('images/community-2.jpg'),  'badge' => 'Safety & Well-being',          'title' => 'Safer streets, safer communities.', 'sub' => 'Road safety, risk prevention and community-led campaigns that protect children and families.'],
 ];
 ?>
 
