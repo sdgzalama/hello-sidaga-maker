@@ -45,6 +45,26 @@ $slides = [
   </div>
 </section>
 
+<!-- REINVEST GLOW BAND -->
+<section class="reinvest-glow-band">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center gap-3">
+          <span class="glow-dot" aria-hidden="true"></span>
+          <div>
+            <h2 class="shine-text mb-1">Every engagement reinvests into the communities we serve.</h2>
+            <p class="mb-0 opacity-90">Hire us for consultancy. The surplus funds our community programs in health, agriculture, education and inclusion.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="<?= url('consultancy.php') ?>" class="btn btn-yellow btn-lg"><i class="bi bi-arrow-right-circle-fill me-1"></i> See how it works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- INTRO -->
 <section class="section">
   <div class="container">
