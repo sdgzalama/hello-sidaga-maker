@@ -1,5 +1,5 @@
 <?php
-// Simple auth helpers — wire to DB later.
+// Simple auth helpers, wire to DB later.
 require_once __DIR__ . '/config.php';
 
 function is_logged_in() {

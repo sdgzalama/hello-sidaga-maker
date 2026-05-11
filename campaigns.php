@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 $page_title = 'Campaigns';
-$page_description = 'Active campaigns and community programs run by SustainLife Foundation — health, agriculture, environment and inclusion across Tanzania.';
+$page_description = 'Active campaigns and community programs run by SustainLife Foundation, health, agriculture, environment and inclusion across Tanzania.';
 $page_heading = 'Campaigns &amp; Community Programs';
 $page_crumb = 'Campaigns';
 include __DIR__ . '/partials/head.php';

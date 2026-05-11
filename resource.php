@@ -7,7 +7,7 @@ $res = $slug ? slf_fetch_resource($slug) : null;
 $types = slf_resource_types();
 
 $page_title = $res['title'] ?? 'Resource';
-$page_description = 'Download a SustainLife Foundation resource — reports, publications, policies and field guides.';
+$page_description = 'Download a SustainLife Foundation resource, reports, publications, policies and field guides.';
 $body_class = 'theme-consult';
 
 include __DIR__ . '/partials/head.php';

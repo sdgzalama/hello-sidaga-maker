@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'Content & Updates';
-$page_description = 'Content hub for SustainLife Foundation — news, updates, stories and resources from our work across Tanzania.';
+$page_description = 'Content hub for SustainLife Foundation, news, updates, stories and resources from our work across Tanzania.';
 $page_heading = 'Content, News &amp; Updates';
 $page_crumb = 'Content';
 include __DIR__ . '/partials/head.php';

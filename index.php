@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
-$page_title = 'SustainLife Foundation — NGO in Tanzania';
+$page_title = 'SustainLife Foundation, NGO in Tanzania';
 $page_description = 'SustainLife Foundation is a Tanzanian NGO working at the intersection of health, environment, sustainable agriculture and inclusive empowerment for women, youth and marginalised communities.';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
@@ -50,7 +50,7 @@ $slides = [
       <div class="col-lg-6">
         <span class="badge-pill-ngo blue">Who We Are</span>
         <h2 class="mt-3 section-title">A Tanzanian NGO at the intersection of health, environment &amp; livelihoods.</h2>
-        <p>SustainLife Foundation (SLF) addresses the root causes of vulnerability and inequality through integrated, community-driven approaches — equipping people with the knowledge, skills, and opportunities to actively shape their own futures.</p>
+        <p>SustainLife Foundation (SLF) addresses the root causes of vulnerability and inequality through integrated, community-driven approaches, equipping people with the knowledge, skills, and opportunities to actively shape their own futures.</p>
         <p class="text-muted">Aligned with Tanzania&rsquo;s national development priorities and the UN Sustainable Development Goals (SDGs).</p>
         <a href="<?= url('about.php') ?>" class="btn btn-primary-ngo mt-2">More about us <i class="bi bi-arrow-right ms-1"></i></a>
       </div>
@@ -149,7 +149,7 @@ $slides = [
       <?php
       $why = [
         ['i'=>'bi-award','t'=>'Proven Expertise','d'=>'Multi-disciplinary team with deep community development experience.'],
-        ['i'=>'bi-people-fill','t'=>'Community-Driven','d'=>'Programs designed with — not for — the people we serve.'],
+        ['i'=>'bi-people-fill','t'=>'Community-Driven','d'=>'Programs designed with, not for, the people we serve.'],
         ['i'=>'bi-clipboard-data','t'=>'Evidence-Based','d'=>'Aligned with Tanzania&rsquo;s priorities and the SDGs.'],
         ['i'=>'bi-shield-lock','t'=>'Transparent &amp; Accountable','d'=>'Honest reporting, measurable outcomes, responsible stewardship.'],
       ];

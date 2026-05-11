@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'FAQ';
-$page_description = 'Answers to common questions about SustainLife Foundation — what we do, how we work, and how to partner with us.';
+$page_description = 'Answers to common questions about SustainLife Foundation, what we do, how we work, and how to partner with us.';
 $page_heading = 'Frequently Asked Questions';
 $page_crumb = 'FAQ';
 include __DIR__ . '/partials/head.php';
@@ -12,7 +12,7 @@ $faqs = [
   ['q'=>'What does SustainLife Foundation do?', 'a'=>'SLF is a Tanzanian NGO promoting healthy, safe and sustainable communities through health, environment, safety, sustainable agriculture and inclusive empowerment programs.'],
   ['q'=>'Where do you operate?', 'a'=>'We operate across communities in Tanzania, partnering with local and national stakeholders.'],
   ['q'=>'Who are your beneficiaries?', 'a'=>'Primarily women, youth and marginalized populations, alongside community-wide programs reaching over a million people indirectly.'],
-  ['q'=>'How can I partner with SLF?', 'a'=>'Reach out via our Contact page or request a quote — we partner on consultancy, programs, research and joint initiatives.'],
+  ['q'=>'How can I partner with SLF?', 'a'=>'Reach out via our Contact page or request a quote, we partner on consultancy, programs, research and joint initiatives.'],
   ['q'=>'Do you provide consultancy services?', 'a'=>'Yes. Through our consultancy arm we provide professional consultancy and non-consultancy services in agriculture, sustainability and community development.'],
   ['q'=>'How can I support your work?', 'a'=>'You can support us through partnerships, donations, in-kind support or by joining as a volunteer or collaborator. Contact us to learn more.'],
 ];

@@ -21,7 +21,7 @@ if ($pdo && $slug) {
 }
 
 $page_title = $project['title'] ?? 'Project';
-$page_description = 'Details of a SustainLife Foundation project — objectives, activities, outcomes and impact across Tanzania.';
+$page_description = 'Details of a SustainLife Foundation project, objectives, activities, outcomes and impact across Tanzania.';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
 

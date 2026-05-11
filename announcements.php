@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 $page_title = 'Announcements';
-$page_description = 'Official announcements from SustainLife Foundation — calls for proposals, partnerships, and program updates.';
+$page_description = 'Official announcements from SustainLife Foundation, calls for proposals, partnerships, and program updates.';
 $page_heading = 'Announcements';
 $page_crumb = 'Announcements';
 include __DIR__ . '/partials/head.php';
