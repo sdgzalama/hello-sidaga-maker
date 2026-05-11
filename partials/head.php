@@ -3,13 +3,13 @@ if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/../includes/config.php';
 }
 $page_title       = $page_title ?? SITE_NAME;
-$page_description = $page_description ?? (SITE_NAME . ' — ' . SITE_TAGLINE . '. A Tanzanian NGO promoting health, safety, sustainable agriculture, environment and inclusive empowerment.');
+$page_description = $page_description ?? (SITE_NAME . ', ' . SITE_TAGLINE . '. A Tanzanian NGO promoting health, safety, sustainable agriculture, environment and inclusive empowerment.');
 $page_og_image    = $page_og_image ?? asset('images/hero-1.jpg');
 $page_robots      = $page_robots ?? 'index,follow';
 $body_class       = $body_class ?? '';
 
 $full_title = $page_title === SITE_NAME
-    ? SITE_NAME . ' — ' . SITE_TAGLINE
+    ? SITE_NAME . ', ' . SITE_TAGLINE
     : $page_title . ' | ' . SITE_NAME;
 $full_title = clip($full_title, 60);
 $meta_desc  = clip($page_description, 158);

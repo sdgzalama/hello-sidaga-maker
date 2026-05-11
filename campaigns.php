@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 $page_title = 'Campaigns';
-$page_description = 'Active campaigns and community programs run by SustainLife Foundation — health, agriculture, environment and inclusion across Tanzania.';
+$page_description = 'Active campaigns and community programs run by SustainLife Foundation, health, agriculture, environment and inclusion across Tanzania.';
 $page_heading = 'Campaigns &amp; Community Programs';
 $page_crumb = 'Campaigns';
 include __DIR__ . '/partials/head.php';
@@ -18,7 +18,7 @@ if ($pdo) {
 if (!$promos) {
     $promos = [
       ['title'=>'Match-the-Donation Week','starts_on'=>'2026-05-10','ends_on'=>'2026-05-17','image'=>'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800','body'=>'Every dollar contributed this week is matched by our partner foundation.'],
-      ['title'=>'Sponsor a Child','starts_on'=>null,'ends_on'=>null,'image'=>'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800','body'=>'Support a child\'s education for as little as $25 per month.'],
+      ['title'=>'Sponsor a Child','starts_on'=>null,'ends_on'=>null,'image'=>'assets/images/community-1.jpg','body'=>'Support a child\'s education for as little as $25 per month.'],
     ];
 }
 ?>

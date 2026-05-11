@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $page_title       = 'Consultancy Services in Tanzania';
-$page_description = 'Professional technical & advisory services across health, agriculture, environment and IT — every engagement reinvests into community programs run by SustainLife Foundation.';
+$page_description = 'Professional technical & advisory services across health, agriculture, environment and IT, every engagement reinvests into community programs run by SustainLife Foundation.';
 $page_heading     = 'Technical & Consultancy Services';
 $page_crumb       = 'Consultancy';
 $body_class       = 'theme-consult';
@@ -27,7 +27,7 @@ $categories = [
   [
     'icon'  => 'bi-cpu',
     'title' => 'Technical & IT Services',
-    'intro' => 'Practical technology that fits your team — from advice to rollout.',
+    'intro' => 'Practical technology that fits your team, from advice to rollout.',
     'services' => ['IT Consultancy', 'Software Development', 'Systems Implementation'],
   ],
   [
@@ -39,7 +39,7 @@ $categories = [
   [
     'icon'  => 'bi-search',
     'title' => 'Research & Innovation',
-    'intro' => 'Evidence you can act on — gathered, analysed and presented with care.',
+    'intro' => 'Evidence you can act on, gathered, analysed and presented with care.',
     'services' => ['Baselines & Evaluations', 'Surveys & Market Research', 'Applied R&D for Development'],
   ],
   [
@@ -122,7 +122,7 @@ include __DIR__ . '/partials/navbar.php';
     <div class="text-center mb-5">
       <span class="badge-pill-ngo">Our Services</span>
       <h2 class="section-title mt-2">Our Consultancy Services</h2>
-      <p class="section-sub mx-auto">Five practice areas, one accountable team — each led by specialists with real field experience in Tanzania.</p>
+      <p class="section-sub mx-auto">Five practice areas, one accountable team, each led by specialists with real field experience in Tanzania.</p>
     </div>
     <div class="row g-4">
       <?php foreach ($categories as $cat): ?>
@@ -163,7 +163,7 @@ include __DIR__ . '/partials/navbar.php';
           </div>
         </div>
         <div class="col-lg-5">
-          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900" loading="lazy" class="img-fluid rounded-4 shadow-sm" alt="Community members participating in a SustainLife Foundation program in Tanzania">
+          <img src="assets/images/community-1.jpg" loading="lazy" class="img-fluid rounded-4 shadow-sm" alt="Community members participating in a SustainLife Foundation program in Tanzania">
         </div>
       </div>
     </div>

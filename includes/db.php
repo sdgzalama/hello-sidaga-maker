@@ -1,5 +1,5 @@
 <?php
-// PDO database connection — used once backend is connected.
+// PDO database connection, used once backend is connected.
 require_once __DIR__ . '/config.php';
 
 function db() {

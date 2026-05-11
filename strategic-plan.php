@@ -11,7 +11,7 @@ if (count($plans) === 1) {
 }
 
 $page_title = 'Strategic Plan';
-$page_description = 'SustainLife Foundation strategic plan — vision, priorities, and roadmap for sustainable community impact across Tanzania.';
+$page_description = 'SustainLife Foundation strategic plan, vision, priorities, and roadmap for sustainable community impact across Tanzania.';
 $page_heading = 'Strategic Plan';
 $page_crumb = 'Strategic Plan';
 $body_class = 'theme-consult';

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
 $page_title = 'About Us';
-$page_description = 'Learn about SustainLife Foundation — a Tanzanian NGO advancing health, environment, sustainable agriculture and inclusive empowerment for marginalised communities.';
+$page_description = 'Learn about SustainLife Foundation, a Tanzanian NGO advancing health, environment, sustainable agriculture and inclusive empowerment for marginalised communities.';
 $page_heading = 'About SustainLife Foundation';
 $page_crumb = 'About';
 include __DIR__ . '/partials/head.php';
@@ -13,7 +13,7 @@ include __DIR__ . '/partials/page-header.php';
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900" class="img-fluid rounded-4 shadow-sm" alt="SLF community work">
+        <img src="assets/images/community-1.jpg" class="img-fluid rounded-4 shadow-sm" alt="SLF community work">
       </div>
       <div class="col-lg-6">
         <span class="badge-pill-ngo">Our Story</span>

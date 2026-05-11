@@ -1,5 +1,5 @@
 <?php
-// Resources helper — works whether or not the `resources` table has been created yet.
+// Resources helper, works whether or not the `resources` table has been created yet.
 require_once __DIR__ . '/db.php';
 
 function slf_resource_types() {

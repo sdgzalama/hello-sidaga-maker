@@ -47,7 +47,7 @@ $tone_map = ['Agriculture'=>'yellow','Community'=>'blue','Environment'=>'','Heal
       <div class="alert alert-light border text-center py-5">
         <i class="bi bi-kanban" style="font-size:2.5rem;color:var(--blue);"></i>
         <h4 class="mt-3">No projects published yet</h4>
-        <p class="text-muted mb-0">Our team is preparing project pages. Please check back soon — or <a href="<?= url('contact.php') ?>">get in touch</a> to learn about ongoing work.</p>
+        <p class="text-muted mb-0">Our team is preparing project pages. Please check back soon, or <a href="<?= url('contact.php') ?>">get in touch</a> to learn about ongoing work.</p>
       </div>
     <?php else: ?>
     <div class="row g-4">

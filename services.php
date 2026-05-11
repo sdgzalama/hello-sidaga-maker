@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/services.php';
 $page_title = 'Services';
-$page_description = 'Seven practice areas covering consultancy, technology, research, agriculture and training — senior-led teams delivering measurable impact across Tanzania.';
+$page_description = 'Seven practice areas covering consultancy, technology, research, agriculture and training, senior-led teams delivering measurable impact across Tanzania.';
 $page_heading = 'Our Services';
 $page_crumb = 'Services';
 $body_class = 'theme-consult';
@@ -31,7 +31,7 @@ include __DIR__ . '/partials/page-header.php';
         </div>
       </div>
       <div class="col-lg-5">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900"
+        <img src="assets/images/consultancy-1.jpg"
              class="img-fluid rounded-4 shadow-sm" alt="SustainLife Foundation team in working session">
       </div>
     </div>

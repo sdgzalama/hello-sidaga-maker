@@ -1,13 +1,15 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
-$page_title = 'SustainLife Foundation — NGO in Tanzania';
+$page_title = 'SustainLife Foundation, NGO in Tanzania';
 $page_description = 'SustainLife Foundation is a Tanzanian NGO working at the intersection of health, environment, sustainable agriculture and inclusive empowerment for women, youth and marginalised communities.';
 include __DIR__ . '/partials/head.php';
 include __DIR__ . '/partials/navbar.php';
 
 $slides = [
-  ['img' => asset('images/hero-1.jpg'), 'badge' => 'Empowering Women Farmers', 'title' => 'Building healthy, safe &amp; sustainable communities.', 'sub' => 'SustainLife Foundation empowers women, youth and marginalized communities through health, sustainable agriculture and inclusive empowerment.'],
-  ['img' => asset('images/hero-2.jpg'), 'badge' => 'Climate-Smart Agriculture', 'title' => 'Resilient livelihoods through sustainable farming.', 'sub' => 'Working hand-in-hand with farmers across Tanzania to scale climate-smart, food-secure communities.'],
+  ['img' => asset('images/agriculture-1.jpg'), 'badge' => 'Climate-Smart Agriculture', 'title' => 'Resilient livelihoods through sustainable farming.', 'sub' => 'Working hand-in-hand with farmers across Tanzania to scale climate-smart, food-secure communities.'],
+  ['img' => asset('images/health-2.jpg'),     'badge' => 'Community Health & Nutrition', 'title' => 'Healthier mothers, stronger children.', 'sub' => 'Preventive care, nutrition and health information programs that reach families where they live.'],
+  ['img' => asset('images/gender-2.jpg'),     'badge' => 'Women & Youth Empowerment',   'title' => 'Skills, voice and opportunity for every woman and youth.', 'sub' => 'Vocational training, livelihoods and inclusive empowerment for those most often left behind.'],
+  ['img' => asset('images/community-2.jpg'),  'badge' => 'Safety & Well-being',          'title' => 'Safer streets, safer communities.', 'sub' => 'Road safety, risk prevention and community-led campaigns that protect children and families.'],
 ];
 ?>
 
@@ -50,7 +52,7 @@ $slides = [
       <div class="col-lg-6">
         <span class="badge-pill-ngo blue">Who We Are</span>
         <h2 class="mt-3 section-title">A Tanzanian NGO at the intersection of health, environment &amp; livelihoods.</h2>
-        <p>SustainLife Foundation (SLF) addresses the root causes of vulnerability and inequality through integrated, community-driven approaches — equipping people with the knowledge, skills, and opportunities to actively shape their own futures.</p>
+        <p>SustainLife Foundation (SLF) addresses the root causes of vulnerability and inequality through integrated, community-driven approaches, equipping people with the knowledge, skills, and opportunities to actively shape their own futures.</p>
         <p class="text-muted">Aligned with Tanzania&rsquo;s national development priorities and the UN Sustainable Development Goals (SDGs).</p>
         <a href="<?= url('about.php') ?>" class="btn btn-primary-ngo mt-2">More about us <i class="bi bi-arrow-right ms-1"></i></a>
       </div>
@@ -149,7 +151,7 @@ $slides = [
       <?php
       $why = [
         ['i'=>'bi-award','t'=>'Proven Expertise','d'=>'Multi-disciplinary team with deep community development experience.'],
-        ['i'=>'bi-people-fill','t'=>'Community-Driven','d'=>'Programs designed with — not for — the people we serve.'],
+        ['i'=>'bi-people-fill','t'=>'Community-Driven','d'=>'Programs designed with, not for, the people we serve.'],
         ['i'=>'bi-clipboard-data','t'=>'Evidence-Based','d'=>'Aligned with Tanzania&rsquo;s priorities and the SDGs.'],
         ['i'=>'bi-shield-lock','t'=>'Transparent &amp; Accountable','d'=>'Honest reporting, measurable outcomes, responsible stewardship.'],
       ];

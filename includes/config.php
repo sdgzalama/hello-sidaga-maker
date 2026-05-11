@@ -23,7 +23,7 @@ define('SITE_PHONE', '+255 656 891 338 / +255 788 312 626');
 define('SITE_ADDRESS', 'Tanzania');
 define('SITE_URL', 'https://sustainlifefoundation.org');
 
-// Base URL — change if you serve under a sub-path
+// Base URL, change if you serve under a sub-path
 define('BASE_URL', '/');
 define('ASSETS_URL', BASE_URL . 'assets/');
 

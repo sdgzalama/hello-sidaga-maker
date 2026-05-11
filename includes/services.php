@@ -1,5 +1,5 @@
 <?php
-// Services catalogue — single source of truth for navbar, services.php and contact.php
+// Services catalogue, single source of truth for navbar, services.php and contact.php
 if (!defined('SITE_NAME')) {
     require_once __DIR__ . '/config.php';
 }
@@ -13,7 +13,7 @@ function slf_services() {
             'icon'    => 'bi-briefcase-fill',
             'tone'    => 'blue',
             'sector'  => 'Advisory',
-            'summary' => 'Multi-sector consultancy spanning strategy, technology, social development, research and agriculture — delivered by senior practitioners.',
+            'summary' => 'Multi-sector consultancy spanning strategy, technology, social development, research and agriculture, delivered by senior practitioners.',
             'details' => [
                 'overview' => 'Our consultancy practice helps governments, development partners, private companies and civil society design, implement and evaluate programs that deliver measurable impact. Each engagement is led by a senior consultant and supported by a small, accountable team with deep field experience in Tanzania and the wider East African region.',
                 'deliver'  => [
@@ -23,7 +23,7 @@ function slf_services() {
                     'Research, baselines, evaluations and applied R&D',
                     'Agricultural advisory and field demonstrations',
                 ],
-                'engagements' => 'Strategic plans, theory of change, organisational reviews, MIS rollouts, sector assessments, programme evaluations, EIAs and capacity-building mandates — typically 4 to 24 weeks.',
+                'engagements' => 'Strategic plans, theory of change, organisational reviews, MIS rollouts, sector assessments, programme evaluations, EIAs and capacity-building mandates, typically 4 to 24 weeks.',
                 'audience'    => 'Government ministries and agencies, NeST-registered NGOs, bilateral and multilateral donors, foundations, and private sector firms with a sustainability mandate.',
                 'outcomes'    => [
                     'Board-ready strategy documents and roadmaps',
@@ -31,7 +31,7 @@ function slf_services() {
                     'Operational systems your team can actually run',
                     'Compliance with national priorities and SDG targets',
                 ],
-                'why'      => 'NeST-registered, multi-sector bench, senior-led delivery, and a track record of advice that works on the ground — not just on paper.',
+                'why'      => 'NeST-registered, multi-sector bench, senior-led delivery, and a track record of advice that works on the ground, not just on paper.',
             ],
             'page_link'  => 'consultancy.php',
         ],
@@ -60,7 +60,7 @@ function slf_services() {
                     'Documented HR and governance policies',
                     'Reduced regulatory and tax exposure',
                 ],
-                'why'      => 'We build with you, not for you — the result is a plan your team owns and can execute on Monday morning.',
+                'why'      => 'We build with you, not for you, the result is a plan your team owns and can execute on Monday morning.',
             ],
         ],
         [
@@ -144,7 +144,7 @@ function slf_services() {
                     'M&E systems that survive staff turnover',
                     'Publication- and donor-ready reports',
                 ],
-                'why'      => 'We balance rigour with readability — findings that hold up to peer review and translate into action.',
+                'why'      => 'We balance rigour with readability, findings that hold up to peer review and translate into action.',
             ],
         ],
         [
@@ -156,7 +156,7 @@ function slf_services() {
             'sector'  => 'Agriculture',
             'summary' => 'Climate-smart cultivation, agronomy advisory and demonstration plots that connect farmers, value chains and sustainability goals.',
             'details' => [
-                'overview' => 'Field-level support that pairs agronomic best practice with market thinking — so farmers grow more, earn more and protect the land they depend on.',
+                'overview' => 'Field-level support that pairs agronomic best practice with market thinking, so farmers grow more, earn more and protect the land they depend on.',
                 'deliver'  => [
                     'Climate-smart and conservation agriculture',
                     'Agronomy advisory and demonstration plots',
@@ -172,7 +172,7 @@ function slf_services() {
                     'Reduced post-harvest losses',
                     'Healthier soils and watersheds',
                 ],
-                'why'      => 'We work in the field, not from the capital — our advice survives the rainy season.',
+                'why'      => 'We work in the field, not from the capital, our advice survives the rainy season.',
             ],
         ],
         [
@@ -182,7 +182,7 @@ function slf_services() {
             'icon'    => 'bi-mortarboard-fill',
             'tone'    => 'blue',
             'sector'  => 'Capacity',
-            'summary' => 'Tailored training programmes for staff, partners and communities — from technical skills to leadership development.',
+            'summary' => 'Tailored training programmes for staff, partners and communities, from technical skills to leadership development.',
             'details' => [
                 'overview' => 'We design and deliver capacity-building programmes that move beyond one-off workshops. Our approach combines learning design, on-the-job coaching and measurable competency outcomes.',
                 'deliver'  => [
@@ -200,7 +200,7 @@ function slf_services() {
                     'Higher staff retention and engagement',
                     'Verified competency for donor reporting',
                 ],
-                'why'      => 'We design for transfer — your team keeps the capability long after the contract ends.',
+                'why'      => 'We design for transfer, your team keeps the capability long after the contract ends.',
             ],
         ],
     ];
