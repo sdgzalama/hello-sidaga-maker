@@ -37,19 +37,18 @@ body {
   line-height: 1.65;
 }
 
-/* Wider container on large screens — keeps comfortable line-length but uses big monitors */
+/* Wider container so site doesn't feel shrunk on large monitors / hosting */
+@media (min-width: 992px) {
+  .container, .container-lg, .container-xl, .container-xxl { max-width: 95% !important; padding-left: 1.5rem; padding-right: 1.5rem; }
+}
 @media (min-width: 1200px) {
-  .container, .container-lg, .container-xl, .container-xxl { max-width: 1320px; }
+  .container, .container-lg, .container-xl, .container-xxl { max-width: 1380px !important; }
 }
 @media (min-width: 1440px) {
-  .container, .container-lg, .container-xl, .container-xxl {
-    max-width: 1400px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  .container, .container-lg, .container-xl, .container-xxl { max-width: 1480px !important; padding-left: 2rem; padding-right: 2rem; }
 }
-@media (min-width: 1600px) {
-  .container, .container-lg, .container-xl, .container-xxl { max-width: 1480px; }
+@media (min-width: 1700px) {
+  .container, .container-lg, .container-xl, .container-xxl { max-width: 1600px !important; }
 }
 
 h1,h2,h3,h4,h5 { font-weight: 800; letter-spacing: -.015em; color: var(--dark); }
