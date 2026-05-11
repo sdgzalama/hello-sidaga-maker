@@ -20,7 +20,7 @@ include __DIR__ . '/partials/page-header.php';
         <span class="badge-pill-ngo blue"><i class="bi bi-patch-check-fill me-1"></i> Registered on Tanzania NeST</span>
         <h2 class="section-title mt-3">End-to-end consultancy and implementation</h2>
         <p class="lead text-muted">
-          SustainLife Foundation delivers professional services across the sectors that move Tanzania forward &mdash; strategy, technology, social development, research, agriculture and capacity building.
+          SustainLife Foundation delivers professional services across the sectors that move Tanzania forward , strategy, technology, social development, research, agriculture and capacity building.
         </p>
         <p class="text-muted">
           Every engagement is senior-led, evidence-driven and measured by the outcomes we leave behind. Choose a service below to see exactly what we deliver, who it&rsquo;s for, and the results you can expect.
@@ -142,7 +142,7 @@ include __DIR__ . '/partials/page-header.php';
       $why = [
         ['bi-award-fill',     'Sector depth',        'Years of frontline work across health, agriculture, environment, IT and governance.'],
         ['bi-person-badge',   'Senior-led teams',    'Every engagement is owned by a senior consultant accountable from kickoff to closeout.'],
-        ['bi-bar-chart-fill', 'Evidence-driven',     'Decisions backed by data, not anecdotes &mdash; with peer-review-grade methods.'],
+        ['bi-bar-chart-fill', 'Evidence-driven',     'Decisions backed by data, not anecdotes , with peer-review-grade methods.'],
         ['bi-bullseye',       'Outcome-focused',     'We measure success by results delivered, not pages produced.'],
       ];
       foreach ($why as $w): ?>
@@ -164,7 +164,7 @@ include __DIR__ . '/partials/page-header.php';
     <div class="cta-strip d-md-flex align-items-center justify-content-between">
       <div class="me-md-4 mb-3 mb-md-0">
         <h3 class="mb-1">Ready to scope your next engagement?</h3>
-        <p class="mb-0 opacity-90">Tell us your goals and timeline &mdash; we&rsquo;ll respond with a tailored proposal within a few working days.</p>
+        <p class="mb-0 opacity-90">Tell us your goals and timeline , we&rsquo;ll respond with a tailored proposal within a few working days.</p>
       </div>
       <div class="d-flex flex-wrap gap-2">
         <a href="<?= url('contact.php') ?>" class="btn btn-yellow"><i class="bi bi-envelope-paper-fill me-1"></i> Request a Quote</a>

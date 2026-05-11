@@ -1,5 +1,5 @@
 -- =====================================================================
--- SustainLife Foundation (SLF) — MySQL schema
+-- SustainLife Foundation (SLF), MySQL schema
 -- Charset: utf8mb4 / Engine: InnoDB
 -- Import:  mysql -u root -p slf_site < database/schema.sql
 -- =====================================================================
@@ -197,7 +197,7 @@ INSERT INTO `admins` (`username`,`password_hash`,`full_name`,`email`) VALUES
 -- Service categories
 INSERT INTO `service_categories` (`id`,`name`,`slug`,`icon`,`intro`,`sort_order`) VALUES
 (1,'Strategic & Business Consultancy','strategic-business','bi-briefcase','Direction, structure and compliance for impact-driven organisations.',1),
-(2,'Technical & IT Services','technical-it','bi-cpu','Practical technology — advice, build and rollout.',2),
+(2,'Technical & IT Services','technical-it','bi-cpu','Practical technology, advice, build and rollout.',2),
 (3,'Social & Development Consultancy','social-development','bi-people','Sector expertise rooted in years of community work.',3),
 (4,'Research & Innovation','research-innovation','bi-search','Evidence you can act on.',4),
 (5,'Agricultural & Field Services','agriculture-field','bi-tree','Field-level support across value chains.',5);

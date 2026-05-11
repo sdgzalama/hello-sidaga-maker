@@ -45,6 +45,26 @@ $slides = [
   </div>
 </section>
 
+<!-- REINVEST GLOW BAND -->
+<section class="reinvest-glow-band">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center gap-3">
+          <span class="glow-dot" aria-hidden="true"></span>
+          <div>
+            <h2 class="shine-text mb-1">Every engagement reinvests into the communities we serve.</h2>
+            <p class="mb-0 opacity-90">Hire us for consultancy. The surplus funds our community programs in health, agriculture, education and inclusion.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="<?= url('consultancy.php') ?>" class="btn btn-yellow btn-lg"><i class="bi bi-arrow-right-circle-fill me-1"></i> See how it works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- INTRO -->
 <section class="section">
   <div class="container">
@@ -175,7 +195,7 @@ $slides = [
       <div class="col-lg-6">
         <span class="badge-pill-ngo blue">Resources</span>
         <h2 class="section-title mt-2">Strategic Plan, Annual Reports &amp; Publications</h2>
-        <p class="text-muted">Read and download our strategic plan, annual reports, policies and other publications &mdash; everything we publish is available for preview and download.</p>
+        <p class="text-muted">Read and download our strategic plan, annual reports, policies and other publications , everything we publish is available for preview and download.</p>
         <div class="d-flex flex-wrap gap-2 mt-3">
           <a href="<?= url('strategic-plan.php') ?>" class="btn btn-primary-ngo"><i class="bi bi-bullseye me-1"></i> View Strategic Plan</a>
           <a href="<?= url('resources.php') ?>" class="btn btn-outline-secondary"><i class="bi bi-folder2-open me-1"></i> All Resources</a>

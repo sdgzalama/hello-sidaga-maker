@@ -1,7 +1,7 @@
-# HopeBridge NGO — PHP Website
+# HopeBridge NGO, PHP Website
 
 Pure PHP + HTML + Bootstrap 5. No Node, no React, no WordPress.
-Designed to be wired to MySQL later. Layout/style inspired by the Medicare template (kept under `/medicare/` as a design reference only — it is **not** loaded by the site).
+Designed to be wired to MySQL later. Layout/style inspired by the Medicare template (kept under `/medicare/` as a design reference only, it is **not** loaded by the site).
 
 ## Project Structure
 
