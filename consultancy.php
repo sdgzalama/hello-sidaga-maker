@@ -163,7 +163,7 @@ include __DIR__ . '/partials/navbar.php';
           </div>
         </div>
         <div class="col-lg-5">
-          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900" loading="lazy" class="img-fluid rounded-4 shadow-sm" alt="Community members participating in a SustainLife Foundation program in Tanzania">
+          <img src="assets/images/community-1.jpg" loading="lazy" class="img-fluid rounded-4 shadow-sm" alt="Community members participating in a SustainLife Foundation program in Tanzania">
         </div>
       </div>
     </div>

@@ -18,9 +18,9 @@ if ($pdo) {
 }
 if (!$articles) {
     $articles = [
-      ['title'=>'Free Health Camp in Riverbend','published_at'=>'2026-05-01','category'=>'Health','image'=>'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800','excerpt'=>'Over 600 patients received free check-ups, medication, and follow-up plans.'],
-      ['title'=>'Scholarships for 200 Students','published_at'=>'2026-04-22','category'=>'Education','image'=>'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800','excerpt'=>'A new partnership with local universities expands our scholarship program.'],
-      ['title'=>'Clean Water Project Launched','published_at'=>'2026-04-10','category'=>'Community','image'=>'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800','excerpt'=>'Three new wells now serve more than 4,000 villagers with safe drinking water.'],
+      ['title'=>'Free Health Camp in Riverbend','published_at'=>'2026-05-01','category'=>'Health','image'=>'assets/images/health-1.jpg','excerpt'=>'Over 600 patients received free check-ups, medication, and follow-up plans.'],
+      ['title'=>'Scholarships for 200 Students','published_at'=>'2026-04-22','category'=>'Education','image'=>'assets/images/gender-1.jpg','excerpt'=>'A new partnership with local universities expands our scholarship program.'],
+      ['title'=>'Clean Water Project Launched','published_at'=>'2026-04-10','category'=>'Community','image'=>'assets/images/community-2.jpg','excerpt'=>'Three new wells now serve more than 4,000 villagers with safe drinking water.'],
     ];
 }
 ?>
@@ -32,7 +32,7 @@ if (!$articles) {
         <?php
           $img = $a['image'] ?? '';
           if ($img && !preg_match('~^https?://~', $img)) $img = url($img);
-          if (!$img) $img = 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800';
+          if (!$img) $img = 'assets/images/community-2.jpg';
           $date = !empty($a['published_at']) ? date('M j, Y', strtotime($a['published_at'])) : '';
         ?>
         <div class="col-md-6 col-lg-4">
