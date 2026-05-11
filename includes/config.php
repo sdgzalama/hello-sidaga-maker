@@ -50,7 +50,17 @@ function url($path = '') {
     return rtrim(BASE_URL, '/') . '/' . ltrim($path, '/');
 }
 function asset($path = '') {
-    return rtrim(ASSETS_URL, '/') . '/' . ltrim($path, '/');
+    $rel = ltrim($path, '/');
+    $url = rtrim(ASSETS_URL, '/') . '/' . $rel;
+    // Cache-busting for CSS/JS so hosting providers (e.g. Hostinger) don't serve stale files
+    $ext = strtolower(pathinfo($rel, PATHINFO_EXTENSION));
+    if (in_array($ext, ['css','js'], true)) {
+        $abs = __DIR__ . '/../assets/' . $rel;
+        if (is_file($abs)) {
+            $url .= '?v=' . filemtime($abs);
+        }
+    }
+    return $url;
 }
 function e($value) {
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
