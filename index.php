@@ -7,9 +7,10 @@ include __DIR__ . '/partials/navbar.php';
 
 $slides = [
   ['img' => asset('images/agriculture-1.jpg'), 'badge' => 'Climate-Smart Agriculture', 'title' => 'Resilient livelihoods through sustainable farming.', 'sub' => 'Working hand-in-hand with farmers across Tanzania to scale climate-smart, food-secure communities.'],
-  ['img' => asset('images/health-2.jpg'),     'badge' => 'Community Health & Nutrition', 'title' => 'Healthier mothers, stronger children.', 'sub' => 'Preventive care, nutrition and health information programs that reach families where they live.'],
-  ['img' => asset('images/gender-2.jpg'),     'badge' => 'Women & Youth Empowerment',   'title' => 'Skills, voice and opportunity for every woman and youth.', 'sub' => 'Vocational training, livelihoods and inclusive empowerment for those most often left behind.'],
-  ['img' => asset('images/community-2.jpg'),  'badge' => 'Safety & Well-being',          'title' => 'Safer streets, safer communities.', 'sub' => 'Road safety, risk prevention and community-led campaigns that protect children and families.'],
+  ['img' => asset('images/consultancy-1.jpg'), 'badge' => 'Technical &amp; Consultancy Services', 'title' => 'Expertise that funds community impact.', 'sub' => 'Our professional consultancy generates resources that directly support community programs and long-term impact.'],
+  ['img' => asset('images/health-2.jpg'),     'badge' => 'Community Health &amp; Nutrition', 'title' => 'Healthier mothers, stronger children.', 'sub' => 'Preventive care, nutrition and health information programs that reach families where they live.'],
+  ['img' => asset('images/gender-2.jpg'),     'badge' => 'Women &amp; Youth Empowerment',   'title' => 'Skills, voice and opportunity for every woman and youth.', 'sub' => 'Vocational training, livelihoods and inclusive empowerment for those most often left behind.'],
+  ['img' => asset('images/community-2.jpg'),  'badge' => 'Safety &amp; Well-being',          'title' => 'Safer streets, safer communities.', 'sub' => 'Road safety, risk prevention and community-led campaigns that protect children and families.'],
 ];
 ?>
 

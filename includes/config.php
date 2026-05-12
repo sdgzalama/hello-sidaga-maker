@@ -18,7 +18,7 @@ if (!function_exists('str_contains')) {
 define('SITE_NAME', 'SustainLife Foundation');
 define('SITE_SHORT', 'SLF');
 define('SITE_TAGLINE', 'Healthy, Safe & Sustainable Communities');
-define('SITE_EMAIL', ' info@sustainlifefoundationtz.co');
+define('SITE_EMAIL', 'info@sustainlifefoundationtz.or.tz');
 define('SITE_PHONE', '+255 656 891 338 / +255 788 312 626');
 define('SITE_ADDRESS', 'Tanzania');
 define('SITE_URL', 'https://www.sustainlifefoundationtz.or.tz');

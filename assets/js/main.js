@@ -33,19 +33,22 @@
       toggle.addEventListener('click', function (e) {
         if (window.matchMedia(DESKTOP).matches) return; // desktop = let Bootstrap handle
         e.preventDefault();
+        e.stopImmediatePropagation(); // block Bootstrap's own dropdown handler on touch
         var menu = toggle.nextElementSibling;
         if (!menu) return;
         var isOpen = menu.classList.contains('show');
-        // Close siblings within the same nav
         var nav = toggle.closest('.navbar-nav');
         if (nav) {
           nav.querySelectorAll('.dropdown-menu.show').forEach(function (m) {
             if (m !== menu) m.classList.remove('show');
           });
+          nav.querySelectorAll('.dropdown-toggle[aria-expanded="true"]').forEach(function (t) {
+            if (t !== toggle) t.setAttribute('aria-expanded', 'false');
+          });
         }
         menu.classList.toggle('show', !isOpen);
         toggle.setAttribute('aria-expanded', String(!isOpen));
-      });
+      }, true); // capture phase to beat Bootstrap
     });
   }
 

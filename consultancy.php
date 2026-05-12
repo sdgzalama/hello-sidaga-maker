@@ -116,6 +116,20 @@ include __DIR__ . '/partials/navbar.php';
   </div>
 </section>
 
+<!-- CONSULTANCY PHOTO STRIP -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="row g-3 g-md-4">
+      <div class="col-md-6">
+        <img src="<?= asset('images/consultancy-1.jpg') ?>" loading="lazy" class="img-fluid rounded-4 shadow-sm w-100" style="height:340px;object-fit:cover;" alt="SustainLife consultant facilitating a capacity-building training session in Tanzania">
+      </div>
+      <div class="col-md-6">
+        <img src="<?= asset('images/consultancy-2.jpg') ?>" loading="lazy" class="img-fluid rounded-4 shadow-sm w-100" style="height:340px;object-fit:cover;" alt="SustainLife field consultant collecting community data with a rural household in Tanzania">
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="section" style="background: var(--cream);">
   <div class="container">
